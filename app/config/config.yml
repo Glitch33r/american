@@ -2,15 +2,28 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.first_blc_images: /uploads/images/firstblchome
+
+
+vich_uploader:
+  db_driver: orm
+  mappings:
+      first_blc_images:
+          uri_prefix:         '%app.path.first_blc_images%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/firstblchome'
+
 
 framework:
+    templating:
+        engines: ['twig']
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -57,6 +70,10 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        dql:
+            numeric_functions:
+                Rand: BackendBundle\Rand
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -69,3 +86,43 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: BackendBundle\Entity\User
+    from_email:
+        address: "a@.a.a"
+        sender_name: "a@.a.a"
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sortable: true
+            sluggable: true
+            timestampable: true
+
+fm_elfinder:
+    instances:
+        default:
+            locale: "%locale%" # defaults to current request locale
+            editor: ckeditor # other choices are tinymce or simple
+            #showhidden: false # defaults to false
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 10M
+
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []

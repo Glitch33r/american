@@ -21,6 +21,11 @@ class Contacts
     /**
      * @ORM\Column(type="text", nullable=true)
      */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
     private $subtitle;
 
     /**
@@ -36,12 +41,7 @@ class Contacts
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $firstTelephone;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $secondTelephone;
+    private $phone;
 
     /**
      * @return mixed
@@ -102,33 +102,32 @@ class Contacts
     /**
      * @return mixed
      */
-    public function getFirstTelephone()
+    public function getPhone()
     {
-        return $this->firstTelephone;
+        return $this->phone;
     }
 
     /**
-     * @param mixed $firstTelephone
+     * @param mixed $phone
      */
-    public function setFirstTelephone($firstTelephone)
+    public function setPhone($phone)
     {
-        $this->firstTelephone = $firstTelephone;
+        $this->phone = $phone;
     }
 
     /**
      * @return mixed
      */
-    public function getSecondTelephone()
+    public function getTitle()
     {
-        return $this->secondTelephone;
+        return $this->title;
     }
 
     /**
-     * @param mixed $secondTelephone
+     * @param mixed $title
      */
-    public function setSecondTelephone($secondTelephone)
+    public function setTitle($title)
     {
-        $this->secondTelephone = $secondTelephone;
+        $this->title = $title;
     }
-
 }

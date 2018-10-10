@@ -21,15 +21,15 @@ class Seo
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $page;
-
-    /**
-     * @Gedmo\Slug(fields={"page"},unique=true,separator="-")
+     * @Gedmo\Slug(fields={"h1"},unique=true,separator="-")
      * @ORM\Column(name="slug", length=255, unique=true)
      */
     private $slug;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $h1;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -57,9 +57,17 @@ class Seo
     /**
      * @return mixed
      */
-    public function getPage()
+    public function getH1()
     {
-        return $this->page;
+        return $this->h1;
+    }
+
+    /**
+     * @param mixed $h1
+     */
+    public function setH1($h1)
+    {
+        $this->h1 = $h1;
     }
 
     /**
@@ -76,14 +84,6 @@ class Seo
     public function setKeywords($keywords)
     {
         $this->keywords = $keywords;
-    }
-
-    /**
-     * @param mixed $page
-     */
-    public function setPage($page)
-    {
-        $this->page = $page;
     }
 
     /**

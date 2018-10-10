@@ -1,0 +1,64 @@
+easy_admin:
+    site_name: 'TRUCKY'
+    design:
+        brand_color: 'rgb(225, 19, 19)'
+
+        menu:
+            - label: 'Main'
+              icon: 'home'
+              children:
+                - HomePage
+#            - ContactForm
+            - label: 'Special'
+              icon: 'user-secret'
+              children:
+                - Seo
+                - User
+
+    entities:
+        User:
+            class: BackendBundle\Entity\User
+        Seo:
+          class: BackendBundle\Entity\Seo
+          list:
+            fields:
+              - id
+              - slug
+              - page
+              - title
+              - h1
+              - description
+              - keywords
+          form:
+            fields:
+              - { type: 'tab', label: 'Special information', icon: 'puzzle-piece' }
+              - { property: 'slug', type_options: { disabled: true }}
+              - h1
+              - { type: 'tab', label: 'Meta-tags', icon: 'globe' }
+              - title
+              - description
+              - keywords
+        HomePage:
+            class: BackendBundle\Entity\HomePage
+            list:
+              fields:
+                - id
+                - { property: 'image',  type: 'image', base_path: '%app.path.first_blc_images%' }
+                - first_blc_title
+                - first_blc_sub_title
+                - first_blc_description
+            form:
+              fields:
+                - { type: 'tab', label: 'First content block', icon: 'globe' }
+                - first_blc_title
+                - first_blc_sub_title
+                - first_blc_description
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Second content block', icon: 'language' }
+                - second_blc_title
+                - second_blc_sub_title
+                - second_blc_description
+                - { type: 'tab', label: 'Paralax', css_class: 'col-sm-6', icon: 'plus'}
+                - paralax_blc_title
+                - paralax_blc_sub_title
+                - paralax_blc_description

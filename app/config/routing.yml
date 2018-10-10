@@ -14,19 +14,19 @@ frontend:
 
 ############################################################################
 
-##ADMIN
-#easy_admin_bundle:
-#    resource: "@EasyAdminBundle/Controller/AdminController.php"
-#    prefix:   /admin
-#    type:     annotation
-#
-##USER
-#fos_user:
-#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-#
-##IMG
-#_liip_imagine:
-#    resource: "@LiipImagineBundle/Resources/config/routing.xml"
-#
-#elfinder:
-#    resource: "@FMElfinderBundle/Resources/config/routing.yml"
+#ADMIN
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    prefix:   /admin
+    type:     annotation
+
+#USER
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+#IMG
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+elfinder:
+    resource: "@FMElfinderBundle/Resources/config/routing.yml"
