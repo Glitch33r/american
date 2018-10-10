@@ -2,12 +2,16 @@ easy_admin:
     site_name: 'TRUCKY'
     design:
         brand_color: 'rgb(225, 19, 19)'
+        assets:
+            favicon:
+                path: 'bundles/frontend/img/trucky.png'
+                mime_type: 'image/png'
 
         menu:
             - label: 'Main'
               icon: 'home'
               children:
-                - HomePage
+                - { label: 'Home page', entity: 'HomePage', default: true }
 #            - ContactForm
             - label: 'Special'
               icon: 'user-secret'
