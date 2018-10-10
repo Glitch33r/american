@@ -20,14 +20,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-//    /**
-//     * @Route("/", name="homepage")
-//     */
-//    public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//
-//        return $this->render();
-//    }
+    /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+
+        return $this->render('default/index.html.twig');
+    }
 }

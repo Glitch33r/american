@@ -4,7 +4,7 @@ class Checkout extends React.Component {
     render() {
         return (
             <div>
-                Hello React ! Modified <strong>\app\Resources\views\default\index.html.twig</strong>
+                Hello React ! <br/> Modified <strong>\app\Resources\views\default\index.html.twig</strong>
                 <p>See also \assets</p>
             </div>
         );

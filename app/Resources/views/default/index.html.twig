@@ -35,5 +35,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-        <script src="/web/build/build.js"></script>
+        <script src="{{ asset('/build/build.js') }}"></script>
 {% endblock %}
