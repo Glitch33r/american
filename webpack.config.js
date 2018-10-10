@@ -21,7 +21,7 @@ Encore
      * Each entry will result in one JavaScript file (e.g. checkout.js)
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
-    .addEntry('checkout', './assets/components/checkout.js')
+    // .addEntry('checkout', './assets/components/checkout.js')
     .addEntry('build', './assets/js/build.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')

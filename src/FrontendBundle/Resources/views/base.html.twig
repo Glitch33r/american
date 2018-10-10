@@ -6,21 +6,13 @@
     <meta name="description" content={% block description %}{% endblock %}>
     <meta name="keywords" content={% block keywords %}{% endblock %}>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('/bundles/frontend/css/jquery.bxslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('/bundles/frontend/css/style.css') }}">
 </head>
 <body {% block bodyclass %}{% endblock %}>
-<header {% block headerbg %}{% endblock %}>
+<header>
     {% block header %}{% endblock %}
     {% block mob %}{% endblock %}
 </header>
 {% block content %}{% endblock %}
-
-{{ render(controller('FrontendBundle:Default:footer')) }}
-<script src="{{ asset('/bundles/frontend/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('/bundles/frontend/js/jquery.bxslider.js') }}"></script>
-<script src="{{ asset('/bundles/frontend/js/form.min.js') }}"></script>
-<script src="{{ asset('/bundles/frontend/js/main.js') }}"></script>
-
+{% block javascripts %}{% endblock %}
 </body>
 </html>

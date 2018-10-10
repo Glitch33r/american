@@ -25,9 +25,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+//        $em = $this->getDoctrine()->getManager();
 
 
-        return $this->render('default/index.html.twig');
+        return $this->render('@Frontend/home/index.html.twig');
     }
 }
