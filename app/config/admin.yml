@@ -12,7 +12,11 @@ easy_admin:
               icon: 'home'
               children:
                 - { label: 'Home page', entity: 'HomePage', default: true }
-#            - ContactForm
+                - Category
+                - Service
+                - Testimonials
+                - Contacts
+            - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
             - label: 'Special'
               icon: 'user-secret'
               children:
@@ -23,48 +27,124 @@ easy_admin:
         User:
             class: BackendBundle\Entity\User
         Seo:
-          class: BackendBundle\Entity\Seo
-          list:
-            fields:
-              - id
-              - slug
-              - page
-              - title
-              - h1
-              - description
-              - keywords
-          form:
-            fields:
-              - { type: 'tab', label: 'Special information', icon: 'puzzle-piece' }
-              - { property: 'slug', type_options: { disabled: true }}
-              - h1
-              - { type: 'tab', label: 'Meta-tags', icon: 'globe' }
-              - title
-              - description
-              - keywords
+            class: BackendBundle\Entity\Seo
+            list:
+              fields:
+                - id
+                - slug
+                - title
+                - h1
+                - description
+                - keywords
+            form:
+              fields:
+                - { type: 'tab', label: 'Special information', icon: 'puzzle-piece' }
+                - { property: 'slug', type_options: { disabled: true }}
+                - { property: 'h1', label: 'Tag <h1>' }
+                - { type: 'tab', label: 'Meta-tags', icon: 'medium' }
+                - title
+                - description
+                - keywords
         HomePage:
             class: BackendBundle\Entity\HomePage
             list:
               fields:
                 - id
-                - { property: 'image',  type: 'image', base_path: '%app.path.first_blc_images%' }
-                - first_blc_title
-                - first_blc_sub_title
-                - first_blc_description
+                - slider
             form:
               fields:
                 - { type: 'tab', label: 'Slider', icon: 'exchange' }
                 - { property: 'slider', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewSlide', by_reference: false } }
                 - { type: 'tab', label: 'First content block', icon: 'list-ol' }
-                - first_blc_title
-                - first_blc_sub_title
-                - first_blc_description
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
                 - { property: 'imageFile', type: 'vich_image' }
                 - { type: 'tab', label: 'Second content block', icon: 'list-ol' }
-                - second_blc_title
-                - second_blc_sub_title
-                - second_blc_description
+                - { property: 'second_blc_title', label: 'Title'}
+                - { property: 'second_blc_sub_title', label: 'Subtitle'}
+                - { property: 'second_blc_description', label: 'Description'}
                 - { type: 'tab', label: 'Paralax', css_class: 'col-sm-6', icon: 'image'}
-                - paralax_blc_title
-                - paralax_blc_sub_title
-                - paralax_blc_description
+                - { property: 'paralax_blc_title', label: 'Title'}
+                - { property: 'paralax_blc_sub_title', label: 'Subtitle'}
+                - { property: 'paralax_blc_description', label: 'Description'}
+        Service:
+            class: BackendBundle\Entity\Service
+            list:
+              fields:
+                - id
+                - title
+                - description
+                - published
+                - { property: 'image',  type: 'image', base_path: '%app.path.service_images%' }
+            form:
+              fields:
+                - { type: 'tab', label: 'Details', icon: 'puzzle-piece' }
+                - { property: 'slug', type_options: { disabled: true }}
+                - published
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Basic information', icon: 'cube' }
+                - title
+                - description
+        Category:
+            class: BackendBundle\Entity\Category
+            list:
+              fields:
+                - id
+                - slug
+                - title
+            form:
+              fields:
+                - { property: 'slug', type_options: { disabled: true }}
+                - title
+        ContactForm:
+            class: BackendBundle\Entity\ContactForm
+            list:
+              fields:
+                - id
+                - name
+                - email
+                - telephone
+                - body
+                - createdAt
+            form:
+              fields:
+                - name
+                - email
+                - telephone
+                - body
+                - createdAt
+        Contacts:
+            class: BackendBundle\Entity\Contacts
+            list:
+              fields:
+                - id
+                - title
+                - subtitle
+                - address
+                - email
+                - phone
+            form:
+              fields:
+                - title
+                - subtitle
+                - address
+                - email
+                - phone
+        Testimonials:
+            class: BackendBundle\Entity\Testimonials
+            list:
+              fields:
+                - id
+                - name
+                - { property: 'image',  type: 'image', base_path: '%app.path.service_images%' }
+                - description
+                - published
+            form:
+              fields:
+                - { type: 'tab', label: 'Details', icon: 'puzzle-piece' }
+                - published
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Basic information', icon: 'cube' }
+                - name
+                - description
