@@ -53,16 +53,18 @@ easy_admin:
                 - first_blc_description
             form:
               fields:
-                - { type: 'tab', label: 'First content block', icon: 'globe' }
+                - { type: 'tab', label: 'Slider', icon: 'exchange' }
+                - { property: 'slider', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewSlide', by_reference: false } }
+                - { type: 'tab', label: 'First content block', icon: 'list-ol' }
                 - first_blc_title
                 - first_blc_sub_title
                 - first_blc_description
                 - { property: 'imageFile', type: 'vich_image' }
-                - { type: 'tab', label: 'Second content block', icon: 'language' }
+                - { type: 'tab', label: 'Second content block', icon: 'list-ol' }
                 - second_blc_title
                 - second_blc_sub_title
                 - second_blc_description
-                - { type: 'tab', label: 'Paralax', css_class: 'col-sm-6', icon: 'plus'}
+                - { type: 'tab', label: 'Paralax', css_class: 'col-sm-6', icon: 'image'}
                 - paralax_blc_title
                 - paralax_blc_sub_title
                 - paralax_blc_description

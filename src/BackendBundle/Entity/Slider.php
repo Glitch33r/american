@@ -31,7 +31,7 @@ class Slider
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $image;
@@ -48,23 +48,68 @@ class Slider
      */
     private $updatedAt;
 
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\HomePage", inversedBy="slider", cascade={"persist"})
+     * @ORM\JoinColumn(name="hp_id", referencedColumnName="id")
+     */
+     private $homepage;
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+     public function __construct()
+     {
+         $this->updatedAt = new \DateTime('now');
+     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
 
-    // private $homepage;
+    /**
+     * @return mixed
+     */
+    public function getHomepage()
+    {
+        return $this->homepage;
+    }
 
+    /**
+     * @param mixed $homepage
+     */
+    public function setHomepage($homepage)
+    {
+        $this->homepage = $homepage;
+    }
 
 
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
 
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
+//        // VERY IMPORTANT:
+//        // It is required that at least one field changes if you are using Doctrine,
+//        // otherwise the event listeners won't be called and the file is lost
+//        if ($image) {
+//            // if 'updatedAt' is not defined in your entity, use another property
+//            $this->updatedAt = new \DateTime('now');
+//        }
     }
 
     public function getImageFile()

@@ -8,15 +8,20 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
-class AddNewAbout extends AbstractType
+class AddNewSlide extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $builder->add('title', TextType::class);
         $builder->add('description', TextareaType::class);
+        $builder->add('imageFile', VichImageType::class, [
+            'required' => false,
+            'allow_delete' => true,
+        ]);
     }
 
     /**
@@ -25,11 +30,11 @@ class AddNewAbout extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackendBundle\Entity\AboutParts'
+            'data_class' => 'BackendBundle\Entity\Slider'
         ));
     }
 
     public function getName() {
-        return 'add_about_part';
+        return 'add_slide';
     }
 }

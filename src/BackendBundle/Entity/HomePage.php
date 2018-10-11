@@ -1,6 +1,7 @@
 <?php
 namespace BackendBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -20,8 +21,62 @@ class HomePage
      */
     private $id;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Slider", mappedBy="homepage", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $slider;
 
-//    private $slider;
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSlider()
+    {
+        return $this->slider;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $slider
+     */
+    public function setSlider(\Doctrine\Common\Collections\Collection $slider)
+    {
+        $this->slider = $slider;
+    }
+
+    public function addSlider(\BackendBundle\Entity\Slider $sl)
+    {
+        $sl->setHomepage($this);
+        $this->slider->add($sl);
+    }
+
+    public function removeSlider(Slider $sl)
+    {
+        $this->slider->removeElement($sl);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+
+    public function __construct()
+    {
+        $this->slider = new  ArrayCollection();
+        $this->updatedAt = new \DateTime('now');
+    }
 
     /*AFTER SLIDER*/
 
@@ -41,7 +96,7 @@ class HomePage
     private $first_blc_description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $image;
@@ -103,22 +158,6 @@ class HomePage
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * @param mixed $slug
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
     }
 
     /**
@@ -272,10 +311,10 @@ class HomePage
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
         // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
+//        if ($image) {
+//            // if 'updatedAt' is not defined in your entity, use another property
+//            $this->updatedAt = new \DateTime('now');
+//        }
     }
 
     public function getImageFile()
