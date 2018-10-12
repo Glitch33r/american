@@ -10,6 +10,7 @@ parameters:
     locale: en
     app.path.first_blc_images: /uploads/images/firstblchome
     app.path.slider_images: /uploads/images/slider
+    app.path.service_images: /uploads/images/slider
 
 vich_uploader:
   db_driver: orm
@@ -20,6 +21,10 @@ vich_uploader:
       slider_images:
           uri_prefix:         '%app.path.slider_images%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/slider'
+      service_images:
+          uri_prefix:         '%app.path.service_images%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/service'
+
 
 framework:
     templating:

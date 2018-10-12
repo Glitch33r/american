@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 10 2018 г., 17:35
+-- Время создания: Окт 12 2018 г., 00:28
 -- Версия сервера: 5.6.38
 -- Версия PHP: 7.1.12
 
@@ -25,13 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `category_table`
+--
+
+CREATE TABLE `category_table` (
+  `id` int(11) NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `contacts_table`
 --
 
 CREATE TABLE `contacts_table` (
   `id` int(11) NOT NULL,
-  `title` longtext COLLATE utf8_unicode_ci,
-  `subtitle` longtext COLLATE utf8_unicode_ci,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `subtitle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -78,7 +90,7 @@ CREATE TABLE `fos_user` (
 --
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', 'admin@gmail.com', 1, NULL, '$2y$13$0SlXKs6MOQRNI785DQTyReYxVs3/ubSwaZa4MOyvmPcKcTEvy27Fy', '2018-10-10 17:33:02', NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}');
+(1, 'admin', 'admin', 'admin@gmail.com', 'admin@gmail.com', 1, NULL, '$2y$13$0SlXKs6MOQRNI785DQTyReYxVs3/ubSwaZa4MOyvmPcKcTEvy27Fy', '2018-10-11 00:21:16', NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}');
 
 -- --------------------------------------------------------
 
@@ -91,7 +103,7 @@ CREATE TABLE `home_table` (
   `first_blc_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `first_blc_sub_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `first_blc_description` longtext COLLATE utf8_unicode_ci,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `second_blc_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `second_blc_sub_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -119,20 +131,68 @@ CREATE TABLE `seo_table` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `service_table`
+--
+
+CREATE TABLE `service_table` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  `published` tinyint(1) NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `slider_table`
 --
 
 CREATE TABLE `slider_table` (
   `id` int(11) NOT NULL,
+  `hp_id` int(11) DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8_unicode_ci,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `slider_table`
+--
+
+INSERT INTO `slider_table` (`id`, `hp_id`, `title`, `description`, `image`, `updated_at`) VALUES
+(1, NULL, '1', '2', NULL, '2018-10-11 11:37:50'),
+(2, NULL, '1', '1', NULL, '2018-10-11 11:41:18');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `testimonials_table`
+--
+
+CREATE TABLE `testimonials_table` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  `published` tinyint(1) NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `category_table`
+--
+ALTER TABLE `category_table`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_1E1AC00F989D9B62` (`slug`);
 
 --
 -- Индексы таблицы `contacts_table`
@@ -169,14 +229,35 @@ ALTER TABLE `seo_table`
   ADD UNIQUE KEY `UNIQ_701BB14989D9B62` (`slug`);
 
 --
+-- Индексы таблицы `service_table`
+--
+ALTER TABLE `service_table`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_5F5B62A1989D9B62` (`slug`),
+  ADD KEY `IDX_5F5B62A112469DE2` (`category_id`);
+
+--
 -- Индексы таблицы `slider_table`
 --
 ALTER TABLE `slider_table`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_709DC3229D5F772F` (`hp_id`);
+
+--
+-- Индексы таблицы `testimonials_table`
+--
+ALTER TABLE `testimonials_table`
   ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `category_table`
+--
+ALTER TABLE `category_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `contacts_table`
@@ -200,7 +281,7 @@ ALTER TABLE `fos_user`
 -- AUTO_INCREMENT для таблицы `home_table`
 --
 ALTER TABLE `home_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `seo_table`
@@ -209,10 +290,38 @@ ALTER TABLE `seo_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT для таблицы `service_table`
+--
+ALTER TABLE `service_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `slider_table`
 --
 ALTER TABLE `slider_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `testimonials_table`
+--
+ALTER TABLE `testimonials_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `service_table`
+--
+ALTER TABLE `service_table`
+  ADD CONSTRAINT `FK_5F5B62A112469DE2` FOREIGN KEY (`category_id`) REFERENCES `category_table` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `slider_table`
+--
+ALTER TABLE `slider_table`
+  ADD CONSTRAINT `FK_709DC3229D5F772F` FOREIGN KEY (`hp_id`) REFERENCES `home_table` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
