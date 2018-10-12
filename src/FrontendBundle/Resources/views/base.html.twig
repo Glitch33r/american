@@ -5,14 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content={% block description %}{% endblock %}>
     <meta name="keywords" content={% block keywords %}{% endblock %}>
+    <link rel="stylesheet" href="{{ asset('/bundles/frontend/css/style.css') }}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body {% block bodyclass %}{% endblock %}>
-<header>
-    {% block header %}{% endblock %}
-    {% block mob %}{% endblock %}
-</header>
-{% block content %}{% endblock %}
-{% block javascripts %}{% endblock %}
+{#<header>#}
+    {#{% block header %}{% endblock %}#}
+    {#{% block mob %}{% endblock %}#}
+{#</header>#}
+{#{% block content %}{% endblock %}#}
+{#{% block javascripts %}{% endblock %}#}
+
+
+    <div id="root"></div>
+
+
+
+
+    <script src="{{ asset('/build/build.js') }}"></script>
+
 </body>
 </html>
