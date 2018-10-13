@@ -44,7 +44,7 @@ class ApiController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $seo = $em->getRepository(Seo::class)->findOneBy(['slug' => $page]);
+        $seo = $em->getRepository(Seo::class)->findOneBy(['slug'=>$page]);
 
         return $this->formalizeJSONResponse($seo, ['id']);
     }

@@ -6,6 +6,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-meta-tags": "^0.7.1",
     "react-responsive-carousel": "^3.1.43",
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.23.1",

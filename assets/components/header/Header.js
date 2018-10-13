@@ -1,14 +1,24 @@
 import React, { Component } from "react";
-import Nav from "../../routes/Nav";
+import Nav from "../routes/Nav";
+import Seo from "../seo/Seo";
+
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+
+    }
+
+
+
+
+
+
     render() {
         return (
-
-
-
             <React.Fragment>
-
+                <Seo />
                 {/* Header*/}
                 <header>
                     <div className="header-bg">
@@ -35,5 +45,6 @@ class Header extends Component {
         );
     }
 }
+
 
 export default Header;

@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="BackendBundle\Entity\Repository\SeoRepository")
  * @ORM\Table(name="seo_table")
  * @Vich\Uploadable
  */
