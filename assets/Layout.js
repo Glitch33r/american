@@ -7,21 +7,38 @@ import {
     NavLink,
     BrowserRouter
 } from "react-router-dom";
-// import Home from "./homepage/Home";
+
+
 
 class Layout extends Component {
+
+    constructor(props){
+        super(props);
+
+         this.state = {
+             loading: true
+         };
+        this.updateData = this.updateData.bind(this);
+
+    }
+
+    updateData (value) {
+        this.setState({ loading: value })
+    }
+
     render() {
         return (
+
             <React.Fragment>
 
-            <BrowserRouter>
-                <div>
-                    <Header />
-                    <Content />
-                </div>
+                <BrowserRouter>
+                    <div>
+                        <Header />
+                        <Content  updateData = { this.updateData  }/>
+                    </div>
 
-            </BrowserRouter>
-            <Footer />
+                </BrowserRouter>
+                <Footer />
             </React.Fragment>
         );
     }

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import MetaTags from 'react-meta-tags';
 
 import {
-    Route,
-    NavLink,
-    BrowserRouter
+    Route
 } from "react-router-dom";
 
 

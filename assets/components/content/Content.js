@@ -4,6 +4,14 @@ import About from "../../about/About";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class Content extends Component {
+
+    constructor(props){
+        super(props);
+
+
+
+    }
+
     render() {
         return (
             <React.Fragment>
