@@ -5,7 +5,6 @@ namespace FrontendBundle\Controller;
 use BackendBundle\Entity\Seo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -28,6 +27,9 @@ class ApiController extends Controller
     /**
      * @Route("/", name="homepage")
      * @Route("/about", name="about")
+     * @Route("/services", name="services")
+     * @Route("/blog", name="blog")
+     * @Route("/contacts", name="contacts")
      */
     public function indexAction()
     {
@@ -44,17 +46,22 @@ class ApiController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $seo = $em->getRepository(Seo::class)->findOneBy(['slug'=>$page]);
+        $seo = $em->getRepository(Seo::class)->findOneBy(['slug' => $page]);
 
         return $this->formalizeJSONResponse($seo, ['id']);
     }
 
     /**
-     * @Route("/api/header", name="api-header")
+     * @Route("/api/links", name="api-header-links")
      */
     public function getHeader()
     {
-        $links = ['home' => $this->generateUrl('homepage'), 'about' => $this->generateUrl('about'), 'contacts' => $this->generateUrl('about'), 'blog' => $this->generateUrl('about')];
+        $links = [
+            'home' => $this->generateUrl('homepage'),
+            'about' => $this->generateUrl('about'),
+            'contacts' => $this->generateUrl('about'),
+            'blog' => $this->generateUrl('about')
+        ];
 
         return new JsonResponse($links);
     }
