@@ -331,9 +331,33 @@ template {
   top: 0;
   height: 100vh;
   display: flex;
+  z-index: 100;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.58);
+  transition: 0.3s cubic-bezier(0.21, 0.65, 0.4, 0.96);
+
+}
+
+.sweet-loading.loading-success{
+
+  animation-name: loading;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes loading {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    z-index: -1;} }
+
+#root > div{
+  min-height: 100vh;
 }
 
 body.grey {

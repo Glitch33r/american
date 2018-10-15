@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Nav from "../routes/Nav";
-import Seo from "../seo/Seo";
 
 
 class Header extends Component {
@@ -18,7 +17,6 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <Seo />
                 {/* Header*/}
                 <header>
                     <div className="header-bg">
