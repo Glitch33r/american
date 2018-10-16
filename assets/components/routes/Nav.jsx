@@ -20,7 +20,7 @@ class Nav extends Component {
                             <NavLink className="header-menu__link" exact to="/about">About</NavLink>
                             <ul className="header-submenu__items">
                                 <li className="header-submenu__item">
-                                    <a className="header-submenu__link "  href="content.html">Testimonials</a>
+                                    <a className="header-submenu__link "  href="#">Testimonials</a>
                                 </li>
                             </ul>
                         </li>

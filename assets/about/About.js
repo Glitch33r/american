@@ -24,7 +24,7 @@ class About extends Component {
         let url = 'http://american/app_dev.php/api/seo/about';
         fetch(url)
             .then(response => response.json())
-            .then(data =>this.setState({seo: JSON.parse(data)}))
+            .then(data =>this.setState({seo: data}))
     }
 
     render() {
@@ -33,19 +33,7 @@ class About extends Component {
         if(this.state.seo.length !== 0){
             load = 'loading-success sweet-loading';
         }
-        // if(this.state.seo.length == 0){
-        //     // console.log(this.state.data.length);
-        //     return (
-        //         <div className='sweet-loading'>
-        //             <ClipLoader
-        //                 sizeUnit={"px"}
-        //                 size={150}
-        //                 color={'#123abc'}
-        //                 loading={this.state.loading}
-        //             />
-        //         </div>
-        //     );
-        // }
+
 
         return (
             <React.Fragment>
@@ -58,11 +46,16 @@ class About extends Component {
                     />
                 </div>
                 <Seo seo={this.state.seo}/>
-                <Breadcrumbs seo={this.state.seo}/>
-                <MeetUsBlock/>
-                <BlackBlock/>
-                <ParalaxBlock/>
-                <ArticlesBlock/>
+                { this.state.seo.length == 0 ? "" :
+                    <div>
+                        <Breadcrumbs seo={this.state.seo}/>
+                        <MeetUsBlock/>
+                        <BlackBlock/>
+                        <ParalaxBlock/>
+                        <ArticlesBlock/>
+                    </div>
+                }
+
             </React.Fragment>
         );
     }

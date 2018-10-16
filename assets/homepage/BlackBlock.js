@@ -10,31 +10,21 @@ class BlackBlock extends Component {
                 <section className="block black-block">
                     <div className="block__wrap">
                         <div className="block__content">
-                            <h2 className="block__title block__title--with">KEYS TO SUCCESS</h2>
-                            <h3 className="block__subtitle">WE CAN HELP YOU FIND ORIGINAL SPARE PARTS FOR YOUR CAR, NO
-                                MATTER WHAT AGE IT IS. WE PROVIDE CAR ENGINES, ACCESSORIES AND CONSUMABLES OF THE
-                                HIGHEST QUALITY FROM TRUSTED WORLDWIDE-KNOWN MANUFACTURERS.</h3>
-                            <p className="block__desc block__desc--small-margin">If you have a problem, we'll quickly
-                                and effectively eliminate the problem, perform all work connected with the repair of
-                                your vehicle, efficiently and inexpensive. We are ready to provide you with a full range
-                                of services for warranty and post-warranty maintenance and repair.</p><a
+                            <h2 className="block__title block__title--with">Trucks and Trailer Equipment</h2>
+                            <h3 className="block__subtitle">The Grand USA Transport fleet of trucks is comprised of both new and newer Freightliner Cascadia and Volvo tractors. The age of manufacturing of our equipment ranges between 2016 — 2019 models.</h3>
+                            <p className="block__desc block__desc--small-margin">As of September 2018, we currently have an additional 10 units of Freightliner Cascadias on order. All of our units are complete with refrigerators, microwaves, bunk heaters and inverters. All of our units are complete with refrigerators, microwaves, and inverters.</p><a
                             className="block__button block__button--red" href="#">READ MORE</a>
                         </div>
                         <div className="block__right">
-                            <h2 className="block__title">COMPREHENSIVE SERVICES</h2>
+                            <h2 className="block__title">All Products, All Delivered:</h2>
                             <ul className="block__list">
-                                <li className="block__list-item"><a className="block__list-link" href="#">TECHNOLOGY
-                                    NEUTRALITY</a></li>
-                                <li className="block__list-item"><a className="block__list-link" href="#">HOLISTIC
-                                    REGULATORY REVIEW</a></li>
-                                <li className="block__list-item"><a className="block__list-link" href="#">FACILITATE
-                                    GLOBAL HARMONIZATION</a></li>
-                                <li className="block__list-item"><a className="block__list-link" href="#">STABILITY OF
-                                    THE RULE SET</a></li>
+                                <li className="block__list-item"><a className="block__list-link" href="#">Dairy</a></li>
+                                <li className="block__list-item"><a className="block__list-link" href="#">Produce</a></li>
+                                <li className="block__list-item"><a className="block__list-link" href="#">Botanicals</a></li>
+                                <li className="block__list-item"><a className="block__list-link" href="#">Seafood</a></li>
                                 <li className="block__list-item"><a className="block__list-link"
-                                                                    href="#">PREDICTABILITY</a></li>
-                                <li className="block__list-item"><a className="block__list-link" href="#">REALISTIC
-                                    BEHAVIORAL EXPECTATIONS</a></li>
+                                                                    href="#">Meat</a></li>
+                                <li className="block__list-item"><a className="block__list-link" href="#">Pharmaceuticals</a></li>
                             </ul>
                         </div>
                     </div>

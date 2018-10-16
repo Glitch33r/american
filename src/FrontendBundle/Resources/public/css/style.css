@@ -325,6 +325,21 @@ template {
   font-weight: normal;
   font-style: normal; }
 
+
+.page-animate{
+  transform: translate(400px);
+  transition: 0.5s cubic-bezier(0.21, 0.65, 0.4, 0.96);
+}
+
+.page-animate.page-animate-show{
+  transform: translate(0);
+  transition: 0.5s cubic-bezier(0.21, 0.65, 0.4, 0.96);
+}
+
+.slick-initialized{
+  position: relative;
+}
+
 .sweet-loading{
   position: fixed;
   width: 100vw;
@@ -861,7 +876,7 @@ body.grey {
   min-width: 120px;
   height: 120px;
   margin-right: 30px;
-  background: #e11512 url(../images/page1_icon01.png) center center no-repeat; }
+  background: #e11512 url(../images/human-resources.svg) center center no-repeat; }
 
 .block__title--car:before {
   content: "";
@@ -869,7 +884,7 @@ body.grey {
   min-width: 120px;
   height: 120px;
   margin-right: 30px;
-  background: #e11512 url(../images/page1_icon02.png) center center no-repeat; }
+  background: #e11512 url(../images/plain-star.svg) center center no-repeat; }
 
 .block__title--msg:before {
   content: "";
@@ -877,7 +892,7 @@ body.grey {
   min-width: 120px;
   height: 120px;
   margin-right: 30px;
-  background: #e11512 url(../images/page1_icon03.png) center center no-repeat; }
+  background: #e11512 url(../images/plain-briefcase.svg) center center no-repeat; }
 
 .block__img.block__img--volvo:before {
   content: "";
