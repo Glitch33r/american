@@ -5,6 +5,7 @@ namespace FrontendBundle\Controller;
 use BackendBundle\Entity\Seo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -19,7 +20,8 @@ class ApiController extends Controller
         $normalizer->setIgnoredAttributes($exclude);
         $serializer = new Serializer([$normalizer], [new JsonEncoder()]);
 
-        $response = new JsonResponse($serializer->serialize($data, 'json'));
+        $response = new Response($serializer->serialize($data, 'json'));
+        $response->headers->set('Content-Type', 'application/json; charset=UTF-8');
 
         return $response;
     }
@@ -63,6 +65,9 @@ class ApiController extends Controller
             'blog' => $this->generateUrl('about')
         ];
 
-        return new JsonResponse($links);
+        $response = new Response(json_encode($links, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        $response->headers->set('Content-Type', 'application/json; charset=UTF-8');
+
+        return $response;
     }
 }
