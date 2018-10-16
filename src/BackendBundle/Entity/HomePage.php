@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="BackendBundle\Entity\Repository\HomePageRepository")
  * @ORM\Table(name="home_table")
  * @Vich\Uploadable
  */
@@ -26,15 +26,6 @@ class HomePage
      * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Slider", mappedBy="homepage", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $slider;
-
-
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSlider()
-    {
-        return $this->slider;
-    }
 
     /**
      * @param \Doctrine\Common\Collections\Collection $slider
@@ -56,6 +47,67 @@ class HomePage
     }
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Article", mappedBy="homepage", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $article;
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $article
+     */
+    public function setArticle(\Doctrine\Common\Collections\Collection $article)
+    {
+        $this->article = $article;
+    }
+
+    public function addArticle(Article $sl)
+    {
+        $sl->setHomepage($this);
+        $this->article->add($sl);
+    }
+
+    public function removeArticle(Article $sl)
+    {
+        $this->article->removeElement($sl);
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\ListItem", mappedBy="homepage", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $list;
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $article
+     */
+    public function setList(\Doctrine\Common\Collections\Collection $article)
+    {
+        $this->list = $article;
+    }
+
+    public function addList(ListItem $sl)
+    {
+        $sl->setHomepage($this);
+        $this->list->add($sl);
+    }
+
+    public function removeList(ListItem $sl)
+    {
+        $this->list->removeElement($sl);
+    }
+
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSlider()
+    {
+        return $this->slider;
+    }
+
+
+
+    /**
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -75,6 +127,9 @@ class HomePage
     public function __construct()
     {
         $this->slider = new  ArrayCollection();
+        $this->article = new  ArrayCollection();
+        $this->list = new  ArrayCollection();
+
         $this->updatedAt = new \DateTime('now');
     }
 
@@ -131,6 +186,11 @@ class HomePage
      */
     private $second_blc_description;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $listName;
+
     /*PARALAX*/
 
     /**
@@ -148,9 +208,43 @@ class HomePage
      */
     private $paralax_blc_description;
 
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getList()
+    {
+        return $this->list;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getListName()
+    {
+        return $this->listName;
+    }
+
+    /**
+     * @param mixed $listName
+     */
+    public function setListName($listName)
+    {
+        $this->listName = $listName;
+    }
+
 
     /*AFTER PARALAX*/
     ///TODO: AFTER PARALAX
+
 
     /**
      * @return mixed
