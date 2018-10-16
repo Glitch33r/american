@@ -22,10 +22,11 @@ class Home extends Component {
 
         };
         this.loadContent = this.loadContent.bind(this);
+        this.componentWillMount = this.componentWillMount.bind(this);
     }
 
-    componentDidMount() {
-        delete this.state.seo;
+    componentWillMount() {
+        // delete this.state.seo;
         let url = 'http://american/app_dev.php/api/seo/home';
         fetch(url)
             .then(response => response.json())
@@ -38,16 +39,19 @@ class Home extends Component {
 
     render() {
 
-        let load = "load sweet-loading";
-
-        if(this.state.seo.length !== 0){
-            load = 'loading-success sweet-loading';
-        }
+        // let load = "load sweet-loading";
+        //
+        // if(this.state.seo.length !== 0){
+        //     load = 'loading-success sweet-loading';
+        // }
 
         return (
 
             <React.Fragment>
-                <div className={ load } >
+
+
+
+                <div className={ this.state.seo.length == 0 ? 'load sweet-loading' : "loading-success sweet-loading" }>
                     <ClipLoader
                         sizeUnit={"px"}
                         size={150}
@@ -55,6 +59,8 @@ class Home extends Component {
                         loading={this.state.loading}
                     />
                 </div>
+
+
 
                 <Seo seo={this.state.seo}/>
                 <HomeSlider />
