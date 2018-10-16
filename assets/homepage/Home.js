@@ -59,7 +59,7 @@ class Home extends Component {
                     />
                 </div>
 
-                <div className={ loading ? "page-animate" : "page-animate page-animate-show" }>
+                {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                     { loading ? "" : <div> <HomeSlider />
                         <ImageBlock />
                         <BlackBlock />
@@ -67,7 +67,7 @@ class Home extends Component {
                         <ArticlesBlock/>
                         <ServiseBlock/>
                         <ContactBlock/> </div> }
-                </div>
+                {/*</div>*/}
                 <Seo seo={this.state.seo}/>
 
 

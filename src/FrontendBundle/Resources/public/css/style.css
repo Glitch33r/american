@@ -515,7 +515,7 @@ body.grey {
   position: relative; }
 
 .home-slider__img {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 98px);
   width: 100%;
   margin-bottom: -5px;}
 
@@ -567,7 +567,7 @@ body.grey {
   width: 40%;
   bottom: 200px;
   right: 10%;
-  font: 80px 'Lato-Bold';
+  font: 55px 'Lato-Bold';
   color: #ffffff; }
 
 .home-slider__desc {
@@ -639,11 +639,16 @@ body.grey {
 .block__title {
   font: 50px/46px 'Lato-Bold';
   color: #ffffff;
+  text-transform: uppercase;
   margin-top: 70px;
   margin-bottom: 35px; }
 
 .block__title--with {
   width: 49%; }
+
+.block__title--with80{
+  width: 80%;
+}
 
 .block__subtitle {
   font: 20px 'Lato-Bold';
@@ -829,7 +834,7 @@ body.grey {
 
 .block__subtitle-link {
   text-decoration: none;
-  min-height: 120px;
+  min-height: 72px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
