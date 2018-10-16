@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import MetaTags from 'react-meta-tags';
 
-// import {
-//     Route
-// } from "react-router-dom";
-
-
 
 class Seo extends Component {
     constructor(props){
@@ -16,15 +11,15 @@ class Seo extends Component {
         return (
             <React.Fragment>
 
-                {/*<Route  path="/app_dev.php" render={ () => <Greeting greeting={this.state.home} /> } />*/}
-                {/*<Route  path="/about" render={ () => <Greeting greeting={this.state.about} /> } />*/}
-                <MetaTags>
+                { this.props.seo.h1 ? <MetaTags>
                     <title>{ this.props.seo.h1 }</title>
                     <meta name="description" content="Some description." />
                     <meta property="og:title" content="MyApp" />
                     <meta property="og:image" content="path/to/image.jpg" />
                     <meta name="keywords" content="fsdfsd" />
-                </MetaTags>
+                </MetaTags> : '' }
+
+
             </React.Fragment>
 
         );

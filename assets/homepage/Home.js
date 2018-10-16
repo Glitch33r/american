@@ -22,14 +22,15 @@ class Home extends Component {
 
         };
         this.loadContent = this.loadContent.bind(this);
+        this.componentWillMount = this.componentWillMount.bind(this);
     }
 
-    componentDidMount() {
-        delete this.state.seo;
+    componentWillMount() {
+        // delete this.state.seo;
         let url = 'http://american/app_dev.php/api/seo/home';
         fetch(url)
             .then(response => response.json())
-            .then(data =>this.setState({seo: JSON.parse(data)}))
+            .then(data =>this.setState({seo: data}))
     }
 
     loadContent () {
@@ -38,16 +39,18 @@ class Home extends Component {
 
     render() {
 
-        let load = "load sweet-loading";
-
-        if(this.state.seo.length !== 0){
-            load = 'loading-success sweet-loading';
+        let loading = false;
+        if( this.state.seo.length == 0 )  {
+            loading = true;
         }
 
         return (
 
             <React.Fragment>
-                <div className={ load } >
+
+
+
+                <div className={ loading ? 'load sweet-loading' : "loading-success sweet-loading" }>
                     <ClipLoader
                         sizeUnit={"px"}
                         size={150}
@@ -56,14 +59,18 @@ class Home extends Component {
                     />
                 </div>
 
+                <div className={ loading ? "page-animate" : "page-animate page-animate-show" }>
+                    { loading ? "" : <div> <HomeSlider />
+                        <ImageBlock />
+                        <BlackBlock />
+                        <ParalaxBlock/>
+                        <ArticlesBlock/>
+                        <ServiseBlock/>
+                        <ContactBlock/> </div> }
+                </div>
                 <Seo seo={this.state.seo}/>
-                <HomeSlider />
-                <ImageBlock />
-                <BlackBlock />
-                <ParalaxBlock/>
-                <ArticlesBlock/>
-                <ServiseBlock/>
-                <ContactBlock/>
+
+
             </React.Fragment>
         );
     }

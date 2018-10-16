@@ -9,11 +9,8 @@ class ParalaxBlock extends Component {
             <React.Fragment>
                 <section className="block paralax-block">
                     <div className="paralax-block__content">
-                        <h2 className="block__title">MAKING TRANSPORTATION FAST AND SAFE</h2>
-                        <p className="block__desc">With an average of more than 31 million visits each month, Cars is
-                            the leading online destination for car shoppers and owners. We offer credible and
-                            easy-to-understand information to help consumers research, price and find new and used
-                            vehicles and quality service and repair providers.</p>
+                        <h2 className="block__title">Our deliveries are timely </h2>
+                        <p className="block__desc">We absolutely create through explicit time management of our fleet the most precise routing for your goods to arrive at their ultimate destination on time, every time, through the entirety of theirjourney. Proper temperature control is always maintained and monitored within the confines of our 30 reefer trailers. </p>
                     </div>
                 </section>
             </React.Fragment>

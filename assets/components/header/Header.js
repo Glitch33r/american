@@ -9,11 +9,6 @@ class Header extends Component {
 
     }
 
-
-
-
-
-
     render() {
         return (
             <React.Fragment>
@@ -30,13 +25,6 @@ class Header extends Component {
                     </div>
 
                 </header>
-
-
-
-
-
-
-
 
             </React.Fragment>
 
