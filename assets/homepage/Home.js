@@ -18,6 +18,7 @@ class Home extends Component {
 
         this.state = {
             seo: [],
+            slider: [],
             load: 'load sweet-loading',
 
         };
@@ -27,10 +28,13 @@ class Home extends Component {
 
     componentWillMount() {
         // delete this.state.seo;
-        let url = 'http://american/app_dev.php/api/seo/home';
-        fetch(url)
+        let url = 'http://' + this.props.domain + '/api/v1/';
+        fetch(url + "seo/home")
             .then(response => response.json())
-            .then(data =>this.setState({seo: data}))
+            .then(data =>this.setState({seo: data}));
+        fetch(url + "page/home/slider")
+            .then(response => response.json())
+            .then(data =>this.setState({slider: data}));
     }
 
     loadContent () {
@@ -38,7 +42,6 @@ class Home extends Component {
     }
 
     render() {
-
         let loading = false;
         if( this.state.seo.length == 0 )  {
             loading = true;
@@ -60,7 +63,7 @@ class Home extends Component {
                 </div>
 
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
-                    { loading ? "" : <div> <HomeSlider />
+                    { loading ? "" : <div> <HomeSlider arrSlider = { this.state.slider } />
                         <ImageBlock />
                         <BlackBlock />
                         <ParalaxBlock/>

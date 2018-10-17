@@ -21,7 +21,7 @@ class About extends Component {
 
     componentDidMount() {
         delete this.state.seo;
-        let url = 'http://american/app_dev.php/api/seo/about';
+        let url = 'http://' + this.props.domain + '/api/v1/seo/about';
         fetch(url)
             .then(response => response.json())
             .then(data =>this.setState({seo: data}))

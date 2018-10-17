@@ -1,24 +1,29 @@
 import React, { Component } from "react";
 import Home from "../../homepage/Home";
 import About from "../../about/About";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class Content extends Component {
 
     constructor(props){
         super(props);
 
-
+        this.state = {
+            domain: window.location.hostname === 'american.truck.origami.ua' ? window.location.hostname : window.location.hostname + '/app_dev.php'
+        }
 
     }
 
+
     render() {
+        console.log(this.state.domain);
         return (
             <React.Fragment>
 
-                    <Route exact path="/app_dev.php" component={Home} />
+                    <Route  exact path="/app_dev.php" render = {() => (<Home  domain = { this.state.domain } />)}  />
+                    <Route  exact path="/" render = {() => (<Home  domain = { this.state.domain } />)} />
 
-                    <Route exact path="/about" component={About} />
+                    <Route  exact path="/about" render = {() => (<About  domain = { this.state.domain } />)} />
 
 
 

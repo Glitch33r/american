@@ -105,7 +105,7 @@ class ApiController extends Controller
                 $data = $em->getRepository(HomePage::class)->getParalaxBlock();
                 return $this->formalizeJSONResponse($data);
                 break;
-            case 'after-paralax':
+            case 'articles':
                 $data = $em->getRepository(Article::class)->findBy(['homepage' => $homepage->getId()]);
                 return $this->formalizeJSONResponse($data, ['homepage']);
                 break;

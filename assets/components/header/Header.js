@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../routes/Nav";
-
+import { NavLink } from "react-router-dom";
 
 class Header extends Component {
 
@@ -16,8 +16,8 @@ class Header extends Component {
                 <header>
                     <div className="header-bg">
                         <div className="header-wrap">
-                            <div className="header-logo"><a className="header-logo__link" href="index.html"><img
-                                className="header-logo__img" src="/bundles/frontend/images/logo.png"/></a></div>
+                            <div className="header-logo"><NavLink className="header-logo__link" exact to="/"><img
+                                className="header-logo__img" src="/bundles/frontend/images/logo.png"/></NavLink></div>
 
                             <Nav />
 
