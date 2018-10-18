@@ -16,7 +16,6 @@ class Content extends Component {
 
 
     render() {
-        console.log(this.state.domain);
         return (
             <React.Fragment>
 

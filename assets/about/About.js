@@ -20,7 +20,6 @@ class About extends Component {
     }
 
     componentDidMount() {
-        delete this.state.seo;
         let url = 'http://' + this.props.domain + '/api/v1/seo/about';
         fetch(url)
             .then(response => response.json())
@@ -28,16 +27,15 @@ class About extends Component {
     }
 
     render() {
-        let load = "load sweet-loading";
-
-        if(this.state.seo.length !== 0){
-            load = 'loading-success sweet-loading';
+        let loading = true;
+        if( this.state.seo.length == 0 )  {
+            loading = false;
         }
 
 
         return (
             <React.Fragment>
-                <div className={ load } >
+                <div className={ loading ? "loading-success sweet-loading" : 'load sweet-loading' }>
                     <ClipLoader
                         sizeUnit={"px"}
                         size={150}
@@ -46,7 +44,7 @@ class About extends Component {
                     />
                 </div>
                 <Seo seo={this.state.seo}/>
-                { this.state.seo.length == 0 ? "" :
+                { loading ?
                     <div>
                         <Breadcrumbs seo={this.state.seo}/>
                         <MeetUsBlock/>
@@ -54,6 +52,7 @@ class About extends Component {
                         <ParalaxBlock/>
                         <ArticlesBlock/>
                     </div>
+                    : ""
                 }
 
             </React.Fragment>

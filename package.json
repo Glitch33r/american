@@ -12,10 +12,14 @@
     "react-slick": "^0.23.1",
     "react-spinners": "^0.4.6",
     "tiny-slider": "^2.8.7",
-    "tiny-slider-react": "^0.3.7"
+    "tiny-slider-react": "^0.3.7",
+    "uglifyjs-webpack-plugin": "^2.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-dev": "encore dev --config webpack.config.js --watch"
+  },
+  "dependencies": {
+    "react-html-parser": "^2.0.2"
   }
 }

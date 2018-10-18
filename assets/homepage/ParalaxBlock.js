@@ -2,16 +2,24 @@ import React, { Component } from "react";
 
 class ParalaxBlock extends Component {
 
-
+    constructor(props) {
+        super(props);
+    }
 
     render() {
+        console.log(this.props.paralaxBlock);
         return (
             <React.Fragment>
                 <section className="block paralax-block">
-                    <div className="paralax-block__content">
-                        <h2 className="block__title">Our deliveries are timely </h2>
-                        <p className="block__desc">We absolutely create through explicit time management of our fleet the most precise routing for your goods to arrive at their ultimate destination on time, every time, through the entirety of theirjourney. Proper temperature control is always maintained and monitored within the confines of our 30 reefer trailers. </p>
-                    </div>
+                    {
+                        this.props.paralaxBlock.map((item, index) =>
+                            <div className="paralax-block__content" key={index}>
+                                <h2 className="block__title">{ item.paralax_blc_title }</h2>
+                                <p className="block__desc">{item.paralax_blc_description}</p>
+                            </div>
+                        )
+                    }
+
                 </section>
             </React.Fragment>
         );

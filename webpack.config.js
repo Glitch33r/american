@@ -1,4 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
+
 
 module.exports = {
     mode: "development", // "production" | "development" | "none"
@@ -33,6 +36,7 @@ Encore
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
+    .addPlugin(new webpack.optimize.UglifyJsPlugin())
 
     // uncomment if you use Sass/SCSS files
     //.enableSassLoader()

@@ -19,22 +19,45 @@ class Home extends Component {
         this.state = {
             seo: [],
             slider: [],
+            imageBlock: [],
+            blackBlock: [],
+            blackBlockList: [],
+            paralaxBlock: [],
+            articlesBlock: [],
             load: 'load sweet-loading',
 
         };
         this.loadContent = this.loadContent.bind(this);
-        this.componentWillMount = this.componentWillMount.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
-    componentWillMount() {
-        // delete this.state.seo;
+    componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
         fetch(url + "seo/home")
             .then(response => response.json())
             .then(data =>this.setState({seo: data}));
+
+        // delete this.state.slider;
+        this.setState({slider: []});
         fetch(url + "page/home/slider")
             .then(response => response.json())
             .then(data =>this.setState({slider: data}));
+
+        fetch(url + "page/home/red")
+            .then(response => response.json())
+            .then(data =>this.setState({imageBlock: data}));
+        fetch(url + "page/home/black")
+            .then(response => response.json())
+            .then(data =>this.setState({blackBlock: data}));
+        fetch(url + "page/home/list")
+            .then(response => response.json())
+            .then(data =>this.setState({blackBlockList: data}));
+        fetch(url + "page/home/paralax")
+            .then(response => response.json())
+            .then(data =>this.setState({paralaxBlock: data}));
+        fetch(url + "page/home/articles")
+            .then(response => response.json())
+            .then(data =>this.setState({articlesBlock: data}));
     }
 
     loadContent () {
@@ -42,9 +65,9 @@ class Home extends Component {
     }
 
     render() {
-        let loading = false;
-        if( this.state.seo.length == 0 )  {
-            loading = true;
+        let loading = true;
+        if( this.state.slider.length == 0 )  {
+            loading = false;
         }
 
         return (
@@ -53,7 +76,7 @@ class Home extends Component {
 
 
 
-                <div className={ loading ? 'load sweet-loading' : "loading-success sweet-loading" }>
+                <div className={ loading ? "loading-success sweet-loading" : 'load sweet-loading' }>
                     <ClipLoader
                         sizeUnit={"px"}
                         size={150}
@@ -63,13 +86,15 @@ class Home extends Component {
                 </div>
 
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
-                    { loading ? "" : <div> <HomeSlider arrSlider = { this.state.slider } />
-                        <ImageBlock />
-                        <BlackBlock />
-                        <ParalaxBlock/>
-                        <ArticlesBlock/>
+                    { loading ? <div>
+                        <HomeSlider arrSlider = { this.state.slider } />
+                        <ImageBlock imageBlock = { this.state.imageBlock } />
+                        <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />
+                        <ParalaxBlock paralaxBlock = { this.state.paralaxBlock } />
+                        <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
                         <ServiseBlock/>
-                        <ContactBlock/> </div> }
+                        <ContactBlock/>
+                    </div> : "" }
                 {/*</div>*/}
                 <Seo seo={this.state.seo}/>
 
