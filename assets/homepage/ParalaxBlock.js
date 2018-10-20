@@ -7,7 +7,6 @@ class ParalaxBlock extends Component {
     }
 
     render() {
-        console.log(this.props.paralaxBlock);
         return (
             <React.Fragment>
                 <section className="block paralax-block">

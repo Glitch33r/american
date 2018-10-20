@@ -4,6 +4,15 @@ class BlackBlock extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            listName: ""
+        }
+
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
@@ -21,14 +30,22 @@ class BlackBlock extends Component {
                                     <a className="block__button block__button--red" href="#">READ MORE</a>
                                 </div>
                                 <div className="block__right">
-                                    {/*<h2 className="block__title block__title--with80">{ this.props.blackBlockList[0].listName }</h2>*/}
-                                    {
+
+                                    <h2 className="block__title block__title--with80">{
                                         this.props.blackBlockList.map((item, index) =>
-                                        <ul className="block__list" key={index}>
-                                            <li className="block__list-item"><a className="block__list-link" href="#">{ item.title }</a></li>
-                                        </ul>
+                                            <span key={index}>
+                                                { index == 0 ? item.listName : '' }
+                                            </span>
                                         )
                                     }
+                                    </h2>
+                                    <ul className="block__list" key={index}>
+                                    {
+                                        this.props.blackBlockList.map((item, index) =>
+                                            <li className="block__list-item" key={index}><a className="block__list-link" href="#">{ item.title }</a></li>
+                                        )
+                                    }
+                                    </ul>
                                 </div>
                             </div>
                         )

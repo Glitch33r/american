@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 class HomeSlider extends Component {
 
@@ -62,7 +63,7 @@ class HomeSlider extends Component {
                                 <img className="home-slider__img" src= { "/bundles/frontend/images/" + item.image }/>
                             </div>
                             <span className="home-slider__title">
-                                    { item.title }
+                                    { ReactHtmlParser(item.title) }
                                 <span className="home-slider__desc">
                                     { item.description }
                                     </span>
