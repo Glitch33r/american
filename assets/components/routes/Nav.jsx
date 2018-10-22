@@ -50,11 +50,11 @@ class Nav extends Component {
                             </li>
                             <li className="header-menu__item">
                                 {/*<a className="header-menu__link active"  href="index.html">HOME</a>*/}
-                                <NavLink className="header-menu__link" exact to="/statement" >Corporate principles</NavLink>
+                                <NavLink className="header-menu__link" exact to="/about" >Corporate philosophy</NavLink>
                             </li>
                             <li className="header-menu__item">
                                 {/*<a className="header-menu__link "  href="about.html">About</a>*/}
-                                <NavLink className="header-menu__link" exact to="/about">Equipment</NavLink>
+                                <NavLink className="header-menu__link" exact to="/equipment">Equipment</NavLink>
                                 <ul className="header-submenu__items">
                                     <li className="header-submenu__item">
                                         <a className="header-submenu__link " exact to="/testimonials" >Testimonials</a>

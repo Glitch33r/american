@@ -50,7 +50,7 @@ class About extends Component {
                         <MeetUsBlock/>
                         <BlackBlock/>
                         <ParalaxBlock/>
-                        <ArticlesBlock/>
+                        {/*<ArticlesBlock/>*/}
                     </div>
                     : ""
                 }
