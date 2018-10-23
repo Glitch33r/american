@@ -13,7 +13,7 @@ class ImageBlock extends Component {
                     </div>
                     <div className="team-block__right team-block__right--w500">
                         <div className="team-block__right_img"
-                             style={{background: 'url(/bundles/frontend/images/about/250601.jpg) center center no-repeat', backgroundSize: 'contain'}}/>
+                             style={{background: 'url(/bundles/frontend/images/equipment/RenaultTruck.jpg) center center no-repeat', backgroundSize: 'contain'}}/>
                     </div>
                 </section>
             </section>
