@@ -10,7 +10,7 @@ parameters:
     locale: en
     app.path.first_blc_images: /uploads/images/firstblchome
     app.path.slider_images: /uploads/images/slider
-    app.path.service_images: /uploads/images/slider
+    app.path.service_images: /uploads/images/service
 
 vich_uploader:
   db_driver: orm
