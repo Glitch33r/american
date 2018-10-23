@@ -144,6 +144,7 @@ class ApiController extends Controller
      * @Route("/services", name="services")
      * @Route("/blog", name="blog")
      * @Route("/contacts", name="contacts")
+     * @Route("/equipment", name="equipment")
      */
     public function indexAction()
     {
