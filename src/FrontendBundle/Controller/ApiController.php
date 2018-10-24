@@ -112,7 +112,7 @@ class ApiController extends Controller
         }
 
         if ($func($img_o, $placeToSave, 75)) {
-            return $placeToSave;
+            return str_replace('../web/', '/', $placeToSave);
         } else {
             return 'Sorry, wrong image.';
         }
