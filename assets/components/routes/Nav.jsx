@@ -63,7 +63,7 @@ class Nav extends Component {
                             </li>
                             <li className="header-menu__item">
                                 {/*<a className="header-menu__link " href="services.html">SERVICES</a>*/}
-                                <NavLink className="header-menu__link" exact to="/services">For Drivers</NavLink>
+                                <NavLink className="header-menu__link" exact to="/offers">For Drivers</NavLink>
                             </li>
 
                             <li className="header-menu__item">

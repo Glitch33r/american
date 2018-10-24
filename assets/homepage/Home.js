@@ -74,6 +74,9 @@ class Home extends Component {
             loading = false;
         }
 
+        // console.log(this.state.imageBlock);
+        // console.log(this.state.blackBlock);
+
         return (
 
             <React.Fragment>
@@ -98,7 +101,7 @@ class Home extends Component {
                         <ContactBlock/>
                     </div> : "" }
                 {/*</div>*/}
-                {/*<Seo seo={this.state.seo}/>*/}
+                <Seo seo={this.state.seo}/>
 
             </React.Fragment>
         );

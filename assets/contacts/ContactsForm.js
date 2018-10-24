@@ -6,15 +6,6 @@ class ContactsForm extends Component {
     render() {
         return (
             <div>
-                <nav className="breadcrumbs">
-                    <div className="breadcrumbs-wrap">
-                        <h2 className="breadcrumbs__pagename">CONTACTS</h2>
-                        <ul className="breadcrumbs__list">
-                            <li className="breadcrumbs__item"><a className="breadcrumbs__link" href="#">HOME</a></li>
-                            <li className="breadcrumbs__item"><a className="breadcrumbs__link" href="#">CONTSCTS</a></li>
-                        </ul>
-                    </div>
-                </nav>
                 <section className="block contact-block">
                     <div className="contacts-form__fields">
                         <h2 className="contacts-form__title block__title">CONTACT US</h2>

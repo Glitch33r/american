@@ -145,6 +145,7 @@ class ApiController extends Controller
      * @Route("/blog", name="blog")
      * @Route("/contacts", name="contacts")
      * @Route("/equipment", name="equipment")
+     * @Route("/offers", name="offers")
      */
     public function indexAction()
     {
@@ -212,7 +213,7 @@ class ApiController extends Controller
                 break;
             case 'red':
                 $temp = [];
-                $data = $em->getRepository(HomePage::class)->getRedBlock()[0];
+                $data = $em->getRepository(HomePage::class)->getRedBlock();
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'black':

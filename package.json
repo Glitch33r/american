@@ -8,6 +8,7 @@
     "react-dom": "^16.5.2",
     "react-meta-tags": "^0.7.1",
     "react-responsive-carousel": "^3.1.43",
+    "react-responsive-image": "^4.0.0",
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.23.1",
     "react-spinners": "^0.4.6",
@@ -20,6 +21,7 @@
     "webpack-dev": "encore dev --config webpack.config.js --watch"
   },
   "dependencies": {
-    "react-html-parser": "^2.0.2"
+    "react-html-parser": "^2.0.2",
+    "react-lazy-responsive-image": "^1.0.0"
   }
 }
