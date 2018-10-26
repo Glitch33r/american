@@ -30,7 +30,31 @@ class ListItem
      * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\HomePage", inversedBy="list", cascade={"persist"})
      * @ORM\JoinColumn(name="hp_id", referencedColumnName="id")
      */
-     private $homepage;
+    private $homepage;
+
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\CorporatePhilosophy", inversedBy="list", cascade={"persist"})
+     * @ORM\JoinColumn(name="cp_id", referencedColumnName="id")
+     */
+    public $corp_philos;
+
+    /**
+     * @return mixed
+     */
+    public function getCorpPhilos()
+    {
+        return $this->corp_philos;
+    }
+
+    /**
+     * @param mixed $corp_philos
+     */
+    public function setCorpPhilos($corp_philos)
+    {
+        $this->corp_philos = $corp_philos;
+    }
 
     public function __toString()
     {

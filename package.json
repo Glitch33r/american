@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack-dev": "encore dev --config webpack.config.js --watch"
+    "webpack-dev": "encore dev --config webpack.config.js --watch",
+    "build": "encore production"
   },
   "dependencies": {
     "react-html-parser": "^2.0.2",

@@ -131,8 +131,7 @@ class ApiController extends Controller
 
         $serializer = new Serializer([$normalizer], [new JsonEncoder()]);
 
-        $response = new Response($serializer->serialize($data, 'json'));
-        $response->headers->set('Content-Type', 'application/json; charset=UTF-8');
+        $response = new Response($serializer->serialize($data, 'json'), Response::HTTP_OK, ['Content-type' => 'application/json; charset=UTF-8']);
 
         return $response;
     }
@@ -178,8 +177,8 @@ class ApiController extends Controller
             'contacts' => $this->generateUrl('contacts')
         ];
 
-        $response = new Response(json_encode($links, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-        $response->headers->set('Content-Type', 'application/json; charset=UTF-8');
+        $response = new Response(json_encode($links, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
+            Response::HTTP_OK, ['Content-type' => 'application/json; charset=UTF-8']);
 
         return $response;
     }
