@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
-import ContactsForm from "./ContactsForm";
-// import BlackBlock from "./BlackBlock";
+import ImageBlock from "./ImageBlock";
+import BlackBlock from "./BlackBlock";
 // import ParalaxBlock from "./ParalaxBlock";
-// import ArticlesBlock from "./ArticlesBlock";
+import ArticlesBlock from "./ArticlesBlock";
 // import ServiseBlock from "./ServiseBlock";
 // import ContactBlock from "./ContactBlock";
 
@@ -11,7 +11,7 @@ import Seo from "../components/seo/Seo";
 
 import { ClipLoader } from 'react-spinners';
 
-class Contscts extends Component {
+class Offers extends Component {
 
     constructor(props){
         super(props);
@@ -34,10 +34,13 @@ class Contscts extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        fetch(url + "seo/contact-us")
+        fetch(url + "seo/offers")
             .then(response => response.json())
             .then(data =>this.setState({seo: data}));
 
+        fetch(url + "page/home/articles")
+            .then(response => response.json())
+            .then(data =>this.setState({articlesBlock: data}));
 
         // fetch(url + "seo/home")
         //     .then(response => response.json())
@@ -91,12 +94,12 @@ class Contscts extends Component {
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                 { loading ? <div>
                     <Breadcrumbs seo={this.state.seo}/>
-                    <ContactsForm />
-                    {/*<ServiseBlock/>*/}
-                    {/*<ContactBlock/>*/}
+                    <ImageBlock imageBlock = { this.state.imageBlock } />
+                    <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />
+                    <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
                 </div> : "" }
                 {/*</div>*/}
-                {/*<Seo seo={this.state.seo}/>*/}
+                <Seo seo={this.state.seo}/>
 
 
             </React.Fragment>
@@ -104,4 +107,4 @@ class Contscts extends Component {
     }
 }
 
-export default Contscts;
+export default Offers;

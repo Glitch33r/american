@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import LazyResponsiveImage from 'react-lazy-responsive-image';
 
 class HomeSlider extends Component {
 
@@ -47,6 +48,10 @@ class HomeSlider extends Component {
             loading = true;
         }
 
+        let last = this.props.arrSlider.length - 1;
+
+        console.log();
+
         return (
 
             <React.Fragment>
@@ -57,10 +62,29 @@ class HomeSlider extends Component {
 
                 {
                     this.props.arrSlider.map((item, index) =>
+
+                        last === index ? '' :
+
                         <div className="home-slider__item" key={ index }>
 
                             <div className="home-slider__item-wrap">
-                                <img className="home-slider__img" src= { "/bundles/frontend/images/" + item.image }/>
+                                {/*<img className="home-slider__img" src= { "/bundles/frontend/images/" + item.image }*/}
+
+                                {/*/>*/}
+                                <LazyResponsiveImage
+                                    src = { "/bundles/frontend/images/" + item.image }
+                                    className ="home-slider__img"
+                                    sources ={{
+                                        small: this.props.arrSlider[last][index][0],
+                                        medium:  this.props.arrSlider[last][index][1],
+                                        // large:  "/bundles/frontend/images/" + item.image,
+                                    }}
+                                    breakpoints={{
+                                        small: 600,
+                                        medium: 900,
+                                        // large: 1200,
+                                    }}
+                                />
                             </div>
                             <span className="home-slider__title">
                                     { ReactHtmlParser(item.title) }
@@ -69,11 +93,18 @@ class HomeSlider extends Component {
                                     </span>
                                 </span>
                         </div>
+
+
+
                     )
                 }
 
             </Slider>
+
             }
+
+
+
             </React.Fragment>
 
         );
