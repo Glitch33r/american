@@ -12,8 +12,6 @@ easy_admin:
               icon: 'home'
               children:
                 - { label: 'Home page', entity: 'HomePage', default: true }
-                - Category
-                - Service
                 - Contacts
             - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
             - label: 'Special'
@@ -71,35 +69,6 @@ easy_admin:
                 - { property: 'paralax_blc_description', label: 'Description'}
                 - { type: 'tab', label: 'Articles', icon: 'exchange' }
                 - { property: 'article', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewArticle', by_reference: false } }
-        Service:
-            class: BackendBundle\Entity\Service
-            list:
-              fields:
-                - id
-                - title
-                - description
-                - published
-                - { property: 'image',  type: 'image', base_path: '%app.path.service_images%' }
-            form:
-              fields:
-                - { type: 'tab', label: 'Details', icon: 'puzzle-piece' }
-                - { property: 'slug', type_options: { disabled: true }}
-                - published
-                - { property: 'imageFile', type: 'vich_image' }
-                - { type: 'tab', label: 'Basic information', icon: 'cube' }
-                - title
-                - description
-        Category:
-            class: BackendBundle\Entity\Category
-            list:
-              fields:
-                - id
-                - slug
-                - title
-            form:
-              fields:
-                - { property: 'slug', type_options: { disabled: true }}
-                - title
         ContactForm:
             class: BackendBundle\Entity\ContactForm
             list:
