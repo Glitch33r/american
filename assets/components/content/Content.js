@@ -22,6 +22,7 @@ class Content extends Component {
         return (
             <React.Fragment>
 
+
                     <Route  exact path="/app_dev.php" render = {() => (<Home  domain = { this.state.domain } />)}  />
                     <Route  exact path="/" render = {() => (<Home  domain = { this.state.domain } />)} />
 

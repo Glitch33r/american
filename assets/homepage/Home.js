@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomeSlider from "../components/slider/HomeSlider";
+import AnimationFunc from "../components/content/AnimationFunc";
 import ImageBlock from "./ImageBlock";
 import BlackBlock from "./BlackBlock";
 import ParalaxBlock from "./ParalaxBlock";
@@ -81,6 +82,7 @@ class Home extends Component {
 
             <React.Fragment>
 
+
                 <div className={ loading ? "loading-success sweet-loading" : 'load sweet-loading' }>
                     <ClipLoader
                         sizeUnit={"px"}
@@ -92,6 +94,7 @@ class Home extends Component {
 
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                     { loading ? <div>
+                        <AnimationFunc />
                         <HomeSlider arrSlider = { this.state.slider } />
                         <ImageBlock imageBlock = { this.state.imageBlock } />
                         <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />
