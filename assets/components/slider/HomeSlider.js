@@ -75,8 +75,8 @@ class HomeSlider extends Component {
                                     src = { "/bundles/frontend/images/" + item.image }
                                     className ="home-slider__img"
                                     sources ={{
-                                        small: '/mobile/slider/5/slider003_520.jpeg',
-                                        medium: '/mobile/slider/5/slider003_960.jpeg',
+                                        small: this.props.arrSlider[last][index][0],
+                                        medium:  this.props.arrSlider[last][index][1],
                                         // large:  "/bundles/frontend/images/" + item.image,
                                     }}
                                     breakpoints={{

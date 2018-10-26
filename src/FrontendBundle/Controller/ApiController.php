@@ -111,7 +111,7 @@ class ApiController extends Controller
             $placeToSave = $uploaddir . $filename . '_' . $w_o . '.' . $ext;
         }
 
-        if ($func($img_o, $placeToSave, 75)) {
+        if ($func($img_o, $placeToSave, 95)) {
             return str_replace('../web/', '/', $placeToSave);
         } else {
             return 'Sorry, wrong image.';
