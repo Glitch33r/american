@@ -6,6 +6,7 @@ use BackendBundle\Entity\Article;
 use BackendBundle\Entity\CorporatePhilosophy;
 use BackendBundle\Entity\Equipment;
 use BackendBundle\Entity\HomePage;
+use BackendBundle\Entity\Offers;
 use BackendBundle\Entity\Seo;
 use BackendBundle\Entity\Slider;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -318,30 +319,31 @@ class ApiController extends Controller
     public function getContentOffer($block)
     {
         $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository(Offers::class)->findAll()[0];
 
         switch ($block) {
             case 'white':
-                $data = $em->getRepository(Equipment::class)->getWhiteBlock();
+                $data = $em->getRepository(Offers::class)->getWhiteBlock();
 //                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-left':
-                $data = $em->getRepository(Equipment::class)->getLeftListBlock();
-                $items = $em->getRepository(Equipment::class)->getLeftListItemBlock();
+                $data = $em->getRepository(Offers::class)->getLeftListBlock();
+                $items = $em->getRepository(Offers::class)->getLeftListItemBlock();
                 array_push($data, $items);
 //                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-right':
-                $data = $em->getRepository(Equipment::class)->getRigthListBlock();
-                $items = $em->getRepository(Equipment::class)->getRigthListItemBlock();
+                $data = $em->getRepository(Offers::class)->getRigthListBlock();
+                $items = $em->getRepository(Offers::class)->getRigthListItemBlock();
                 array_push($data, $items);
 //                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'articles':
-                $data = $em->getRepository(Article::class)->findBy(['offers' => $homepage->getId()]);
-                return $this->formalizeJSONResponse($data, ['homepage']);
+                $data = $em->getRepository(Article::class)->findBy(['offers' => $dat->getId()]);
+                return $this->formalizeJSONResponse($data, ['offers']);
                 break;
             default:
                 return $this->formalizeJSONResponse(null);

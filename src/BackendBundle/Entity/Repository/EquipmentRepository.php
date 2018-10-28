@@ -45,7 +45,7 @@ class EquipmentRepository extends EntityRepository
     public function getLeftListItemBlock()
     {
         $q = $this->getEntityManager()
-            ->createQuery('SELECT ls.title FROM BackendBundle\Entity\Equipment AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.equipleft')
+            ->createQuery('SELECT ls.title, ls.maintitle FROM BackendBundle\Entity\Equipment AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.equipleft')
             ->execute();
 
         return $q;
