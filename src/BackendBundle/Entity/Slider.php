@@ -43,6 +43,30 @@ class Slider
     private $imageFile;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $image_520;
+
+    /**
+     * @Vich\UploadableField(mapping="slider_images", fileNameProperty="image_520")
+     * @var File
+     */
+    private $imageFile_520;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $image_960;
+
+    /**
+     * @Vich\UploadableField(mapping="slider_images", fileNameProperty="image_960")
+     * @var File
+     */
+    private $imageFile_960;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var \DateTime
      */
@@ -127,7 +151,6 @@ class Slider
         return $this->image;
     }
 
-
     /**
      * @return mixed
      */
@@ -166,6 +189,70 @@ class Slider
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage520()
+    {
+        return $this->image_520;
+    }
+
+    /**
+     * @param string $image_520
+     */
+    public function setImage520($image_520)
+    {
+        $this->image_520 = $image_520;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile520()
+    {
+        return $this->imageFile_520;
+    }
+
+    /**
+     * @param File $imageFile_520
+     */
+    public function setImageFile520(File $imageFile_520 = null)
+    {
+        $this->imageFile_520 = $imageFile_520;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage960()
+    {
+        return $this->image_960;
+    }
+
+    /**
+     * @param string $image_960
+     */
+    public function setImage960($image_960)
+    {
+        $this->image_960 = $image_960;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile960()
+    {
+        return $this->imageFile_960;
+    }
+
+    /**
+     * @param File $imageFile_960
+     */
+    public function setImageFile960(File $imageFile_960= null)
+    {
+        $this->imageFile_960 = $imageFile_960;
     }
 
 }

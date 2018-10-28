@@ -9,7 +9,7 @@ class HomePageRepository extends EntityRepository
     public function getRedBlock()
     {
         $q = $this->createQueryBuilder('a')
-            ->select('a.first_blc_title, a.first_blc_sub_title, a.first_blc_description, a.image')
+            ->select('a.first_blc_title, a.first_blc_sub_title, a.first_blc_description')
             ->getQuery()->getResult();
 
         return $q;

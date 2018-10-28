@@ -42,6 +42,30 @@ class Article
      */
      private $homepage;
 
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Offers", inversedBy="article", cascade={"persist"})
+     * @ORM\JoinColumn(name="off_id", referencedColumnName="id")
+     */
+     private $offers;
+
+    /**
+     * @return mixed
+     */
+    public function getOffers()
+    {
+        return $this->offers;
+    }
+
+    /**
+     * @param mixed $offers
+     */
+    public function setOffers($offers)
+    {
+        $this->offers = $offers;
+    }
+
+
     public function __toString()
     {
         return $this->getTitle();

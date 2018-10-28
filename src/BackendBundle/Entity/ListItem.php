@@ -23,6 +23,11 @@ class ListItem
     /**
      * @ORM\Column(type="string", nullable=true)
      */
+    private $maintitle;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
     private $title;
 
     /**
@@ -38,23 +43,136 @@ class ListItem
      * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\CorporatePhilosophy", inversedBy="list", cascade={"persist"})
      * @ORM\JoinColumn(name="cp_id", referencedColumnName="id")
      */
-    public $corp_philos;
+    private $corpphilos;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Equipment", inversedBy="listrigth", cascade={"persist"})
+     * @ORM\JoinColumn(name="eq_right_id", referencedColumnName="id")
+     */
+    private $equipright;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Offers", inversedBy="list", cascade={"persist"})
+     * @ORM\JoinColumn(name="off_left_id", referencedColumnName="id")
+     */
+    private $offerleft;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Offers", inversedBy="listrigth", cascade={"persist"})
+     * @ORM\JoinColumn(name="off_right_id", referencedColumnName="id")
+     */
+    private $offerright;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Equipment", inversedBy="list", cascade={"persist"})
+     * @ORM\JoinColumn(name="eq_left_id", referencedColumnName="id")
+     */
+    private $equipleft;
 
     /**
      * @return mixed
      */
-    public function getCorpPhilos()
+    public function getOfferleft()
     {
-        return $this->corp_philos;
+        return $this->offerleft;
     }
 
     /**
-     * @param mixed $corp_philos
+     * @param mixed $offerleft
      */
-    public function setCorpPhilos($corp_philos)
+    public function setOfferleft($offerleft)
     {
-        $this->corp_philos = $corp_philos;
+        $this->offerleft = $offerleft;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOfferright()
+    {
+        return $this->offerright;
+    }
+
+    /**
+     * @param mixed $offerright
+     */
+    public function setOfferright($offerright)
+    {
+        $this->offerright = $offerright;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getMaintitle()
+    {
+        return $this->maintitle;
+    }
+
+    /**
+     * @param mixed $maintitle
+     */
+    public function setMaintitle($maintitle)
+    {
+        $this->maintitle = $maintitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEquipright()
+    {
+        return $this->equipright;
+    }
+
+    /**
+     * @param mixed $equipright
+     */
+    public function setEquipright($equipright)
+    {
+        $this->equipright = $equipright;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEquipleft()
+    {
+        return $this->equipleft;
+    }
+
+    /**
+     * @param mixed $equipleft
+     */
+    public function setEquipleft($equipleft)
+    {
+        $this->equipleft = $equipleft;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getCorpphilos()
+    {
+        return $this->corpphilos;
+    }
+
+    /**
+     * @param mixed $corpphilos
+     */
+    public function setCorpphilos($corpphilos)
+    {
+        $this->corpphilos = $corpphilos;
+    }
+
 
     public function __toString()
     {

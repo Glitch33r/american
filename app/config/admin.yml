@@ -12,6 +12,9 @@ easy_admin:
               icon: 'home'
               children:
                 - { label: 'Home page', entity: 'HomePage', default: true }
+                - CorporatePhilosophy
+                - Equipment
+                - Offers
                 - Contacts
             - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
             - label: 'Special'
@@ -103,3 +106,81 @@ easy_admin:
                 - address
                 - email
                 - phone
+        CorporatePhilosophy:
+            class: BackendBundle\Entity\CorporatePhilosophy
+            list:
+              fields:
+                - id
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+            form:
+              fields:
+                - { type: 'tab', label: 'First content block', icon: 'list-ol' }
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Second content block', icon: 'list-ol' }
+                - { property: 'second_blc_title', label: 'Title'}
+                - { property: 'second_blc_sub_title', label: 'Subtitle'}
+                - { property: 'second_blc_description', label: 'Description'}
+                - { type: 'tab', label: 'List block', icon: 'list-ol' }
+                - { property: 'listName', label: 'List title'}
+                - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+        Equipment:
+            class: BackendBundle\Entity\Equipment
+            list:
+              fields:
+                - id
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+            form:
+              fields:
+                - { type: 'tab', label: 'First content block', icon: 'list-ol' }
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Left list', icon: 'list-ol' }
+                - { property: 'listName', label: 'List title'}
+                - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItemEq', by_reference: false } }
+                - { type: 'tab', label: 'Right list', icon: 'list-ol' }
+                - { property: 'listright_blc_title', label: 'Title'}
+                - { property: 'listright_blc_sub_title', label: 'Subtitle'}
+                - { property: 'listright_blc_description', label: 'Description'}
+                - { property: 'listrigth', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewRListItemEq', by_reference: false } }
+                - { type: 'tab', label: 'Paralax', css_class: 'col-sm-6', icon: 'image'}
+                - { property: 'paralax_blc_title', label: 'Title'}
+                - { property: 'paralax_blc_sub_title', label: 'Subtitle'}
+                - { property: 'paralax_blc_description', label: 'Description'}
+                - { type: 'tab', label: 'Block after paralax', icon: 'list-ol' }
+                - { property: 'second_blc_title', label: 'Title'}
+                - { property: 'second_blc_sub_title', label: 'Subtitle'}
+                - { property: 'second_blc_description', label: 'Description'}
+        Offers:
+            class: BackendBundle\Entity\Offers
+            list:
+              fields:
+                - id
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+            form:
+              fields:
+                - { type: 'tab', label: 'First content block', icon: 'list-ol' }
+                - { property: 'first_blc_title', label: 'Title'}
+                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+                - { property: 'first_blc_description', label: 'Description'}
+                - { property: 'imageFile', type: 'vich_image' }
+                - { type: 'tab', label: 'Left list', icon: 'list-ol' }
+                - { property: 'listName', label: 'List title'}
+                - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+                - { type: 'tab', label: 'Right list', icon: 'list-ol' }
+                - { property: 'listright_blc_title', label: 'Title'}
+                - { property: 'listright_blc_sub_title', label: 'Subtitle'}
+                - { property: 'listright_blc_description', label: 'Description'}
+                - { property: 'listrigth', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+                - { type: 'tab', label: 'Articles', icon: 'exchange' }
+                - { property: 'article', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewArticle', by_reference: false } }

@@ -8,11 +8,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="BackendBundle\Entity\Repository\CorporatePhilosophyRepository")
- * @ORM\Table(name="corporate_philosophy_table")
+ * @ORM\Entity(repositoryClass="BackendBundle\Entity\Repository\EquipmentRepository")
+ * @ORM\Table(name="equipment_table")
  * @Vich\Uploadable
  */
-class CorporatePhilosophy
+class Equipment
 {
     /**
      * @ORM\Id
@@ -24,7 +24,7 @@ class CorporatePhilosophy
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\ListItem", mappedBy="corpphilos", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\ListItem", mappedBy="equipleft", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $list;
 
@@ -38,7 +38,7 @@ class CorporatePhilosophy
 
     public function addList(ListItem $sl)
     {
-        $sl->setCorpPhilos($this);
+        $sl->setEquipleft($this);
         $this->list->add($sl);
     }
 
@@ -46,6 +46,7 @@ class CorporatePhilosophy
     {
         $this->list->removeElement($sl);
     }
+
 
     /**
      * @return \DateTime
@@ -67,8 +68,12 @@ class CorporatePhilosophy
     public function __construct()
     {
         $this->list = new  ArrayCollection();
+        $this->listrigth = new ArrayCollection();
+
         $this->updatedAt = new \DateTime('now');
     }
+
+    /*AFTER SLIDER*/
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -103,6 +108,9 @@ class CorporatePhilosophy
      */
     private $updatedAt;
 
+
+    /*BEFORE PARALAX*/
+
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -123,6 +131,122 @@ class CorporatePhilosophy
      */
     private $listName;
 
+    /*PARALAX*/
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $paralax_blc_title;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $paralax_blc_sub_title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $paralax_blc_description;
+
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $listright_blc_title;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $listright_blc_sub_title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $listright_blc_description;
+
+    /**
+     * @return mixed
+     */
+    public function getListrightBlcTitle()
+    {
+        return $this->listright_blc_title;
+    }
+
+    /**
+     * @param mixed $listright_blc_title
+     */
+    public function setListrightBlcTitle($listright_blc_title)
+    {
+        $this->listright_blc_title = $listright_blc_title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListrightBlcSubTitle()
+    {
+        return $this->listright_blc_sub_title;
+    }
+
+    /**
+     * @param mixed $listright_blc_sub_title
+     */
+    public function setListrightBlcSubTitle($listright_blc_sub_title)
+    {
+        $this->listright_blc_sub_title = $listright_blc_sub_title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListrightBlcDescription()
+    {
+        return $this->listright_blc_description;
+    }
+
+    /**
+     * @param mixed $listright_blc_description
+     */
+    public function setListrightBlcDescription($listright_blc_description)
+    {
+        $this->listright_blc_description = $listright_blc_description;
+    }
+
+
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\ListItem", mappedBy="equipright", cascade={"persist", "remove"})
+     */
+    private $listrigth;
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getListrigth()
+    {
+        return $this->listrigth;
+    }
+    /**
+     * @param \Doctrine\Common\Collections\Collection $article
+     */
+    public function setListrigth(\Doctrine\Common\Collections\Collection $article)
+    {
+        $this->list = $article;
+    }
+
+    public function addListrigth(ListItem $sl)
+    {
+        $sl->setEquipright($this);
+        $this->listrigth->add($sl);
+    }
+
+    public function removeListrigth(ListItem $sl)
+    {
+        $this->list->removeElement($sl);
+    }
+
+
     /**
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -130,6 +254,7 @@ class CorporatePhilosophy
     {
         return $this->list;
     }
+
 
     /**
      * @return mixed
@@ -146,6 +271,11 @@ class CorporatePhilosophy
     {
         $this->listName = $listName;
     }
+
+
+    /*AFTER PARALAX*/
+    ///TODO: AFTER PARALAX
+
 
     /**
      * @return mixed
@@ -251,6 +381,54 @@ class CorporatePhilosophy
         $this->second_blc_description = $second_blc_description;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getParalaxBlcTitle()
+    {
+        return $this->paralax_blc_title;
+    }
+
+    /**
+     * @param mixed $paralax_blc_title
+     */
+    public function setParalaxBlcTitle($paralax_blc_title)
+    {
+        $this->paralax_blc_title = $paralax_blc_title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParalaxBlcSubTitle()
+    {
+        return $this->paralax_blc_sub_title;
+    }
+
+    /**
+     * @param mixed $paralax_blc_sub_title
+     */
+    public function setParalaxBlcSubTitle($paralax_blc_sub_title)
+    {
+        $this->paralax_blc_sub_title = $paralax_blc_sub_title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParalaxBlcDescription()
+    {
+        return $this->paralax_blc_description;
+    }
+
+    /**
+     * @param mixed $paralax_blc_description
+     */
+    public function setParalaxBlcDescription($paralax_blc_description)
+    {
+        $this->paralax_blc_description = $paralax_blc_description;
+    }
+
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
@@ -278,5 +456,6 @@ class CorporatePhilosophy
     {
         return $this->image;
     }
+
 
 }
