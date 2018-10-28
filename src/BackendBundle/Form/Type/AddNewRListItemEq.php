@@ -11,24 +11,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
-class AddNewSlide extends AbstractType
+class AddNewRListItemEq extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
-        $builder->add('description', TextareaType::class);
-        $builder->add('imageFile', VichImageType::class, [
-            'required' => false,
-            'allow_delete' => true,
-        ]);
-        $builder->add('imageFile_520', VichImageType::class, [
-            'required' => false,
-            'allow_delete' => true,
-        ]);
-        $builder->add('imageFile_960', VichImageType::class, [
-            'required' => false,
-            'allow_delete' => true,
-        ]);
     }
 
     /**
@@ -37,11 +24,11 @@ class AddNewSlide extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackendBundle\Entity\Slider'
+            'data_class' => 'BackendBundle\Entity\ListItem'
         ));
     }
 
     public function getName() {
-        return 'add_slide';
+        return 'add_item';
     }
 }

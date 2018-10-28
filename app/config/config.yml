@@ -8,7 +8,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app.path.first_blc_images: /uploads/images/firstblchome
+    app.path.first_blc_images: /uploads/images/firstblc
     app.path.slider_images: /uploads/images/slider
     app.path.service_images: /uploads/images/service
 
@@ -17,7 +17,7 @@ vich_uploader:
   mappings:
       first_blc_images:
           uri_prefix:         '%app.path.first_blc_images%'
-          upload_destination: '%kernel.root_dir%/../web/uploads/images/firstblchome'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/firstblc'
       slider_images:
           uri_prefix:         '%app.path.slider_images%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/slider'

@@ -3,6 +3,8 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Article;
+use BackendBundle\Entity\CorporatePhilosophy;
+use BackendBundle\Entity\Equipment;
 use BackendBundle\Entity\HomePage;
 use BackendBundle\Entity\Seo;
 use BackendBundle\Entity\Slider;
@@ -199,16 +201,17 @@ class ApiController extends Controller
 
                 $data = $em->getRepository(Slider::class)->findBy(['homepage' => $homepage->getId()]);
 
-                foreach ($data as $slide) {
-                    $currImg = '../web/' . $this->container->getParameter('app.path.slider_images') . '/' . $slide->getImage();
-                    //full, 960, 520
-                    $temp[] = [$this->reSize($currImg, $block, $slide->getId(), 520), $this->reSize($currImg, $block, $slide->getId(), 960)];
-                }
+//                foreach ($data as $slide) {
+//                    $currImg = '../web/' . $this->container->getParameter('app.path.slider_images') . '/' . $slide->getImage();
+//                    //full, 960, 520
+////                    $temp[] = [$this->reSize($currImg, $block, $slide->getId(), 520), $this->reSize($currImg, $block, $slide->getId(), 960)];
+//                    $temp[] = 'uju';
+//                }
+//
+////                dump($temp);die;
+//                array_push($data, $temp);
 
-//                dump($temp);die;
-                array_push($data, $temp);
-
-                return $this->formalizeJSONResponse($data, ['homepage', 'updatedAt', 'imageFile']);
+                return $this->formalizeJSONResponse($data, ['homepage', 'updatedAt', 'imageFile', 'imageFile_520', 'imageFile_960']);
                 break;
             case 'red':
                 $temp = [];
@@ -243,5 +246,105 @@ class ApiController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        switch ($block) {
+            case 'red':
+                $data = $em->getRepository(CorporatePhilosophy::class)->getRedBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'white':
+                $data = $em->getRepository(CorporatePhilosophy::class)->getWhiteBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'list':
+                $data = $em->getRepository(CorporatePhilosophy::class)->getListBlock();
+                $items = $em->getRepository(CorporatePhilosophy::class)->getListItemBlock();
+                array_push($data, $items);
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            default:
+                return $this->formalizeJSONResponse(null);
+        }
+    }
+
+    /**
+     * @Route("/api/v1/page/equipment/{block}", name="api-get-equipment-page-blocks", methods={"GET","POST"})
+     */
+    public function getContentEquipment($block)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        switch ($block) {
+            case 'white':
+                $data = $em->getRepository(Equipment::class)->getWhiteBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'list-left':
+                $data = $em->getRepository(Equipment::class)->getLeftListBlock();
+                $items = $em->getRepository(Equipment::class)->getLeftListItemBlock();
+                array_push($data, $items);
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'list-right':
+                $data = $em->getRepository(Equipment::class)->getRigthListBlock();
+                $items = $em->getRepository(Equipment::class)->getRigthListItemBlock();
+                array_push($data, $items);
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'paralax':
+                $data = $em->getRepository(Equipment::class)->getParalaxBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'additional':
+                $data = $em->getRepository(Equipment::class)->getAdditionalBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            default:
+                return $this->formalizeJSONResponse(null);
+        }
+    }
+
+
+    /**
+     * @Route("/api/v1/page/offers/{block}", name="api-get-offers-page-blocks", methods={"GET","POST"})
+     */
+    public function getContentOffer($block)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        switch ($block) {
+            case 'white':
+                $data = $em->getRepository(Equipment::class)->getWhiteBlock();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'list-left':
+                $data = $em->getRepository(Equipment::class)->getLeftListBlock();
+                $items = $em->getRepository(Equipment::class)->getLeftListItemBlock();
+                array_push($data, $items);
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'list-right':
+                $data = $em->getRepository(Equipment::class)->getRigthListBlock();
+                $items = $em->getRepository(Equipment::class)->getRigthListItemBlock();
+                array_push($data, $items);
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'articles':
+                $data = $em->getRepository(Article::class)->findBy(['offers' => $homepage->getId()]);
+                return $this->formalizeJSONResponse($data, ['homepage']);
+                break;
+            default:
+                return $this->formalizeJSONResponse(null);
+        }
     }
 }
