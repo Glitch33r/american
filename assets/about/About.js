@@ -4,6 +4,7 @@ import MeetUsBlock from "./MeetUsBlock";
 import BlackBlock from "./BlackBlock";
 import ParalaxBlock from "./ParalaxBlock";
 import ArticlesBlock from "./ArticlesBlock";
+import  axios  from 'axios'
 
 import Seo from "../components/seo/Seo";
 
@@ -21,8 +22,8 @@ class About extends Component {
 
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/seo/about';
-        fetch(url)
-            .then(response => response.json())
+        axios.get(url)
+            .then(response => response.data)
             .then(data =>this.setState({seo: data}))
     }
 

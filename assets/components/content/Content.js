@@ -5,6 +5,7 @@ import Equipment from "../../equipment/Equipment"
 import Offers from "../../offers/Offers"
 import Contacts from "../../contacts/Contscts"
 import { Route } from 'react-router-dom';
+import Aos from "aos";
 
 class Content extends Component {
 
@@ -19,6 +20,9 @@ class Content extends Component {
 
 
     render() {
+
+        Aos.init();
+
         return (
             <React.Fragment>
 

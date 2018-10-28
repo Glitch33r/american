@@ -6,6 +6,7 @@ import BlackBlock from "./BlackBlock";
 import ArticlesBlock from "./ArticlesBlock";
 // import ServiseBlock from "./ServiseBlock";
 // import ContactBlock from "./ContactBlock";
+import  axios  from 'axios'
 
 import Seo from "../components/seo/Seo";
 
@@ -34,35 +35,35 @@ class Offers extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        fetch(url + "seo/offers")
-            .then(response => response.json())
+        axios.get(url + "seo/offers")
+            .then(response => response.data)
             .then(data =>this.setState({seo: data}));
 
-        fetch(url + "page/home/articles")
-            .then(response => response.json())
+        axios.get(url + "page/home/articles")
+            .then(response => response.data)
             .then(data =>this.setState({articlesBlock: data}));
 
-        // fetch(url + "seo/home")
-        //     .then(response => response.json())
+        // axios.get(url + "seo/home")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({seo: data}));
         //
         // // delete this.state.slider;
         //
         //
-        // fetch(url + "page/home/red")
-        //     .then(response => response.json())
+        // axios.get(url + "page/home/red")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({imageBlock: data}));
-        // fetch(url + "page/home/black")
-        //     .then(response => response.json())
+        // axios.get(url + "page/home/black")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({blackBlock: data}));
-        // fetch(url + "page/home/list")
-        //     .then(response => response.json())
+        // axios.get(url + "page/home/list")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({blackBlockList: data}));
-        // fetch(url + "page/home/paralax")
-        //     .then(response => response.json())
+        // axios.get(url + "page/home/paralax")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({paralaxBlock: data}));
-        // fetch(url + "page/home/articles")
-        //     .then(response => response.json())
+        // axios.get(url + "page/home/articles")
+        //     .then(response => response.data)
         //     .then(data =>this.setState({articlesBlock: data}));
     }
 

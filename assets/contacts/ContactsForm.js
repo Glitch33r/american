@@ -2,12 +2,29 @@ import React, { Component } from "react";
 
 class ContactsForm extends Component {
 
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const data = new FormData(form);
+
+        for (let name of data.keys()) {
+            const input = form.elements[name];
+            // const parserName = input.dataset.parse;
+            console.log(input.value);
+        }
+        // console.log(data.name);
+    }
 
     render() {
         return (
             <div>
                 <section className="block contact-block">
-                    <div className="contacts-form__fields">
+                    <form className="contacts-form__fields" onSubmit={this.handleSubmit}>
                         <h2 className="contacts-form__title block__title">CONTACT US</h2>
                         <div className="contacts-form__inputs">
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
@@ -34,8 +51,10 @@ class ContactsForm extends Component {
                             <textarea name="message" id="message-filed" defaultValue={""} />
                             <label htmlFor="message-filed">Message</label>
                         </div>
-                        <div className="contacts-form__buttons"><a className="block__button block__button--red block__button--contacts" href="#">SEND</a></div>
-                    </div>
+                        <div className="contacts-form__buttons">
+                            <button className="block__button block__button--red block__button--contacts" href="#">SEND</button>
+                        </div>
+                    </form>
                     <div className="block__contacts">
                         <div className="block__contacts-wrap">
                             <h2 className="block__title">CONTACTS</h2>

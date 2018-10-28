@@ -2,10 +2,13 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.20.1",
+    "aos": "^2.3.4",
+    "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-headroom": "^2.2.4",
     "react-meta-tags": "^0.7.1",
     "react-responsive-carousel": "^3.1.43",
     "react-responsive-image": "^4.0.0",

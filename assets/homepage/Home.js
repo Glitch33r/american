@@ -7,6 +7,9 @@ import ParalaxBlock from "./ParalaxBlock";
 import ArticlesBlock from "./ArticlesBlock";
 import ServiseBlock from "./ServiseBlock";
 import ContactBlock from "./ContactBlock";
+import  axios  from 'axios'
+
+
 
 import Seo from "../components/seo/Seo";
 
@@ -34,34 +37,34 @@ class Home extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        fetch(url + "seo/home")
-            .then(response => response.json())
+        axios.get(url + "seo/home")
+            .then(response => response.data)
             .then(data =>this.setState({seo: data}));
 
         // delete this.state.slider;
         // this.setState({slider: []});
-        fetch(url + "page/home/slider")
-            .then(response => response.json())
+        axios.get(url + "page/home/slider")
+            .then(response => response.data)
             .then(data => this.setState({slider: data}));
 
-        fetch(url + "page/home/red")
-            .then(response => response.json())
+        axios.get(url + "page/home/red")
+            .then(response => response.data)
             .then(data =>this.setState({imageBlock: data}));
 
-        fetch(url + "page/home/black")
-            .then(response => response.json())
+        axios.get(url + "page/home/black")
+            .then(response => response.data)
             .then(data =>this.setState({blackBlock: data}));
 
-        fetch(url + "page/home/list")
-            .then(response => response.json())
+        axios.get(url + "page/home/list")
+            .then(response => response.data)
             .then(data =>this.setState({blackBlockList: data}));
 
-        fetch(url + "page/home/paralax")
-            .then(response => response.json())
+        axios.get(url + "page/home/paralax")
+            .then(response => response.data)
             .then(data =>this.setState({paralaxBlock: data}));
 
-        fetch(url + "page/home/articles")
-            .then(response => response.json())
+        axios.get(url + "page/home/articles")
+            .then(response => response.data)
             .then(data =>this.setState({articlesBlock: data}));
     }
 
@@ -74,6 +77,7 @@ class Home extends Component {
         if( this.state.slider.length == 0 )  {
             loading = false;
         }
+
 
         // console.log(this.state.imageBlock);
         // console.log(this.state.blackBlock);
@@ -94,7 +98,7 @@ class Home extends Component {
 
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                     { loading ? <div>
-                        <AnimationFunc />
+                        {/*<AnimationFunc />*/}
                         <HomeSlider arrSlider = { this.state.slider } />
                         <ImageBlock imageBlock = { this.state.imageBlock } />
                         <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />

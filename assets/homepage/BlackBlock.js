@@ -14,6 +14,7 @@ class BlackBlock extends Component {
 
 
     render() {
+
         return (
             <React.Fragment>
                 <section className="block black-block">
@@ -21,15 +22,15 @@ class BlackBlock extends Component {
                     {
                         this.props.blackBlock.map((item, index) =>
                             <div className="block__wrap" key = {index}>
-                                <div className="block__content">
-                                    <h2 className="block__title aos-init" id={'aos-init'} data-aos="fade-up" data-aos-anchor-placement="top-bottom">{ item.second_blc_title }</h2>
+                                <div className="block__content aos-init" data-aos="fade-up" >
+                                    <h2 className="block__title"  >{ item.second_blc_title }</h2>
                                     <h3 className="block__subtitle aos-init">{ item.second_blc_sub_title }</h3>
                                     <p className="block__desc block__desc--small-margin">{ item.second_blc_description }</p>
                                     <a className="block__button block__button--red" href="#">READ MORE</a>
                                 </div>
                                 <div className="block__right">
 
-                                    <h2 className="block__title block__title--with80">{
+                                    <h2 className="block__title block__title--with80 aos-init" data-aos="fade-left">{
                                         this.props.blackBlockList.map((item, index) =>
                                             <span key={index}>
                                                 { index == 0 ? item.listName : '' }
@@ -40,7 +41,7 @@ class BlackBlock extends Component {
                                     <ul className="block__list" key={index}>
                                     {
                                         this.props.blackBlockList.map((item, index) =>
-                                            <li className="block__list-item" key={index}><a className="block__list-link" href="#">{ item.title }</a></li>
+                                            <li className="block__list-item" key={index}><a className="block__list-link aos-init" data-aos="fade-left" href="#">{ item.title }</a></li>
                                         )
                                     }
                                     </ul>
