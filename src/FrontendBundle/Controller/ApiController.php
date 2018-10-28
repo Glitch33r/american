@@ -3,6 +3,7 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Article;
+use BackendBundle\Entity\Contacts;
 use BackendBundle\Entity\CorporatePhilosophy;
 use BackendBundle\Entity\Equipment;
 use BackendBundle\Entity\HomePage;
@@ -348,5 +349,16 @@ class ApiController extends Controller
             default:
                 return $this->formalizeJSONResponse(null);
         }
+    }
+
+    /**
+     * @Route("/api/v1/page/contacts", name="api-get-contacts-page", methods={"GET","POST"})
+     */
+    public function getContacts()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository(Contacts::class)->findAll()[0];
+
+        return $this->formalizeJSONResponse($data, ['id']);
     }
 }
