@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
-import ImageBlock from "./ImageBlock";
+import WhiteBlock from "./WhiteBlock";
 import BlackBlock from "./BlackBlock";
 import ParalaxBlock from "./ParalaxBlock";
 import ArticlesBlock from "./ArticlesBlock";
@@ -19,16 +19,13 @@ class Equipment extends Component {
 
         this.state = {
             seo: [],
-            slider: [],
-            imageBlock: [],
-            blackBlock: [],
-            blackBlockList: [],
-            paralaxBlock: [],
-            articlesBlock: [],
-            load: 'load sweet-loading',
-
+            whiteBlock: [],
+            listLeft: [],
+            listRight: [],
+            paralax: [],
+            additional: [],
         };
-        this.loadContent = this.loadContent.bind(this);
+
         this.componentDidMount = this.componentDidMount.bind(this);
     }
 
@@ -38,34 +35,17 @@ class Equipment extends Component {
         axios.get(url + "seo/equipment")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
+        axios.get('/api/v1/page/equipment/white')
+            .then(response => this.setState({whiteBlock: response.data}));
+        axios.get('/api/v1/page/equipment/list-left')
+            .then(response => this.setState({listLeft: response.data}));
+        axios.get('/api/v1/page/equipment/list-right')
+            .then(response => this.setState({listRight: response.data}));
+        axios.get('/api/v1/page/equipment/paralax')
+            .then(response => this.setState({paralax: response.data}));
+        axios.get('/api/v1/page/equipment/additional')
+            .then(response => this.setState({additional: response.data}));
 
-
-        // axios.get(url + "seo/home")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({seo: data}));
-        //
-        // // delete this.state.slider;
-        //
-        //
-        // axios.get(url + "page/home/red")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({imageBlock: data}));
-        // axios.get(url + "page/home/black")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlock: data}));
-        // axios.get(url + "page/home/list")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlockList: data}));
-        // axios.get(url + "page/home/paralax")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({paralaxBlock: data}));
-        // axios.get(url + "page/home/articles")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({articlesBlock: data}));
-    }
-
-    loadContent () {
-        this.setState({load: 'loading-success sweet-loading'});
     }
 
     render() {
@@ -89,17 +69,13 @@ class Equipment extends Component {
                     />
                 </div>
 
-                {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                 { loading ? <div>
                     <Breadcrumbs seo={this.state.seo}/>
-                    <ImageBlock imageBlock = { this.state.imageBlock } />
-                    <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />
-                    <ParalaxBlock paralaxBlock = { this.state.paralaxBlock } />
-                    <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
-                    {/*<ServiseBlock/>*/}
-                    {/*<ContactBlock/>*/}
+                    <WhiteBlock whiteBlock = { this.state.whiteBlock } />
+                    <BlackBlock listLeft = { this.state.listLeft } listRight = { this.state.listRight } />
+                    <ParalaxBlock paralax = { this.state.paralax } />
+                    <ArticlesBlock additional = { this.state.additional } />
                 </div> : "" }
-                {/*</div>*/}
                 <Seo seo={this.state.seo}/>
 
 

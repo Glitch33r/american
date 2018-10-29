@@ -35,7 +35,7 @@ class Contscts extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        axios.get(url + "seo/contact-us")
+        axios.get(url + "seo/contacts")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
 

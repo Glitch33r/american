@@ -20,56 +20,31 @@ class Offers extends Component {
         this.state = {
             seo: [],
             slider: [],
-            imageBlock: [],
+            whiteBlock: [],
             blackBlock: [],
-            blackBlockList: [],
-            paralaxBlock: [],
             articlesBlock: [],
-            load: 'load sweet-loading',
 
         };
-        this.loadContent = this.loadContent.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        axios.get(url + "seo/offers")
+        axios.get(url + "seo/for-drivers")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
-
+        axios.get('/api/v1/page/offers/white')
+            .then(response => this.setState({whiteBlock: response.data}));
+        axios.get('/api/v1/page/offers/list-left')
+            .then(response => this.setState({listLeft: response.data}));
+        axios.get('/api/v1/page/offers/list-right')
+            .then(response => this.setState({listRight: response.data}));
         axios.get(url + "page/home/articles")
             .then(response => response.data)
             .then(data =>this.setState({articlesBlock: data}));
-
-        // axios.get(url + "seo/home")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({seo: data}));
-        //
-        // // delete this.state.slider;
-        //
-        //
-        // axios.get(url + "page/home/red")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({imageBlock: data}));
-        // axios.get(url + "page/home/black")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlock: data}));
-        // axios.get(url + "page/home/list")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlockList: data}));
-        // axios.get(url + "page/home/paralax")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({paralaxBlock: data}));
-        // axios.get(url + "page/home/articles")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({articlesBlock: data}));
     }
 
-    loadContent () {
-        this.setState({load: 'loading-success sweet-loading'});
-    }
 
     render() {
         let loading = true;
@@ -92,14 +67,12 @@ class Offers extends Component {
                     />
                 </div>
 
-                {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                 { loading ? <div>
                     <Breadcrumbs seo={this.state.seo}/>
-                    <ImageBlock imageBlock = { this.state.imageBlock } />
-                    <BlackBlock blackBlock = { this.state.blackBlock } blackBlockList = { this.state.blackBlockList } />
+                    <ImageBlock whiteBlock = { this.state.whiteBlock } />
+                    <BlackBlock listLeft = { this.state.listLeft } listRight = { this.state.listRight } />
                     <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
                 </div> : "" }
-                {/*</div>*/}
                 <Seo seo={this.state.seo}/>
 
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import MeetUsBlock from "./MeetUsBlock";
 import BlackBlock from "./BlackBlock";
-import ParalaxBlock from "./ParalaxBlock";
+import RedBlock from "./RedBlock";
 import ArticlesBlock from "./ArticlesBlock";
 import  axios  from 'axios'
 
@@ -16,15 +16,25 @@ class About extends Component {
         super(props);
 
         this.state = {
-            seo: []
+            seo: [],
+            whiteBlock: [],
+            blackBlock: [],
+            redBlock: [],
         }
     }
 
     componentDidMount() {
-        let url = 'http://' + this.props.domain + '/api/v1/seo/about';
+        let url = 'http://' + this.props.domain + '/api/v1/seo/corporate-philosophy';
         axios.get(url)
             .then(response => response.data)
-            .then(data =>this.setState({seo: data}))
+            .then(data =>this.setState({seo: data}));
+
+        axios.get('/api/v1/page/corp-philosophy/white')
+            .then(response => this.setState({whiteBlock: response.data}));
+        axios.get('/api/v1/page/corp-philosophy/list')
+            .then(response => this.setState({blackBlock: response.data}));
+        axios.get('/api/v1/page/corp-philosophy/red')
+            .then(response => this.setState({redBlock: response.data}));
     }
 
     render() {
@@ -47,10 +57,10 @@ class About extends Component {
                 <Seo seo={this.state.seo}/>
                 { loading ?
                     <div>
-                        <Breadcrumbs seo={this.state.seo}/>
-                        <MeetUsBlock/>
-                        <BlackBlock/>
-                        <ParalaxBlock/>
+                        <Breadcrumbs seo={ this.state.seo }/>
+                        <MeetUsBlock whiteBlock={ this.state.whiteBlock }/>
+                        <BlackBlock blackBlock = { this.state.blackBlock }/>
+                        <RedBlock redBlock = { this.state.redBlock }/>
                         {/*<ArticlesBlock/>*/}
                     </div>
                     : ""
