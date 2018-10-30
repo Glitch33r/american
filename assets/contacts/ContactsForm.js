@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import  axios  from 'axios'
 
 class ContactsForm extends Component {
 
@@ -17,14 +18,25 @@ class ContactsForm extends Component {
             // const parserName = input.dataset.parse;
             console.log(input.value);
         }
+
+        axios({
+            method: 'post',
+            url: 'http://american.truck.origami.ua/api/v1/page/contacts/submit',
+            data: data,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+        })
+        .then(function (response) {
+            //handle success
+            console.log(response);
+        })
         // console.log(data.name);
 
-        var popUp = document.getElementsByClassName('pop-up-wrap')[0];
-        popUp.classList.add('open');
-
-        setTimeout(function () {
-            popUp.classList.remove('open');
-        }, 3000);
+        // var popUp = document.getElementsByClassName('pop-up-wrap')[0];
+        // popUp.classList.add('open');
+        //
+        // setTimeout(function () {
+        //     popUp.classList.remove('open');
+        // }, 3000);
     }
 
 
