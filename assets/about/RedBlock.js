@@ -15,9 +15,9 @@ class RedBlock extends Component {
                         { this.props.redBlock.map((item, index) =>
 
                         <div className="block__content block__content--w65" key={index}>
-                            <h2 className="block__title">{ item.second_blc_title }</h2>
-                            <h3 className="block__subtitle">{ item.second_blc_sub_title }</h3>
-                            <p className="block__desc">{ item.second_blc_description }</p>
+                            <h2 className="block__title aos-init" data-aos="fade-left">{ item.second_blc_title }</h2>
+                            <h3 className="block__subtitle aos-init" data-aos="fade-left">{ item.second_blc_sub_title }</h3>
+                            <p className="block__desc aos-init" data-aos="fade-left">{ item.second_blc_description }</p>
                         </div>
 
                         ) }

@@ -4,6 +4,7 @@ import About from "../../about/About";
 import Equipment from "../../equipment/Equipment"
 import Offers from "../../offers/Offers"
 import Contacts from "../../contacts/Contscts"
+import Article from "../../article/Article"
 import { Route } from 'react-router-dom';
 import Aos from "aos";
 
@@ -29,7 +30,7 @@ class Content extends Component {
 
                     <Route  exact path="/app_dev.php" render = {() => (<Home  domain = { this.state.domain } />)}  />
                     <Route  exact path="/" render = {() => (<Home  domain = { this.state.domain } />)} />
-
+                    <Route  exact path="/article" render = {() => (<Article  domain = { this.state.domain } />)} />
                     <Route  exact path="/about" render = {() => (<About  domain = { this.state.domain } />)} />
                     <Route  exact path="/equipment" render = {() => (<Equipment  domain = { this.state.domain } />)} />
                     <Route  exact path="/offers" render = {() => (<Offers  domain = { this.state.domain } />)} />

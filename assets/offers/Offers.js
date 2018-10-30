@@ -21,7 +21,8 @@ class Offers extends Component {
             seo: [],
             slider: [],
             whiteBlock: [],
-            blackBlock: [],
+            listLeft: [],
+            listRight: [],
             articlesBlock: [],
 
         };

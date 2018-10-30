@@ -49,9 +49,9 @@ class Equipment extends Component {
     }
 
     render() {
-        let loading = true;
-        if( this.state.seo.length == 0 )  {
-            loading = false;
+        let loading = false;
+        if( this.state.seo.length != 0 && this.state.whiteBlock.length != 0 )  {
+            loading = true;
         }
 
         return (

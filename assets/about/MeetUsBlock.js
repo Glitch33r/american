@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class MeetUsBlock extends Component {
 
@@ -19,7 +20,7 @@ class MeetUsBlock extends Component {
                         <p className="team-block__left_desc desc--margin">
                             { item.first_blc_description }
                         </p>
-
+                        <NavLink className="block__button block__button--red" exact to="/article" >READ MORE</NavLink>
                     </div>
 
                     ) }

@@ -7,7 +7,7 @@ import ParalaxBlock from "./ParalaxBlock";
 import ArticlesBlock from "./ArticlesBlock";
 import ServiseBlock from "./ServiseBlock";
 import ContactBlock from "./ContactBlock";
-import  axios  from 'axios'
+import  axios  from 'axios';
 
 
 

@@ -14,12 +14,12 @@ class ContactBlock extends Component {
                     </div>
                     <div className="block__contacts">
                         <div className="block__contacts-wrap">
-                            <h2 className="block__title">CONTACTS</h2>
-                            <h3 className="block__subtitle">4578 MARMORA ROAD, GLASGOW D04 89GR</h3>
-                            <p className="block__desc">It doesn't matter where do you live. Call us and we’ll help to solve all of your problems. The support team is waiting for your calls 24 hours a day, 7 days per week. Or connect us via email.</p>
-                            <a className="block__contacts-btn block__contacts-btn--facebook" href="#" />
-                            <a className="block__contacts-btn block__contacts-btn--twitter" href="#" />
-                            <a className="block__contacts-btn block__contacts-btn--google" href="#" />
+                            <h2 className="block__title aos-init" data-aos="fade-down">CONTACTS</h2>
+                            <h3 className="block__subtitle aos-init" data-aos="fade-left">4578 MARMORA ROAD, GLASGOW D04 89GR</h3>
+                            <p className="block__desc aos-init" data-aos="fade-left">It doesn't matter where do you live. Call us and we’ll help to solve all of your problems. The support team is waiting for your calls 24 hours a day, 7 days per week. Or connect us via email.</p>
+                            <a className="block__contacts-btn block__contacts-btn--facebook aos-init" data-aos="fade-left" href="#" />
+                            <a className="block__contacts-btn block__contacts-btn--twitter aos-init" data-aos="fade-left" href="#" />
+                            <a className="block__contacts-btn block__contacts-btn--google aos-init" data-aos="fade-left" href="#" />
                         </div>
                     </div>
                 </section>

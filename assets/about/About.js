@@ -3,7 +3,6 @@ import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import MeetUsBlock from "./MeetUsBlock";
 import BlackBlock from "./BlackBlock";
 import RedBlock from "./RedBlock";
-import ArticlesBlock from "./ArticlesBlock";
 import  axios  from 'axios'
 
 import Seo from "../components/seo/Seo";
@@ -38,9 +37,9 @@ class About extends Component {
     }
 
     render() {
-        let loading = true;
-        if( this.state.seo.length == 0 )  {
-            loading = false;
+        let loading = false;
+        if( this.state.seo.length != 0 && this.state.whiteBlock.length != 0 )  {
+             loading = true;
         }
 
 
@@ -61,7 +60,6 @@ class About extends Component {
                         <MeetUsBlock whiteBlock={ this.state.whiteBlock }/>
                         <BlackBlock blackBlock = { this.state.blackBlock }/>
                         <RedBlock redBlock = { this.state.redBlock }/>
-                        {/*<ArticlesBlock/>*/}
                     </div>
                     : ""
                 }

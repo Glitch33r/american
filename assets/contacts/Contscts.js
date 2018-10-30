@@ -19,16 +19,10 @@ class Contscts extends Component {
 
         this.state = {
             seo: [],
-            slider: [],
-            imageBlock: [],
-            blackBlock: [],
-            blackBlockList: [],
-            paralaxBlock: [],
-            articlesBlock: [],
-            load: 'load sweet-loading',
+            contactBlock: [],
+
 
         };
-        this.loadContent = this.loadContent.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
     }
 
@@ -38,35 +32,11 @@ class Contscts extends Component {
         axios.get(url + "seo/contacts")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
-
-
-        // axios.get(url + "seo/home")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({seo: data}));
-        //
-        // // delete this.state.slider;
-        //
-        //
-        // axios.get(url + "page/home/red")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({imageBlock: data}));
-        // axios.get(url + "page/home/black")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlock: data}));
-        // axios.get(url + "page/home/list")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({blackBlockList: data}));
-        // axios.get(url + "page/home/paralax")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({paralaxBlock: data}));
-        // axios.get(url + "page/home/articles")
-        //     .then(response => response.data)
-        //     .then(data =>this.setState({articlesBlock: data}));
+        axios.get(url + "page/contacts")
+            .then(response => response.data)
+            .then(data =>this.setState({contactBlock: data}));
     }
 
-    loadContent () {
-        this.setState({load: 'loading-success sweet-loading'});
-    }
 
     render() {
         let loading = true;
@@ -77,27 +47,19 @@ class Contscts extends Component {
         return (
 
             <React.Fragment>
-
-
-
                 <div className={ loading ? "loading-success sweet-loading" : 'load sweet-loading' }>
                     <ClipLoader
-                        sizeUnit={"px"}
-                        size={150}
-                        color={'#123abc'}
-                        loading={this.state.loading}
+                        sizeUnit={ "px" }
+                        size={ 150 }
+                        color={ '#123abc' }
+                        loading={ this.state.loading }
                     />
                 </div>
 
-                {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                 { loading ? <div>
-                    <Breadcrumbs seo={this.state.seo}/>
-                    <ContactsForm />
-                    {/*<ServiseBlock/>*/}
-                    {/*<ContactBlock/>*/}
+                    <Breadcrumbs seo={ this.state.seo }/>
+                    <ContactsForm contactBlock = { this.state.contactBlock } />
                 </div> : "" }
-                {/*</div>*/}
-                {/*<Seo seo={this.state.seo}/>*/}
 
 
             </React.Fragment>
