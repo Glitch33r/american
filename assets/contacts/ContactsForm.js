@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import  axios  from 'axios'
+import serialize from 'form-serialize';
 
 class ContactsForm extends Component {
 
@@ -11,24 +12,30 @@ class ContactsForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const form = event.target;
-        const data = new FormData(form);
+        // const data = new FormData(form);
+        // const data1 = [];
+        // for (let name of data.keys()) {
+        //     const input = form.elements[name];
+        //     // const parserName = input.dataset.parse;
+        //
+        //     data1[ input.name ] = input.value;
+        // }
+        // console.log(data1);
+        // const form1 = document.getElementsByClassName('contacts-form__fields')[0];
 
-        for (let name of data.keys()) {
-            const input = form.elements[name];
-            // const parserName = input.dataset.parse;
-            console.log(input.value);
-        }
 
+        const str = serialize(form);
+        console.log(str);
         axios({
             method: 'post',
-            url: 'http://american/app_dev.php/api/v1/page/contacts/submit',
-            data: data,
+            url: 'http://american.truck.origami.ua/api/v1/page/contacts/submit',
+            data: str,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         })
-        .then(function (response) {
-            //handle success
-            console.log(response);
-        })
+        // .then(function (response) {
+        //     //handle success
+        //     console.log(response);
+        // })
         // console.log(data.name);
 
         // var popUp = document.getElementsByClassName('pop-up-wrap')[0];
@@ -53,8 +60,8 @@ class ContactsForm extends Component {
     render() {
         return (
             <div>
-                <section className="block contact-block">
-                    <form className="contacts-form__fields" onSubmit={this.handleSubmit}>
+                <section className="block contact-block" >
+                    <form className="contacts-form__fields" name="lol" onSubmit={this.handleSubmit}>
                         <h2 className="contacts-form__title block__title">CONTACT US</h2>
                         <div className="contacts-form__inputs">
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
@@ -68,16 +75,16 @@ class ContactsForm extends Component {
                         </div>
                         <div className="contacts-form__inputs">
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="e-mail"  name="E-mail" onChange={this.handleChange} />
+                                <input type="text" id="e-mail"  name="email" onChange={this.handleChange} />
                                 <label htmlFor="e-mail">E-mail</label>
                             </div>
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="phone-filed"  name="Phone" onChange={this.handleChange} />
+                                <input type="text" id="phone-filed"  name="telephone" onChange={this.handleChange} />
                                 <label htmlFor="phone-filed">Phone</label>
                             </div>
                         </div>
                         <div className="contacts-form__textarea contacts-form__inputs-wrap">
-                            <textarea name="message" id="message-filed" defaultValue={""} onChange={this.handleChange} />
+                            <textarea name="body" id="message-filed" defaultValue={""} onChange={this.handleChange} />
                             <label htmlFor="message-filed">Message</label>
                         </div>
                         <div className="contacts-form__buttons">

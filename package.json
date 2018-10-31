@@ -5,6 +5,7 @@
     "aos": "^2.3.4",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
+    "form-serialize": "^0.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
