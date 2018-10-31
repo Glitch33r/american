@@ -49,7 +49,7 @@ class Slider
     private $image_520;
 
     /**
-     * @Vich\UploadableField(mapping="slider_images", fileNameProperty="image_520")
+     * @Vich\UploadableField(mapping="slider_images_520", fileNameProperty="image_520")
      * @var File
      */
     private $imageFile_520;
@@ -61,7 +61,7 @@ class Slider
     private $image_960;
 
     /**
-     * @Vich\UploadableField(mapping="slider_images", fileNameProperty="image_960")
+     * @Vich\UploadableField(mapping="slider_images_960", fileNameProperty="image_960")
      * @var File
      */
     private $imageFile_960;
@@ -127,13 +127,13 @@ class Slider
     {
         $this->imageFile = $image;
 
-//        // VERY IMPORTANT:
-//        // It is required that at least one field changes if you are using Doctrine,
-//        // otherwise the event listeners won't be called and the file is lost
-//        if ($image) {
-//            // if 'updatedAt' is not defined in your entity, use another property
-//            $this->updatedAt = new \DateTime('now');
-//        }
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     public function getImageFile()
@@ -221,6 +221,11 @@ class Slider
     public function setImageFile520(File $imageFile_520 = null)
     {
         $this->imageFile_520 = $imageFile_520;
+
+        if ($imageFile_520) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     /**
@@ -253,6 +258,11 @@ class Slider
     public function setImageFile960(File $imageFile_960= null)
     {
         $this->imageFile_960 = $imageFile_960;
+
+        if ($imageFile_960) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
 }

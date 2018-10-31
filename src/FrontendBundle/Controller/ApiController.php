@@ -3,6 +3,7 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Article;
+use BackendBundle\Entity\ContactForm;
 use BackendBundle\Entity\Contacts;
 use BackendBundle\Entity\CorporatePhilosophy;
 use BackendBundle\Entity\Equipment;
@@ -10,6 +11,8 @@ use BackendBundle\Entity\HomePage;
 use BackendBundle\Entity\Offers;
 use BackendBundle\Entity\Seo;
 use BackendBundle\Entity\Slider;
+use FrontendBundle\Form\Type\ContactFormType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -360,5 +363,20 @@ class ApiController extends Controller
         $data = $em->getRepository(Contacts::class)->findAll();
 
         return $this->formalizeJSONResponse($data, ['id']);
+    }
+
+
+    /**
+     * @Route("/api/v1/page/contacts/submit", name="api-get-contacts-form-submit", methods={"POST"})
+     */
+    public function submitContactsForm(Request $request)
+    {
+        $contactForm = new ContactForm();
+        $form = $this->createForm(ContactFormType::class, $contactForm, [
+            'action' => $this->generateUrl('api-get-contacts-form-submit'),
+        ]);
+
+        $form->handleRequest($request);
+        dump(($form->isSubmitted() && $form->isValid())); die;
     }
 }

@@ -8,19 +8,39 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app.path.first_blc_images: /uploads/images/firstblc
+    app.path.first_blc_images_home: /uploads/images/first-blc-home
+    app.path.first_blc_images_eq: /uploads/images/first-blc-eq
+    app.path.first_blc_images_corp: /uploads/images/first-blc-corp
+    app.path.first_blc_images_off: /uploads/images/first-blc-off
     app.path.slider_images: /uploads/images/slider
+    app.path.slider_images_520: /uploads/images/slider/sl-520
+    app.path.slider_images_960: /uploads/images/slider/sl-960
     app.path.service_images: /uploads/images/service
 
 vich_uploader:
   db_driver: orm
   mappings:
-      first_blc_images:
-          uri_prefix:         '%app.path.first_blc_images%'
-          upload_destination: '%kernel.root_dir%/../web/uploads/images/firstblc'
+      first_blc_images_off:
+          uri_prefix:         '%app.path.first_blc_images_off%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-off'
+      first_blc_images_corp:
+          uri_prefix:         '%app.path.first_blc_images_corp%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-corp'
+      first_blc_images_eq:
+          uri_prefix:         '%app.path.first_blc_images_eq%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-eq'
+      first_blc_images_home:
+          uri_prefix:         '%app.path.first_blc_images_home%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-home'
       slider_images:
           uri_prefix:         '%app.path.slider_images%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/slider'
+      slider_images_520:
+          uri_prefix:         '%app.path.slider_images_520%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/slider/sl-520'
+      slider_images_960:
+          uri_prefix:         '%app.path.slider_images_960%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/slider/sl-960'
       service_images:
           uri_prefix:         '%app.path.service_images%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/service'
