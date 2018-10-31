@@ -97,7 +97,7 @@ class Equipment
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="first_blc_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="first_blc_images_eq", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -211,8 +211,6 @@ class Equipment
     {
         $this->listright_blc_description = $listright_blc_description;
     }
-
-
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -436,10 +434,10 @@ class Equipment
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
         // otherwise the event listeners won't be called and the file is lost
-//        if ($image) {
-//            // if 'updatedAt' is not defined in your entity, use another property
-//            $this->updatedAt = new \DateTime('now');
-//        }
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     public function getImageFile()
@@ -456,6 +454,4 @@ class Equipment
     {
         return $this->image;
     }
-
-
 }
