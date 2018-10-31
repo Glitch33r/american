@@ -9,7 +9,7 @@ class EquipmentRepository extends EntityRepository
     public function getWhiteBlock()
     {
         $q = $this->createQueryBuilder('a')
-            ->select('a.first_blc_title, a.first_blc_sub_title, a.first_blc_description')
+            ->select('a.first_blc_title, a.first_blc_sub_title, a.first_blc_description, a.image')
             ->getQuery()->getResult();
 
         return $q;

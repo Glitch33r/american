@@ -19,7 +19,7 @@ class OffersRepository extends EntityRepository
     public function getLeftListBlock()
     {
         $q = $this->getEntityManager()
-            ->createQuery('SELECT cp.listName FROM BackendBundle\Entity\Equipment AS cp' )
+            ->createQuery('SELECT cp.listName FROM BackendBundle\Entity\Offers AS cp' )
             ->execute();
 
         return $q;
@@ -28,7 +28,7 @@ class OffersRepository extends EntityRepository
     public function getLeftListItemBlock()
     {
         $q = $this->getEntityManager()
-            ->createQuery('SELECT ls.title FROM BackendBundle\Entity\Equipment AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.offerleft')
+            ->createQuery('SELECT ls.title FROM BackendBundle\Entity\Offers AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.offerleft')
             ->execute();
 
         return $q;
@@ -37,7 +37,7 @@ class OffersRepository extends EntityRepository
     public function getRigthListBlock()
     {
         $q = $this->getEntityManager()
-            ->createQuery('SELECT cp.listright_blc_title, cp.listright_blc_sub_title, cp.listright_blc_description FROM BackendBundle\Entity\Equipment AS cp')
+            ->createQuery('SELECT cp.listright_blc_title, cp.listright_blc_sub_title, cp.listright_blc_description FROM BackendBundle\Entity\Offers AS cp')
             ->execute();
 
         return $q;
@@ -46,7 +46,7 @@ class OffersRepository extends EntityRepository
     public function getRigthListItemBlock()
     {
         $q = $this->getEntityManager()
-            ->createQuery('SELECT ls.title FROM BackendBundle\Entity\Equipment AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.offerright')
+            ->createQuery('SELECT ls.title FROM BackendBundle\Entity\Offers AS cp JOIN BackendBundle\Entity\ListItem AS ls WITH cp.id = ls.offerright')
             ->execute();
 
         return $q;

@@ -357,7 +357,7 @@ class ApiController extends Controller
     public function getContacts()
     {
         $em = $this->getDoctrine()->getManager();
-        $data = $em->getRepository(Contacts::class)->findAll()[0];
+        $data = $em->getRepository(Contacts::class)->findAll();
 
         return $this->formalizeJSONResponse($data, ['id']);
     }

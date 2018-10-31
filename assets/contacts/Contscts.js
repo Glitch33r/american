@@ -6,6 +6,7 @@ import ContactsForm from "./ContactsForm";
 // import ArticlesBlock from "./ArticlesBlock";
 // import ServiseBlock from "./ServiseBlock";
 // import ContactBlock from "./ContactBlock";
+import  axios  from 'axios'
 
 import Seo from "../components/seo/Seo";
 
@@ -18,54 +19,24 @@ class Contscts extends Component {
 
         this.state = {
             seo: [],
-            slider: [],
-            imageBlock: [],
-            blackBlock: [],
-            blackBlockList: [],
-            paralaxBlock: [],
-            articlesBlock: [],
-            load: 'load sweet-loading',
+            contactBlock: [],
+
 
         };
-        this.loadContent = this.loadContent.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        fetch(url + "seo/contact-us")
-            .then(response => response.json())
+        axios.get(url + "seo/contacts")
+            .then(response => response.data)
             .then(data =>this.setState({seo: data}));
-
-
-        // fetch(url + "seo/home")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({seo: data}));
-        //
-        // // delete this.state.slider;
-        //
-        //
-        // fetch(url + "page/home/red")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({imageBlock: data}));
-        // fetch(url + "page/home/black")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({blackBlock: data}));
-        // fetch(url + "page/home/list")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({blackBlockList: data}));
-        // fetch(url + "page/home/paralax")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({paralaxBlock: data}));
-        // fetch(url + "page/home/articles")
-        //     .then(response => response.json())
-        //     .then(data =>this.setState({articlesBlock: data}));
+        axios.get(url + "page/contacts")
+            .then(response => response.data)
+            .then(data =>this.setState({contactBlock: data}));
     }
 
-    loadContent () {
-        this.setState({load: 'loading-success sweet-loading'});
-    }
 
     render() {
         let loading = true;
@@ -76,27 +47,19 @@ class Contscts extends Component {
         return (
 
             <React.Fragment>
-
-
-
                 <div className={ loading ? "loading-success sweet-loading" : 'load sweet-loading' }>
                     <ClipLoader
-                        sizeUnit={"px"}
-                        size={150}
-                        color={'#123abc'}
-                        loading={this.state.loading}
+                        sizeUnit={ "px" }
+                        size={ 150 }
+                        color={ '#123abc' }
+                        loading={ this.state.loading }
                     />
                 </div>
 
-                {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
                 { loading ? <div>
-                    <Breadcrumbs seo={this.state.seo}/>
-                    <ContactsForm />
-                    {/*<ServiseBlock/>*/}
-                    {/*<ContactBlock/>*/}
+                    <Breadcrumbs seo={ this.state.seo }/>
+                    <ContactsForm contactBlock = { this.state.contactBlock } />
                 </div> : "" }
-                {/*</div>*/}
-                {/*<Seo seo={this.state.seo}/>*/}
 
 
             </React.Fragment>

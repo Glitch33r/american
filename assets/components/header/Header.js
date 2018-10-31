@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../routes/Nav";
 import { NavLink } from "react-router-dom";
+import Headroom from "react-headroom";
 
 class Header extends Component {
 
@@ -13,18 +14,20 @@ class Header extends Component {
         return (
             <React.Fragment>
                 {/* Header*/}
-                <header>
-                    <div className="header-bg">
-                        <div className="header-wrap">
-                            <div className="header-logo"><NavLink className="header-logo__link" exact to="/"><img
-                                className="header-logo__img" src="/bundles/frontend/images/logo.png"/></NavLink></div>
+                <Headroom >
+                    <header>
+                        <div className="header-bg">
+                            <div className="header-wrap">
+                                <div className="header-logo"><NavLink className="header-logo__link" exact to="/"><img
+                                    className="header-logo__img" src="/bundles/frontend/images/logo.png"/></NavLink></div>
 
-                            <Nav />
+                                <Nav />
 
+                            </div>
                         </div>
-                    </div>
 
-                </header>
+                    </header>
+                </Headroom>
 
             </React.Fragment>
 

@@ -48,7 +48,7 @@ class HomeSlider extends Component {
             loading = true;
         }
 
-        let last = this.props.arrSlider.length - 1;
+        // let last = this.props.arrSlider.length - 1;
 
         console.log();
 
@@ -63,8 +63,6 @@ class HomeSlider extends Component {
                 {
                     this.props.arrSlider.map((item, index) =>
 
-                        last === index ? '' :
-
                         <div className="home-slider__item" key={ index }>
 
                             <div className="home-slider__item-wrap">
@@ -75,8 +73,8 @@ class HomeSlider extends Component {
                                     src = { "/bundles/frontend/images/" + item.image }
                                     className ="home-slider__img"
                                     sources ={{
-                                        small: this.props.arrSlider[last][index][0],
-                                        medium:  this.props.arrSlider[last][index][1],
+                                        small: '/uploads/images/slider/sl-520/' + item.image520,
+                                        medium:  '/uploads/images/slider/sl-960/' + item.image960,
                                         // large:  "/bundles/frontend/images/" + item.image,
                                     }}
                                     breakpoints={{
