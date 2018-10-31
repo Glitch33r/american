@@ -29,6 +29,11 @@ class ContactForm
     /**
      * @ORM\Column(type="string", nullable=true)
      */
+    private $surname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $email;
 
     /**
@@ -46,6 +51,23 @@ class ContactForm
      * @var \DateTime
      */
     private $createdAt;
+
+    /**
+     * @return mixed
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+    }
+
 
     /**
      * @return mixed
