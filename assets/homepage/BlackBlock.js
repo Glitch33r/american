@@ -41,7 +41,7 @@ class BlackBlock extends Component {
                                     <ul className="block__list" key={index}>
                                     {
                                         this.props.blackBlockList.map((item, index) =>
-                                            <li className="block__list-item" key={index}><a className="block__list-link aos-init" data-aos="fade-left" href="#">{ item.title }</a></li>
+                                            <li className="block__list-item" key={index}><span className="block__list-link aos-init" data-aos="fade-left">{ item.title }</span></li>
                                         )
                                     }
                                     </ul>

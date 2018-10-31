@@ -31,9 +31,9 @@ class BlackBlock extends Component {
                                     this.props.listLeft[this.props.listLeft.length - 1].map((item, index) =>
                                         <ul className="block__list" key={index}>
                                             <li className="block__list-item">
-                                                <a className="block__list-link block__list-link--alter-hover aos-init" data-aos="fade-down" href="#">
+                                                <span className="block__list-link block__list-link--alter-hover aos-init" data-aos="fade-down">
                                                     { item.title }
-                                                </a>
+                                                </span>
                                             </li>
                                         </ul>
                                     )
@@ -58,7 +58,7 @@ class BlackBlock extends Component {
                                     <ul className="block__list">
                                         { this.props.listRight[this.props.listRight.length - 1].map((item, index) =>
                                             <li className="block__list-item" key={index}>
-                                                <a className="block__list-link aos-init" data-aos="fade-down" href="#">{ item.title }</a>
+                                                <span className="block__list-link aos-init" data-aos="fade-down">{ item.title }</span>
                                             </li>
                                         ) }
                                     </ul>

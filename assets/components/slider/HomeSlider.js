@@ -79,7 +79,7 @@ class HomeSlider extends Component {
                                     }}
                                     breakpoints={{
                                         small: 600,
-                                        medium: 900,
+                                        medium: 1024,
                                         // large: 1200,
                                     }}
                                 />
