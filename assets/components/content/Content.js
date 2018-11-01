@@ -31,7 +31,7 @@ class Content extends Component {
                     <Route  exact path="/app_dev.php" render = {() => (<Home  domain = { this.state.domain } />)}  />
                     <Route  exact path="/" render = {() => (<Home  domain = { this.state.domain } />)} />
                     <Route  exact path="/article" render = {() => (<Article  domain = { this.state.domain } />)} />
-                    <Route  exact path="/about" render = {() => (<About  domain = { this.state.domain } />)} />
+                    <Route  exact path="/corporate-philosophy" render = {() => (<About  domain = { this.state.domain } />)} />
                     <Route  exact path="/equipment" render = {() => (<Equipment  domain = { this.state.domain } />)} />
                     <Route  exact path="/offers" render = {() => (<Offers  domain = { this.state.domain } />)} />
                     <Route  exact path="/contacts" render = {() => (<Contacts  domain = { this.state.domain } />)} />

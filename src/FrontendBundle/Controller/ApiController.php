@@ -2,6 +2,7 @@
 
 namespace FrontendBundle\Controller;
 
+use BackendBundle\Entity\AdditionalPage;
 use BackendBundle\Entity\Article;
 use BackendBundle\Entity\ContactForm;
 use BackendBundle\Entity\Contacts;
@@ -146,12 +147,11 @@ class ApiController extends Controller
 
     /**
      * @Route("/", name="homepage")
-     * @Route("/about", name="about")
-     * @Route("/services", name="services")
-     * @Route("/blog", name="blog")
+     * @Route("/corporate-philosophy", name="corporate-philosophy")
      * @Route("/contacts", name="contacts")
      * @Route("/equipment", name="equipment")
      * @Route("/offers", name="offers")
+     * @Route("/article", name="article")
      */
     public function indexAction()
     {
@@ -269,6 +269,11 @@ class ApiController extends Controller
 //                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
+            case 'additional':
+                $data = $em->getRepository(AdditionalPage::class)->findAll();
+//                dump($data);die;
+                return $this->formalizeJSONResponse($data);
+                break;
             default:
                 return $this->formalizeJSONResponse(null);
         }
@@ -365,20 +370,31 @@ class ApiController extends Controller
         return $this->formalizeJSONResponse($data, ['id']);
     }
 
-
     /**
      * @Route("/api/v1/page/contacts/submit", name="api-get-contacts-form-submit", methods={"POST"})
      */
     public function submitContactsForm(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $contactForm = new ContactForm();
-        $form = $this->createForm(ContactFormType::class, $contactForm, [
-            'action' => $this->generateUrl('api-get-contacts-form-submit'),
-        ]);
 
-//        $data = $request->getContent();
-        dump($request->get('name')); die;
-        $form->handleRequest($request);
-        dump(($form->isSubmitted() )); die;
+        $contactForm->setName($request->get('name'));
+        $contactForm->setSurname($request->get('surname'));
+        $contactForm->setEmail($request->get('email'));
+        $contactForm->setTelephone($request->get('telephone'));
+        $contactForm->setBody($request->get('body'));
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($contactForm);
+
+        if (count($errors) > 0) {
+            return new Response(json_encode(['status' => false, 'message' => 'Your data are wrong! Try again, please.']));
+        } else {
+            $em->persist($contactForm);
+            $em->flush();
+            return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible =)']));
+        }
+
+//        return 'Thank you for your message! We will contact you as soon as possible =)';
     }
 }

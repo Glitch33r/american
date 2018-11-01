@@ -49,7 +49,7 @@ class Nav extends Component {
                                 <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/" >HOME</NavLink>
                             </li>
                             <li className="header-menu__item">
-                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/about" >Corporate philosophy</NavLink>
+                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/corporate-philosophy" >Corporate philosophy</NavLink>
                             </li>
                             <li className="header-menu__item">
                                 <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/equipment">Equipment</NavLink>

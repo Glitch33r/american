@@ -16,6 +16,7 @@ easy_admin:
                 - Equipment
                 - Offers
                 - Contacts
+                - { label: 'Page for Corporate Philosophy', entity: 'AdditionalPage' }
             - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
             - label: 'Special'
               icon: 'user-secret'
@@ -24,6 +25,19 @@ easy_admin:
                 - User
 
     entities:
+        AdditionalPage:
+          class: BackendBundle\Entity\AdditionalPage
+          list:
+            fields:
+              - id
+              - title
+              - sub_title
+              - description
+          form:
+            fields:
+              - title
+              - sub_title
+              - { property: 'description', type: 'ckeditor' }
         User:
             class: BackendBundle\Entity\User
         Seo:

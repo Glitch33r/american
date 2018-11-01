@@ -34,18 +34,20 @@ class ContactsForm extends Component {
             data: str,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         })
-        // .then(function (response) {
-        //     //handle success
-        //     console.log(response);
-        // })
+        .then(function (response) {
+            //handle success
+            console.log(response);
+            let text = document.getElementById('success');
+            text.innerText = response.data['message'];
+
+            let popUp = document.getElementsByClassName('pop-up-wrap')[0];
+            popUp.classList.add('open');
+
+            setTimeout(function () {
+                popUp.classList.remove('open');
+            }, 3000);
+        });
         // console.log(data.name);
-
-        var popUp = document.getElementsByClassName('pop-up-wrap')[0];
-        popUp.classList.add('open');
-
-        setTimeout(function () {
-            popUp.classList.remove('open');
-        }, 3000);
     }
 
 
@@ -112,16 +114,14 @@ class ContactsForm extends Component {
                             </div>
                         )
                     }
-
                 </section>
                 <section className="contscts-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2798864717!2d-74.25986673512958!3d40.69767006847739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2z0J3RjNGOLdCZ0L7RgNC6LCDQodC_0L7Qu9GD0YfQtdC90ZYg0KjRgtCw0YLQuCDQkNC80LXRgNC40LrQuA!5e0!3m2!1suk!2sua!4v1538738452219" width="100%" height="100%" frameBorder={0} style={{border: 0}} allowFullScreen />
                 </section>
 
-
                 <div className="pop-up-wrap">
                     <div className="pop-up">
-                        <h2>
+                        <h2 id={'success'}>
                             Your mail was sanded
                         </h2>
                         <svg id="successAnimation" className="animated" xmlns="http://www.w3.org/2000/svg" width={100} height={100} viewBox="0 0 70 70">
@@ -131,11 +131,7 @@ class ContactsForm extends Component {
                         </svg>
                     </div>
                 </div>
-
             </div>
-
-
-
         );
     }
 }
