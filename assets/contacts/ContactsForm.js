@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import  axios  from 'axios'
 import serialize from 'form-serialize';
+import InputMask from 'react-input-mask';
+import ReactHtmlParser, { processNodes, convertNodeToElement } from 'react-html-parser';
 
 class ContactsForm extends Component {
 
@@ -38,12 +40,12 @@ class ContactsForm extends Component {
         // })
         // console.log(data.name);
 
-        // var popUp = document.getElementsByClassName('pop-up-wrap')[0];
-        // popUp.classList.add('open');
-        //
-        // setTimeout(function () {
-        //     popUp.classList.remove('open');
-        // }, 3000);
+        var popUp = document.getElementsByClassName('pop-up-wrap')[0];
+        popUp.classList.add('open');
+
+        setTimeout(function () {
+            popUp.classList.remove('open');
+        }, 3000);
     }
 
 
@@ -65,26 +67,29 @@ class ContactsForm extends Component {
                         <h2 className="contacts-form__title block__title">CONTACT US</h2>
                         <div className="contacts-form__inputs">
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="name-filed" name="name" onChange={this.handleChange} />
+                                <input required="required" type="text" id="name-filed" name="name" onChange={this.handleChange} />
                                 <label htmlFor="name-filed">Name</label>
                             </div>
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="surname"  name="surname" onChange={this.handleChange} />
+                                <input required="required" type="text" id="surname"  name="surname" onChange={this.handleChange} />
                                 <label htmlFor="surname">Surname</label>
                             </div>
                         </div>
                         <div className="contacts-form__inputs">
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="e-mail"  name="email" onChange={this.handleChange} />
+                                <input required="required" type="email" id="e-mail"  name="email"  onChange={this.handleChange} />
                                 <label htmlFor="e-mail">E-mail</label>
                             </div>
                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w47">
-                                <input type="text" id="phone-filed"  name="telephone" onChange={this.handleChange} />
+                                {/*<input type="text" id="phone-filed"  name="telephone" onChange={this.handleChange} />*/}
+                                <InputMask required="required" name="telephone" id="phone-filed" mask="+1 999 999 99 99" maskChar={null} onChange={this.handleChange}>
+                                    {/*{(inputProps) => <MaterialInput {...inputProps} type="tel" disableUnderline />}*/}
+                                </InputMask>
                                 <label htmlFor="phone-filed">Phone</label>
                             </div>
                         </div>
                         <div className="contacts-form__textarea contacts-form__inputs-wrap">
-                            <textarea name="body" id="message-filed" defaultValue={""} onChange={this.handleChange} />
+                            <textarea required="required" name="body" id="message-filed" defaultValue={""} onChange={this.handleChange} />
                             <label htmlFor="message-filed">Message</label>
                         </div>
                         <div className="contacts-form__buttons">
@@ -96,10 +101,10 @@ class ContactsForm extends Component {
                             <div className="block__contacts" key={index}>
                                 <div className="block__contacts-wrap">
                                     <h2 className="block__title">{ item.title }</h2>
-                                    <h3 className="block__subtitle">{ item.subtitle }</h3>
-                                    <p className="block__desc">
-                                        { item.address }
-                                    </p>
+                                    <h3 className="block__subtitle">{ ReactHtmlParser(item.address) }</h3>
+                                    <h3 className="block__subtitle"><a className={'block__subtitle'} href={'mailto:' + item.email }> { item.email }</a></h3>
+                                    <h3 className="block__subtitle"><a className={'block__subtitle'} href={'tel:' + item.phone }> { item.phone }</a></h3>
+
                                     <a className="block__contacts-btn block__contacts-btn--facebook" href="#" />
                                     <a className="block__contacts-btn block__contacts-btn--twitter" href="#" />
                                     <a className="block__contacts-btn block__contacts-btn--google" href="#" />

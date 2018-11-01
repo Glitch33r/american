@@ -787,7 +787,8 @@ body.grey {
 .block__subtitle {
   font: 20px 'Lato-Bold';
   color: #ffffff;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  text-decoration: none; }
 
 .block__subtitle--botom10 {
   margin-bottom: 10px; }

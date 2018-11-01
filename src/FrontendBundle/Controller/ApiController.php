@@ -375,7 +375,9 @@ class ApiController extends Controller
         $form = $this->createForm(ContactFormType::class, $contactForm, [
             'action' => $this->generateUrl('api-get-contacts-form-submit'),
         ]);
-        dump($request); die;
+
+//        $data = $request->getContent();
+        dump($request->get('name')); die;
         $form->handleRequest($request);
         dump(($form->isSubmitted() )); die;
     }
