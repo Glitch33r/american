@@ -5,7 +5,7 @@ class Footer extends Component {
         return (
             <footer>
                 <div className="block__wrap">
-                    <h2 className="footer-copirate">TRUCKY © 2016. Privacy Policy</h2>
+                    <h2 className="footer-copirate">Grand USA Transport © 2018.</h2>
                 </div>
             </footer>
         );

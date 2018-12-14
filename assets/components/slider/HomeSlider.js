@@ -2,15 +2,19 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import LazyResponsiveImage from 'react-lazy-responsive-image';
+import "lazysizes";
 
 class HomeSlider extends Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            loading: true
+        };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
+        this.componentWillMount = this.componentWillMount.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
     }
     next() {
         this.slider.slickNext();
@@ -19,8 +23,12 @@ class HomeSlider extends Component {
         this.slider.slickPrev();
     }
 
-    componentDidMount() {
-        // this.slider.onReInit();
+    componentWillMount() {
+        this.setState({loading: false});
+    }
+
+    componentWillUnmount() {
+        // this.setState({loading: true});
     }
 
 
@@ -43,20 +51,29 @@ class HomeSlider extends Component {
 
         };
 
-        let loading = false;
-        if( this.props.arrSlider.length === 0 )  {
-            loading = true;
-        }
+        let loading = true;
 
+        // lazysizes.init();
+
+        // setTimeout(function () {
+        //     loading = false;
+        //     console.log(loading);
+        // },5000);
+        // console.log(this.state.loading);
+        // if( this.props.arrSlider.length === 0 )  {
+        //     loading = false;
+        //
+        // }
+        // console.log(this.props.arrSlider.length);
         // let last = this.props.arrSlider.length - 1;
 
-        console.log();
+
 
         return (
 
             <React.Fragment>
 
-            { loading ? '' : <Slider ref={c => (this.slider = c)} {...settings}>
+            { this.state.loading ? '' : <Slider ref={c => (this.slider = c)} {...settings}>
 
                 {/*<div className="home-slider slider">*/}
 
@@ -69,20 +86,31 @@ class HomeSlider extends Component {
                                 {/*<img className="home-slider__img" src= { "/bundles/frontend/images/" + item.image }*/}
 
                                 {/*/>*/}
-                                <LazyResponsiveImage
-                                    src = { "/bundles/frontend/images/" + item.image }
-                                    className ="home-slider__img"
-                                    sources ={{
-                                        small: '/uploads/images/slider/sl-520/' + item.image520,
-                                        medium:  '/uploads/images/slider/sl-960/' + item.image960,
-                                        // large:  "/bundles/frontend/images/" + item.image,
-                                    }}
-                                    breakpoints={{
-                                        small: 600,
-                                        medium: 1024,
-                                        // large: 1200,
-                                    }}
-                                />
+                                {/*{ console.log(item.image)}*/}
+                                {/*<LazyResponsiveImage*/}
+                                    {/*src = { "/uploads/images/slider/" + item.image }*/}
+                                    {/*className = "home-slider__img"*/}
+                                    {/*sources ={{*/}
+                                        {/*small: '/uploads/images/slider/sl-520/' + item.image520,*/}
+                                        {/*medium:  '/uploads/images/slider/sl-960/' + item.image960,*/}
+                                        {/*// large:  "/bundles/frontend/images/" + item.image,*/}
+                                    {/*}}*/}
+                                    {/*breakpoints={{*/}
+                                        {/*small: 600,*/}
+                                        {/*medium: 1024,*/}
+                                        {/*// large: 1200,*/}
+                                    {/*}}*/}
+                                {/*/>*/}
+                                <img
+                                    data-sizes="auto"
+                                    data-srcset={
+                                        "/uploads/images/slider/sl-520/" + item.image520 + " 520w, " +
+                                        "/uploads/images/slider/sl-960/" + item.image960 + " 960w, " +
+                                        "/uploads/images/slider/" + item.image + " 1224w"
+                                    }
+                                    // data-src= { "medium" }
+                                    className="lazyload home-slider__img" />
+
                             </div>
                             <span className="home-slider__title">
                                     { ReactHtmlParser(item.title) }

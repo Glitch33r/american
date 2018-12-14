@@ -16,7 +16,7 @@ class BlackBlock extends Component {
                                     :
 
                                     this.props.listLeft[this.props.listLeft.length - 1].map((item, index) =>
-                                    <div className="block__number aos-init" data-aos="fade-right" data-num="1">
+                                    <div className="block__number aos-init" data-aos="fade-right" data-num={index+1}>
                                         <div className={'block__number-wrap'} key={index}>
                                             <h3 className="block__subtitle block__subtitle--marginb0">
                                                 <span className="block__subtitle_link">{ item.maintitle }</span>

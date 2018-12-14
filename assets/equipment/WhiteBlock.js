@@ -8,8 +8,8 @@ class WhiteBlock extends Component {
 
                     { this.props.whiteBlock.map((item, index) =>
 
-                        <React.Fragment>
-                            <div className="team-block__left team-block__left--w650" key={index}>
+                        <React.Fragment key={index}>
+                            <div className="team-block__left team-block__left--w650" >
                                 <h2 className="team-block__left_title">{ item.first_blc_title }</h2>
                                 <h3 className="team-block__left_subtitle">{ item.first_blc_sub_title }</h3>
                                 <p className="team-block__left_desc desc--margin">

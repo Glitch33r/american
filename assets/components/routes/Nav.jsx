@@ -13,10 +13,12 @@ class Nav extends Component {
         super(props);
 
         this.state = {
-            open: false
+            open: false,
+            subOpen: false
         };
 
         this.handleClick = this.handleClick.bind(this);
+        this.submenuHandle = this.submenuHandle.bind(this);
     }
 
     handleClick () {
@@ -30,6 +32,31 @@ class Nav extends Component {
         this.setState(state => ({
             open: !state.open
         }));
+
+    }
+
+    submenuHandle (event) {
+        if(screen.width > 992) return;
+        // console.log();
+        let el = event.target;
+        while (el.parentElement){
+            if(el.classList.contains('header-menu__item') && this.state.subOpen == false) {
+                el.classList.add('open-sub');
+                this.setState(state => ({
+                    subOpen: !state.subOpen
+                }));
+                break;
+            }
+            if(el.classList.contains('header-menu__item') && this.state.subOpen == true) {
+                el.classList.remove('open-sub');
+                this.setState(state => ({
+                    subOpen: !state.subOpen
+                }));
+                break;
+            }
+            el = el.parentElement;
+            console.log(el);
+        }
 
     }
 
@@ -53,16 +80,24 @@ class Nav extends Component {
                             </li>
                             <li className="header-menu__item">
                                 <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/equipment">Equipment</NavLink>
-                                {/*<ul className="header-submenu__items">*/}
-                                    {/*<li className="header-submenu__item">*/}
-                                        {/*<NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>*/}
-                                    {/*</li>*/}
-                                {/*</ul>*/}
+
                             </li>
                             <li className="header-menu__item">
-                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/offers">For Drivers</NavLink>
+                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/offers">Drivers</NavLink>
+                                <ul className="header-submenu__items">
+                                    <span className={'header-submenu__open-link'} onClick={ this.submenuHandle } > > </span>
+                                    <li className="header-submenu__item">
+                                        <NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>
+                                    </li>
+                                    <li className="header-submenu__item">
+                                        <NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>
+                                    </li>
+                                </ul>
                             </li>
 
+                            <li className="header-menu__item">
+                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/contacts">safety program</NavLink>
+                            </li>
                             <li className="header-menu__item">
                                 <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/contacts">CONTACTS</NavLink>
                             </li>

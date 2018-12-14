@@ -56,7 +56,9 @@ class About extends Component {
                 <Seo seo={this.state.seo}/>
                 { loading ?
                     <div>
+
                         <Breadcrumbs seo={ this.state.seo }/>
+
                         <MeetUsBlock whiteBlock={ this.state.whiteBlock }/>
                         <BlackBlock blackBlock = { this.state.blackBlock }/>
                         <RedBlock redBlock = { this.state.redBlock }/>

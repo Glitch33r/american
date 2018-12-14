@@ -7,6 +7,9 @@ import ArticlesBlock from "./ArticlesBlock";
 // import ServiseBlock from "./ServiseBlock";
 // import ContactBlock from "./ContactBlock";
 import  axios  from 'axios'
+import { Route } from 'react-router-dom';
+
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import Seo from "../components/seo/Seo";
 
@@ -32,7 +35,7 @@ class Offers extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        axios.get(url + "seo/for-drivers")
+        axios.get(url + "seo/drivers")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
         axios.get('/api/v1/page/offers/white')
@@ -49,7 +52,7 @@ class Offers extends Component {
 
     render() {
         let loading = true;
-        if( this.state.seo.length == 0 )  {
+        if( this.state.seo.length == 0 || this.state.whiteBlock.length == 0 || this.state.listLeft.length == 0 || this.state.listRight.length == 0)  {
             loading = false;
         }
 
@@ -71,12 +74,14 @@ class Offers extends Component {
                 { loading ? <div>
                     <Breadcrumbs seo={this.state.seo}/>
                     <ImageBlock whiteBlock = { this.state.whiteBlock } />
-                    <BlackBlock listLeft = { this.state.listLeft } listRight = { this.state.listRight } />
-                    <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
+                    <ScrollableAnchor id={'perks'}>
+                        <BlackBlock listLeft = { this.state.listLeft } listRight = { this.state.listRight } />
+                    </ScrollableAnchor>
+                    <ScrollableAnchor id={'body'}>
+                        <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
+                    </ScrollableAnchor>
                 </div> : "" }
                 <Seo seo={this.state.seo}/>
-
-
             </React.Fragment>
         );
     }

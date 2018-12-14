@@ -18,7 +18,9 @@ class ArticlesBlock extends Component {
                         this.props.articlesBlock.map((item, index) =>
                             <div className="block-news__item" key={index}>
                                 <h2 className="block__title block__title--dark-gray aos-init" data-aos="fade-down">{item.title}</h2>
-                                <h3 className="block__subtitle"><a className="block__subtitle-link aos-init" data-aos="fade-down" href="#">{item.subTitle}</a></h3>
+                                <h3 className="block__subtitle">
+                                    <NavLink className="block__subtitle-link aos-init" data-aos="fade-down" exact to="/offers#body" >{item.subTitle}</NavLink>
+                                </h3>
                                 <p className="block__desc block__desc--dark-gray aos-init" data-aos="fade-right">{ ReactHtmlParser(item.description) }
                                 </p>
                                 <NavLink className="block__button block__button--red block__button--bottom-fix" exact to="/offers#body" >READ MORE</NavLink>

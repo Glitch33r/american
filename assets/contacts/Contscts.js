@@ -40,7 +40,7 @@ class Contscts extends Component {
 
     render() {
         let loading = true;
-        if( this.state.seo.length == 0 )  {
+        if( this.state.seo.length == 0 || this.state.contactBlock.length == 0 )  {
             loading = false;
         }
 

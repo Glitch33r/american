@@ -19,13 +19,17 @@ class Layout extends Component {
          this.state = {
              loading: true
          };
-        this.updateData = this.updateData.bind(this);
+        // this.updateData = this.updateData.bind(this);
 
     }
 
-    updateData (value) {
-        this.setState({ loading: value })
-    }
+    // updateData (value) {
+    //     this.setState({ loading: value })
+    // }
+
+    // updateData = () => {
+    //     this.setState({loading: true});
+    // }
 
     render() {
         return (
@@ -35,7 +39,7 @@ class Layout extends Component {
                 <BrowserRouter>
                     <div>
                         <Header />
-                        <Content  updateData = { this.updateData  }/>
+                        <Content updateData = { this.updateData  }/>
                     </div>
 
                 </BrowserRouter>

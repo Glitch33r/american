@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { NavLink } from "react-router-dom";
 class BlackBlock extends Component {
 
     constructor(props) {
@@ -26,7 +26,7 @@ class BlackBlock extends Component {
                                     <h2 className="block__title"  >{ item.second_blc_title }</h2>
                                     <h3 className="block__subtitle aos-init">{ item.second_blc_sub_title }</h3>
                                     <p className="block__desc block__desc--small-margin">{ item.second_blc_description }</p>
-                                    <a className="block__button block__button--red" href="#">READ MORE</a>
+                                    {/*<a className="block__button block__button--red" href="#">READ MORE</a>*/}
                                 </div>
                                 <div className="block__right">
 
@@ -41,7 +41,15 @@ class BlackBlock extends Component {
                                     <ul className="block__list" key={index}>
                                     {
                                         this.props.blackBlockList.map((item, index) =>
-                                            <li className="block__list-item" key={index}><span className="block__list-link aos-init" data-aos="fade-left">{ item.title }</span></li>
+                                            <li className="block__list-item" key={index}>
+
+                                                <NavLink className="header-menu__link" exact to={"/product/" +  item.title.toString().toLowerCase() }>
+                                                    <span className="block__list-link block__list-link--alter-hover aos-init" data-aos="fade-left">
+                                                        { item.title }
+                                                    </span>
+                                                </NavLink>
+
+                                            </li>
                                         )
                                     }
                                     </ul>

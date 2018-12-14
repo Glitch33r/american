@@ -28,6 +28,7 @@ class Home extends Component {
             blackBlockList: [],
             paralaxBlock: [],
             articlesBlock: [],
+            contactBlock: [],
             load: 'load sweet-loading',
         };
         this.loadContent = this.loadContent.bind(this);
@@ -66,6 +67,10 @@ class Home extends Component {
         axios.get(url + "page/home/articles")
             .then(response => response.data)
             .then(data =>this.setState({articlesBlock: data}));
+
+        axios.get(url + "page/contacts")
+            .then(response => response.data)
+            .then(data =>this.setState({contactBlock: data}));
     }
 
     loadContent () {
@@ -97,7 +102,7 @@ class Home extends Component {
                 </div>
 
                 {/*<div className={ loading ? "page-animate" : "page-animate page-animate-show" }>*/}
-                    { loading ? <div>
+                    { loading ? <div className={'homepage-wrap-content'}>
                         {/*<AnimationFunc />*/}
                         <HomeSlider arrSlider = { this.state.slider } />
                         <ImageBlock imageBlock = { this.state.imageBlock } />
@@ -105,7 +110,7 @@ class Home extends Component {
                         <ParalaxBlock paralaxBlock = { this.state.paralaxBlock } />
                         <ArticlesBlock articlesBlock = { this.state.articlesBlock } />
                         <ServiseBlock/>
-                        <ContactBlock/>
+                        <ContactBlock contactBlock = { this.state.contactBlock } />
                     </div> : "" }
                 {/*</div>*/}
                 <Seo seo={this.state.seo}/>
