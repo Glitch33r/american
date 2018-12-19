@@ -78,6 +78,28 @@ class HomePage
     private $list;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\ListContentBlock", mappedBy="homepage", cascade={"persist"})
+     */
+    private $contentBlock;
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getContentBlock()
+    {
+        return $this->contentBlock;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $contentBlock
+     */
+    public function setContentBlock(\Doctrine\Common\Collections\Collection $contentBlock)
+    {
+        $this->contentBlock = $contentBlock;
+    }
+
+    /**
      * @param \Doctrine\Common\Collections\Collection $article
      */
     public function setList(\Doctrine\Common\Collections\Collection $article)
@@ -94,6 +116,19 @@ class HomePage
     public function removeList(ListItem $sl)
     {
         $this->list->removeElement($sl);
+    }
+
+    public function addContentBlock(ListContentBlock $sl)
+    {
+        $sl->setHomepage($this);
+        $this->contentBlock->add($sl);
+
+        return $this;
+    }
+
+    public function removeContentBlock(ListContentBlock $sl)
+    {
+        $this->contentBlock->removeElement($sl);
     }
 
 
@@ -129,6 +164,7 @@ class HomePage
         $this->slider = new  ArrayCollection();
         $this->article = new  ArrayCollection();
         $this->list = new  ArrayCollection();
+        $this->contentBlock = new  ArrayCollection();
 
         $this->updatedAt = new \DateTime('now');
     }

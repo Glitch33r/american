@@ -16,6 +16,8 @@ parameters:
     app.path.slider_images_520: /uploads/images/slider/sl-520
     app.path.slider_images_960: /uploads/images/slider/sl-960
     app.path.service_images: /uploads/images/service
+    app.path.product_images: /uploads/images/product-images
+
 
 vich_uploader:
   db_driver: orm
@@ -44,6 +46,9 @@ vich_uploader:
       service_images:
           uri_prefix:         '%app.path.service_images%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/service'
+      product_images:
+          uri_prefix:         '%app.path.product_images%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/product-images'
 
 
 framework:

@@ -1,6 +1,14 @@
 {
-    "name": "dmitry/.checkout",
+    "name": "Grand USA Transport",
     "license": "proprietary",
+    "version": "1.0.0-dev",
+    "authors": [
+        {
+            "name": "Dmitry Krivoruchik",
+            "email": "dmkshift@gmail.com",
+            "role": "Backend Developer"
+        }
+    ],
     "type": "project",
     "autoload": {
         "psr-4": {
