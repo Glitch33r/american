@@ -67,10 +67,16 @@ class ProductStatic extends Component {
 
                         { this.state.page == "botanicals" ?
                             <section className="content-wrap" >
-                                <h3 className="team-block__left_subtitle">Botanicals</h3>
-                                <div className="team-block__left_desc">
-                                    Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure. <br/>
-                                Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.
+                                <h3 className="product-title">Botanicals</h3>
+                                <div className="product">
+                                    <div className="product__content">
+                                        <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                        <img className="product__content_img" src={'/bundles/frontend/images/botanicals.jpg'}/>
+                                    </div>
+                                    <div className="product__content">
+                                        <img className="product__content_img" src={'/bundles/frontend/images/botanicals.jpg'}/>
+                                        <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                    </div>
                                 </div>
                             </section>
                             : ""
@@ -79,10 +85,16 @@ class ProductStatic extends Component {
 
                         { this.state.page == "dairy" ?
                             <section className="content-wrap" >
-                                <h3 className="team-block__left_subtitle">DAIRY</h3>
-                                <div className="team-block__left_desc">
-                                    Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure. <br/>
-                                    Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.
+                                <h3 className="product-title">Dairy</h3>
+                                <div className="product">
+                                    <div className="product__content">
+                                        <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                        <img className="product__content_img" src={'/bundles/frontend/images/dairy.jpg'}/>
+                                    </div>
+                                    <div className="product__content">
+                                        <img className="product__content_img" src={'/bundles/frontend/images/dairy2.jpg'}/>
+                                        <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                    </div>
                                 </div>
                             </section>
                             : ""
@@ -90,14 +102,71 @@ class ProductStatic extends Component {
 
                         { this.state.page == "produce" ?
                             <section className="content-wrap" >
-                                <h3 className="team-block__left_subtitle">PRODUCE</h3>
-                                <div className="team-block__left_desc">
-                                    Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure. <br/>
-                                    Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.
+                                <h3 className="product-title">Produce</h3>
+                                <div className="product">
+                                    <div className="product__content">
+                                        <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                        <img className="product__content_img" src={'/bundles/frontend/images/produce.jpg'}/>
+                                    </div>
+                                    <div className="product__content">
+                                        <img className="product__content_img" src={'/bundles/frontend/images/produce2.jpg'}/>
+                                        <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                    </div>
                                 </div>
                             </section>
                             : ""
                         }
+
+                    { this.state.page == "seafood" ?
+                        <section className="content-wrap" >
+                            <h3 className="product-title">Seafood</h3>
+                            <div className="product">
+                                <div className="product__content">
+                                    <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                    <img className="product__content_img" src={'/bundles/frontend/images/seafood.jpg'}/>
+                                </div>
+                                <div className="product__content">
+                                    <img className="product__content_img" src={'/bundles/frontend/images/seafood2.jpg'}/>
+                                    <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                </div>
+                            </div>
+                        </section>
+                        : ""
+                    }
+
+                    { this.state.page == "frozen%20meat" ?
+                        <section className="content-wrap" >
+                            <h3 className="product-title">Frozen meat</h3>
+                            <div className="product">
+                                <div className="product__content">
+                                    <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                    <img className="product__content_img" src={'/bundles/frontend/images/frozen-meat.jpg'}/>
+                                </div>
+                                <div className="product__content">
+                                    <img className="product__content_img" src={'/bundles/frontend/images/frozen-meat.jpg'}/>
+                                    <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                </div>
+                            </div>
+                        </section>
+                        : ""
+                    }
+
+                    { this.state.page == "pharmaceuticals" ?
+                        <section className="content-wrap" >
+                            <h3 className="product-title">Pharmaceuticals</h3>
+                            <div className="product">
+                                <div className="product__content">
+                                    <p className="product__content_txt" >Regardless of the type of flora, or plant, ranging from Christmas Tree to the most delicate long stem rose, annual or perennial, from greenhouse or farm to final destination, 52 weeks per year, your botanical products transit is safe and secure.</p>
+                                    <img className="product__content_img" src={'/bundles/frontend/images/produce2.jpg'}/>
+                                </div>
+                                <div className="product__content">
+                                    <img className="product__content_img" src={'/bundles/frontend/images/produce2.jpg'}/>
+                                    <p className="product__content_txt"> Protecting your perishable product requires specialized temperature and constantly monitored and regulated climate control. Owning a dedicated Reefer fleet allows Grand USA Transport the constant ability to control, monitor and manage the suitable environment for your botanical cargo to thrive, while maintaining the highest of quality standards of sustainability for the duration of their entire period of the transport process.</p>
+                                </div>
+                            </div>
+                        </section>
+                        : ""
+                    }
 
 
 
