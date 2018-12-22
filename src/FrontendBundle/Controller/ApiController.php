@@ -4,12 +4,18 @@ namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\AdditionalPage;
 use BackendBundle\Entity\Article;
+use BackendBundle\Entity\Botanic;
 use BackendBundle\Entity\ContactForm;
 use BackendBundle\Entity\Contacts;
 use BackendBundle\Entity\CorporatePhilosophy;
+use BackendBundle\Entity\Dairy;
 use BackendBundle\Entity\Equipment;
+use BackendBundle\Entity\FrozenMeat;
 use BackendBundle\Entity\HomePage;
 use BackendBundle\Entity\Offers;
+use BackendBundle\Entity\Pharmaceuticals;
+use BackendBundle\Entity\Produce;
+use BackendBundle\Entity\SeaFood;
 use BackendBundle\Entity\Seo;
 use BackendBundle\Entity\Slider;
 use FrontendBundle\Form\Type\ContactFormType;
@@ -27,9 +33,11 @@ use Symfony\Component\Serializer\Serializer;
  */
 define('MOBILE_DIR', '../web/mobile/');
 
+
 /**
  * Class ApiController
  * @package FrontendBundle\Controller
+ * @author Dmitry Krivoruchik <dmkshift@gmail.com>
  */
 class ApiController extends Controller
 {
@@ -152,6 +160,13 @@ class ApiController extends Controller
      * @Route("/equipment", name="equipment")
      * @Route("/offers", name="offers")
      * @Route("/article", name="article")
+     *
+     * @Route("/product/dairy", name="dairy")
+     * @Route("/product/produce", name="produce")
+     * @Route("/product/botanicals", name="botanicals")
+     * @Route("/product/seafood", name="seafood")
+     * @Route("/product/frozen-meat", name="frozen-meat")
+     * @Route("/product/pharmaceuticals", name="pharmaceuticals")
      */
     public function indexAction()
     {
@@ -181,7 +196,13 @@ class ApiController extends Controller
             'about' => $this->generateUrl('about'),
             'services' => $this->generateUrl('services'),
             'blog' => $this->generateUrl('blog'),
-            'contacts' => $this->generateUrl('contacts')
+            'contacts' => $this->generateUrl('contacts'),
+            'dairy' => $this->generateUrl('dairy'),
+            'produce' => $this->generateUrl('produce'),
+            'botanicals' => $this->generateUrl('botanicals'),
+            'seafood' => $this->generateUrl('seafood'),
+            'frozen-meat' => $this->generateUrl('frozen-meat'),
+            'pharmaceuticals' => $this->generateUrl('pharmaceuticals'),
         ];
 
         $response = new Response(json_encode($links, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
@@ -205,7 +226,6 @@ class ApiController extends Controller
                 $temp = [];
 
                 $data = $em->getRepository(Slider::class)->findBy(['homepage' => $homepage->getId()]);
-
 //                foreach ($data as $slide) {
 //                    $currImg = '../web/' . $this->container->getParameter('app.path.slider_images') . '/' . $slide->getImage();
 //                    //full, 960, 520
@@ -215,12 +235,12 @@ class ApiController extends Controller
 //
 ////                dump($temp);die;
 //                array_push($data, $temp);
-
                 return $this->formalizeJSONResponse($data, ['homepage', 'updatedAt', 'imageFile', 'imageFile_520', 'imageFile_960']);
                 break;
             case 'red':
                 $temp = [];
                 $data = $em->getRepository(HomePage::class)->getRedBlock();
+                array_push($data, $em->getRepository(HomePage::class)->getRedImageBlock());
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'black':
@@ -254,24 +274,20 @@ class ApiController extends Controller
         switch ($block) {
             case 'red':
                 $data = $em->getRepository(CorporatePhilosophy::class)->getRedBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'white':
                 $data = $em->getRepository(CorporatePhilosophy::class)->getWhiteBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list':
                 $data = $em->getRepository(CorporatePhilosophy::class)->getListBlock();
                 $items = $em->getRepository(CorporatePhilosophy::class)->getListItemBlock();
                 array_push($data, $items);
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'additional':
                 $data = $em->getRepository(AdditionalPage::class)->findAll();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             default:
@@ -289,31 +305,26 @@ class ApiController extends Controller
         switch ($block) {
             case 'white':
                 $data = $em->getRepository(Equipment::class)->getWhiteBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-left':
                 $data = $em->getRepository(Equipment::class)->getLeftListBlock();
                 $items = $em->getRepository(Equipment::class)->getLeftListItemBlock();
                 array_push($data, $items);
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-right':
                 $data = $em->getRepository(Equipment::class)->getRigthListBlock();
                 $items = $em->getRepository(Equipment::class)->getRigthListItemBlock();
                 array_push($data, $items);
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'paralax':
                 $data = $em->getRepository(Equipment::class)->getParalaxBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'additional':
                 $data = $em->getRepository(Equipment::class)->getAdditionalBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             default:
@@ -333,25 +344,22 @@ class ApiController extends Controller
         switch ($block) {
             case 'white':
                 $data = $em->getRepository(Offers::class)->getWhiteBlock();
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-left':
                 $data = $em->getRepository(Offers::class)->getLeftListBlock();
                 $items = $em->getRepository(Offers::class)->getLeftListItemBlock();
                 array_push($data, $items);
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'list-right':
                 $data = $em->getRepository(Offers::class)->getRigthListBlock();
                 $items = $em->getRepository(Offers::class)->getRigthListItemBlock();
                 array_push($data, $items);
-//                dump($data);die;
                 return $this->formalizeJSONResponse($data);
                 break;
             case 'articles':
-                $data = $em->getRepository(Article::class)->findBy(['offers' => $dat->getId()]);
+                $data = $em->getRepository(Article::class)->findBy(['offers' => $data->getId()]);
                 return $this->formalizeJSONResponse($data, ['offers']);
                 break;
             default:
@@ -394,7 +402,50 @@ class ApiController extends Controller
             $em->flush();
             return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible =)']));
         }
-
 //        return 'Thank you for your message! We will contact you as soon as possible =)';
+    }
+
+
+    /**
+     * @Route("/api/v1/page/product/{product}", name="api-get-product-page", methods={"GET","POST"})
+     */
+    public function getProduct($product)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        switch ($product) {
+            case 'dairy':
+                $data = $em->getRepository(Dairy::class)->getElements();
+                array_push($data, $em->getRepository(Dairy::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'produce':
+                $data = $em->getRepository(Produce::class)->getElements();
+                array_push($data, $em->getRepository(Produce::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'frozen-meat':
+                $data = $em->getRepository(FrozenMeat::class)->getElements();
+                array_push($data, $em->getRepository(FrozenMeat::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'botanic':
+                $data = $em->getRepository(Botanic::class)->getElements();
+                array_push($data, $em->getRepository(Botanic::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'seafood':
+                $data = $em->getRepository(SeaFood::class)->getElements();
+                array_push($data, $em->getRepository(SeaFood::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'pharmaceuticals':
+                $data = $em->getRepository(Pharmaceuticals::class)->getElements();
+                array_push($data, $em->getRepository(Pharmaceuticals::class)->getTitle());
+                return $this->formalizeJSONResponse($data);
+                break;
+            default:
+                return $this->formalizeJSONResponse(null);
+        }
     }
 }

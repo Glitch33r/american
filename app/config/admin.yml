@@ -17,6 +17,14 @@ easy_admin:
                 - Offers
                 - Contacts
                 - { label: 'Page for Corporate Philosophy', entity: 'AdditionalPage' }
+            - label: 'Product'
+              children:
+                  - Dairy
+                  - Produce
+                  - SeaFood
+                  - Botanic
+                  - FrozenMeat
+                  - Pharmaceuticals
             - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
             - label: 'Special'
               icon: 'user-secret'
@@ -70,9 +78,10 @@ easy_admin:
                 - { type: 'tab', label: 'Slider', icon: 'exchange' }
                 - { property: 'slider', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewSlide', by_reference: false } }
                 - { type: 'tab', label: 'First content block', icon: 'list-ol' }
-                - { property: 'first_blc_title', label: 'Title'}
-                - { property: 'first_blc_sub_title', label: 'Subtitle'}
-                - { property: 'first_blc_description', label: 'Description'}
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewContentBlock', by_reference: false } }
+#                - { property: 'first_blc_title', label: 'Title'}
+#                - { property: 'first_blc_sub_title', label: 'Subtitle'}
+#                - { property: 'first_blc_description', label: 'Description'}
                 - { property: 'imageFile', type: 'vich_image' }
                 - { type: 'tab', label: 'Second content block', icon: 'list-ol' }
                 - { property: 'second_blc_title', label: 'Title'}
@@ -190,11 +199,71 @@ easy_admin:
                 - { property: 'imageFile', type: 'vich_image' }
                 - { type: 'tab', label: 'Left list', icon: 'list-ol' }
                 - { property: 'listName', label: 'List title'}
-                - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+                - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false }}
                 - { type: 'tab', label: 'Right list', icon: 'list-ol' }
                 - { property: 'listright_blc_title', label: 'Title'}
                 - { property: 'listright_blc_sub_title', label: 'Subtitle'}
                 - { property: 'listright_blc_description', label: 'Description'}
-                - { property: 'listrigth', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+                - { property: 'listrigth', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false }}
                 - { type: 'tab', label: 'Articles', icon: 'exchange' }
-                - { property: 'article', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewArticle', by_reference: false } }
+                - { property: 'article', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewArticle', by_reference: false }}
+        Dairy:
+            class: BackendBundle\Entity\Dairy
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        Produce:
+            class: BackendBundle\Entity\Produce
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        SeaFood:
+            class: BackendBundle\Entity\SeaFood
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        Botanic:
+            class: BackendBundle\Entity\Botanic
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        FrozenMeat:
+            class: BackendBundle\Entity\FrozenMeat
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        Pharmaceuticals:
+            class: BackendBundle\Entity\Pharmaceuticals
+            list:
+              fields:
+                - id
+                - title
+            form:
+              fields:
+                - title
+                - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}

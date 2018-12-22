@@ -2,18 +2,29 @@
 
 namespace BackendBundle\Entity\Repository;
 
+use BackendBundle\Entity\ListContentBlock;
 use Doctrine\ORM\EntityRepository;
 
 class HomePageRepository extends EntityRepository
 {
     public function getRedBlock()
     {
-        $q = $this->createQueryBuilder('a')
-            ->select('a.first_blc_title, a.first_blc_sub_title, a.first_blc_description')
-            ->getQuery()->getResult();
+        $q = $this->getEntityManager()
+            ->createQuery('SELECT ls.title, ls.subTitle, ls.description FROM BackendBundle\Entity\HomePage AS h JOIN BackendBundle\Entity\ListContentBlock AS ls WITH h.id = ls.homepage')
+            ->execute();
 
         return $q;
     }
+
+    public function getRedImageBlock()
+    {
+        $q = $this->createQueryBuilder('a')
+            ->select('a.image')
+            ->getQuery()->getOneOrNullResult();
+
+        return $q;
+    }
+
 
     public function getParalaxBlock()
     {
