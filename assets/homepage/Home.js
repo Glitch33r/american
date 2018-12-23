@@ -84,7 +84,7 @@ class Home extends Component {
         }
 
 
-        // console.log(this.state.imageBlock);
+        console.log(this.state.imageBlock);
         // console.log(this.state.blackBlock);
 
         return (

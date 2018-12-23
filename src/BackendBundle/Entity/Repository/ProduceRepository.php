@@ -17,7 +17,7 @@ class ProduceRepository extends EntityRepository
 
     public function  getTitle()
     {
-        $q = $this->createQueryBuilder('a')->select('a.title')->getQuery()->getOneOrNullResult();
+        $q = $this->createQueryBuilder('a')->select('a.title')->getQuery()->getArrayResult();
         return $q;
     }
 }

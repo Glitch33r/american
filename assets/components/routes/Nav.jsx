@@ -90,7 +90,7 @@ class Nav extends Component {
                                         <NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>
                                     </li>
                                     <li className="header-submenu__item">
-                                        <NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>
+                                        <NavLink className="header-submenu__link " exact to="/offers/application-form" >APPLICATION FORM</NavLink>
                                     </li>
                                 </ul>
                             </li>

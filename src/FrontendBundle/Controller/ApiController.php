@@ -429,7 +429,7 @@ class ApiController extends Controller
                 array_push($data, $em->getRepository(FrozenMeat::class)->getTitle());
                 return $this->formalizeJSONResponse($data);
                 break;
-            case 'botanic':
+            case 'botanicals':
                 $data = $em->getRepository(Botanic::class)->getElements();
                 array_push($data, $em->getRepository(Botanic::class)->getTitle());
                 return $this->formalizeJSONResponse($data);
