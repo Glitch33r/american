@@ -107,69 +107,176 @@ class Careers extends Component {
                                                 {/*{ item.second_blc_sub_title }*/}
                                                 BENEFITS & PAY
                                                 </h3>
-                                            <ul className="block__list block__list--flex">
+                                            <ul className="block__list block__list--alt block__list--flex">
                                                 {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
                                                     <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                     </li>
-                                                    <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                    <li className="block__list-item  block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            High weekly milage (up to 6500 miles)
                                                         </span>
                                                     </li>
                                                     <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            High per mile pay
                                                         </span>
                                                     </li>
                                                     <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Trucks governed at 72 miles/hr.
                                                         </span>
                                                     </li>
                                                     <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Dead head miles fully paid
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Salary wired every friday
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Safety bonus
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Referral bonuses
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Family friendly
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Pet friendly
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            New trucks and tractors (volvo & freightliner 2016-2018)
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            On job accident insurance
+                                                        </span>
+                                                    </li>                            <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Detention, loading/unloading pay
+                                                        </span>
+                                                    </li>                           <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Scheduled home time
                                                         </span>
                                                     </li>
                                                 {/*) }*/}
                                             </ul>
                                         </div>
-                                        <div className="block__right">
+                                        <div className="block__right block__right--careers">
 
                                             <h3 className="block__subtitle aos-init">
                                                 EXPERIENCED DRIVER REQUIREMENTS 3YRS.+
                                             </h3>
-                                            <ul className="block__list block__list--flex">
+                                            <ul className="block__list block__list--alt block__list--flex">
                                                 {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
                                                 <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Min 3 years class a experience
                                                         </span>
                                                 </li>
                                                 <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Excellent mvr and clean record
                                                         </span>
                                                 </li>
                                                 <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Must pass pre-employment tests (drug, alcohol)
                                                         </span>
                                                 </li>
                                                 <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Trackable employment history
                                                         </span>
                                                 </li>
                                                 <li className="block__list-item block__list-item--alt">
-                                                        <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
-                                                            Great team environment
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Fluent english
                                                         </span>
                                                 </li>
-                                                {/*) }*/}
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Reefer experience
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Experience in handling shippers/receivers (high-value loads)
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            "fluent in use of technology" (smartphones, electronic bol/s)
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Ability to communicate with dispatcher efficiently
+                                                        </span>
+                                                </li>
+                                            </ul>
+                                            <h3 className="block__subtitle aos-init">
+                                                DRIVER REQUIREMENTS EXPERIENCE 1-3 YRS.
+                                            </h3>
+                                            <ul className="block__list block__list--alt block__list--flex">
+                                                {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Able to work in team
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Clean record
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Must pass pre-employment tests (drug, alcohol)
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Reefer experience
+                                                        </span>
+                                                </li>
+                                            </ul>
+                                            <h3 className="block__subtitle aos-init">
+                                                ROOKIE DRIVER REQUIREMENTS
+                                            </h3>
+                                            <ul className="block__list block__list--alt block__list--flex">
+                                                {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Can do attitude
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Eagerness to learn
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Fixed weekly rates (will be upgraded to full pay/ per mile pay within 2-5 trips)
+                                                        </span>
+                                                </li>
+                                                <li className="block__list-item block__list-item--alt">
+                                                        <span className="block__list-link block__list-link--none-hover block__list-link--about block__list-link--alt aos-init" data-aos="fade-down">
+                                                            Must pass pre-employment tests (drug, alcohol)
+                                                        </span>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
