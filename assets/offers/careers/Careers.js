@@ -109,27 +109,27 @@ class Careers extends Component {
                                                 </h3>
                                             <ul className="block__list block__list--flex">
                                                 {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
-                                                    <li className="block__list-item block__list-item--w48">
+                                                    <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                     </li>
-                                                    <li className="block__list-item block__list-item--w48">
+                                                    <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                     </li>
-                                                    <li className="block__list-item block__list-item--w48">
+                                                    <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                     </li>
-                                                    <li className="block__list-item block__list-item--w48">
+                                                    <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                     </li>
-                                                    <li className="block__list-item block__list-item--w48">
+                                                    <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
@@ -144,27 +144,27 @@ class Careers extends Component {
                                             </h3>
                                             <ul className="block__list block__list--flex">
                                                 {/*{ this.props.blackBlock[this.props.blackBlock.length - 1].map((item, index) =>*/}
-                                                <li className="block__list-item block__list-item--w48">
+                                                <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                 </li>
-                                                <li className="block__list-item block__list-item--w48">
+                                                <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                 </li>
-                                                <li className="block__list-item block__list-item--w48">
+                                                <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                 </li>
-                                                <li className="block__list-item block__list-item--w48">
+                                                <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
                                                 </li>
-                                                <li className="block__list-item block__list-item--w48">
+                                                <li className="block__list-item block__list-item--alt">
                                                         <span className="block__list-link block__list-link--alter-hover block__list-link--about aos-init" data-aos="fade-down">
                                                             Great team environment
                                                         </span>
