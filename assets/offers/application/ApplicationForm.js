@@ -35,7 +35,14 @@ class ApplicationForm extends Component {
         //     .then(data =>this.setState({contactBlock: data}));
     }
 
-
+    handleChange(event) {
+        if( event.target.value != '' ){
+            event.target.classList.add('no-empty');
+        }
+        else {
+            event.target.classList.remove('no-empty');
+        }
+    }
 
 
     render() {
@@ -49,6 +56,31 @@ class ApplicationForm extends Component {
             { value: 'strawberry', label: 'Strawberry' },
             { value: 'vanilla', label: 'Vanilla' }
         ]
+
+        const customStyles = {
+            control: () => ({
+                display: 'flex',
+                borderBottom: '1px solid #a9a9a9',
+                font: "15px 'Roboto-Bold'",
+                paddingLeft: '12px'
+            }),
+            placeholder: () => ({
+                color: 'white',
+                font: "15px 'Roboto-Bold'"
+            }),
+            singleValue: () => ({
+                color: 'white',
+            }),
+            option: () => ({
+                font: "15px 'Roboto-Bold'",
+                padding: '5px 10px',
+                ':hover': {
+                    backgroundColor: 'grey',
+                    color: 'white',
+                },
+            }),
+        }
+
         return (
 
             <React.Fragment>
@@ -63,9 +95,7 @@ class ApplicationForm extends Component {
 
                 { loading ? <div>
                     <Breadcrumbs seo={ this.state.seo }/>
-                    <Select
-                        options={options}
-                    />
+
                     <section className="block contact-block contact-block--application-form" >
                         <form className="contacts-form__fields contacts-form__fields--application-form" name="lol" onSubmit={this.handleSubmit}>
                             <h2 className="contacts-form__title block__title">APPLY NOW!</h2>
@@ -74,9 +104,16 @@ class ApplicationForm extends Component {
                                     <input required="required" type="text" id="name-filed" name="name" onChange={this.handleChange} />
                                     <label htmlFor="name-filed">First Name *</label>
                                 </div>
+                                {/*<div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">*/}
+                                    {/*<input required="required" type="text" id="license-type"  name="license-type" onChange={this.handleChange} />*/}
+                                    {/*<label htmlFor="license-type">License Type *</label>*/}
+                                {/*</div>*/}
                                 <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
-                                    <input required="required" type="text" id="license-type"  name="license-type" onChange={this.handleChange} />
-                                    <label htmlFor="license-type">License Type *</label>
+                                    <Select
+                                        defaultValue={ {value: '', label: 'License Type'} }
+                                        styles={customStyles}
+                                        options={options}
+                                    />
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
