@@ -87,7 +87,7 @@ class Nav extends Component {
                                 <ul className="header-submenu__items">
                                     <span className={'header-submenu__open-link'} onClick={ this.submenuHandle } > > </span>
                                     <li className="header-submenu__item">
-                                        <NavLink className="header-submenu__link " exact to="/testimonials" >Testimonials</NavLink>
+                                        <NavLink className="header-submenu__link " exact to="/offers/careers" >CAREERS</NavLink>
                                     </li>
                                     <li className="header-submenu__item">
                                         <NavLink className="header-submenu__link " exact to="/offers/application-form" >APPLICATION FORM</NavLink>

@@ -4,6 +4,7 @@ import About from "../../about/About";
 import Equipment from "../../equipment/Equipment";
 import Offers from "../../offers/Offers";
 import ApplicationForm from "../../offers/application/ApplicationForm";
+import Careers from "../../offers/careers/Careers";
 import Contacts from "../../contacts/Contscts";
 import Article from "../../article/Article";
 import ProductStatic from "../../homepage/products/ProductStatic";
@@ -37,6 +38,7 @@ class Content extends Component {
                 <Route  exact path="/equipment" render = {() => (<Equipment  domain = { this.state.domain } />)} />
                 <Route  exact path="/offers" render = {() => (<Offers  domain = { this.state.domain } />)} />
                 <Route  exact path="/offers/application-form" render = {() => (<ApplicationForm  domain = { this.state.domain } />)} />
+                <Route  exact path="/offers/careers" render = {() => (<Careers  domain = { this.state.domain } />)} />
                 <Route  exact path="/contacts" render = {() => (<Contacts  domain = { this.state.domain } />)} />
                 <Route   path="/product" render = {() => (<ProductStatic  domain = { this.state.domain } />)} />
 
