@@ -44,6 +44,11 @@ class ApplicationForm extends Component {
         }
     }
 
+    handleSelect(optionSelected) {
+        let name = this.name;
+        document.getElementById(name).value=optionSelected.value;
+    }
+
 
     render() {
         let loading = true;
@@ -110,10 +115,19 @@ class ApplicationForm extends Component {
                                 {/*</div>*/}
                                 <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <Select
+                                        name="license"
+                                        onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'License Type'} }
                                         styles={customStyles}
                                         options={options}
                                     />
+                                    <select name={"license"} className={'select-hide'} id={'license'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
