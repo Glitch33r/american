@@ -21,7 +21,7 @@ class Breadcrumbs extends Component {
             {/*<Route  path="/app_dev.php" render={ () => <BreadHtml greeting={this.state.home} /> } />*/}
             {/*<Route  path="/about" render={ () => <BreadHtml greeting={this.state.about} /> } />*/}
 
-            <div className={'header-image'} style={ {background: "url(/bundles/frontend/images/header-car2.jpg)"} } >
+            <div className={'header-image'} style={ {background: "url(/bundles/frontend/images/header-img-all.jpg)"} } >
                 <nav className="breadcrumbs">
                     <div className="breadcrumbs-wrap">
                         <ul className="breadcrumbs__list">
