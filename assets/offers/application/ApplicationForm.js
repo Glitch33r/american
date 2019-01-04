@@ -67,7 +67,8 @@ class ApplicationForm extends Component {
                 display: 'flex',
                 borderBottom: '1px solid #a9a9a9',
                 font: "15px 'Roboto-Bold'",
-                paddingLeft: '12px'
+                paddingLeft: '12px',
+                // maxHeight: '36px'
             }),
             placeholder: () => ({
                 color: 'white',
@@ -75,6 +76,9 @@ class ApplicationForm extends Component {
             }),
             singleValue: () => ({
                 color: 'white',
+                // marginTop: '7px'
+                paddingRight: '10px',
+                position: 'absolute',
             }),
             option: () => ({
                 font: "15px 'Roboto-Bold'",
@@ -113,13 +117,14 @@ class ApplicationForm extends Component {
                                     {/*<input required="required" type="text" id="license-type"  name="license-type" onChange={this.handleChange} />*/}
                                     {/*<label htmlFor="license-type">License Type *</label>*/}
                                 {/*</div>*/}
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
                                     <Select
                                         name="license"
                                         onChange={this.handleSelect}
-                                        defaultValue={ {value: '', label: 'License Type'} }
+                                        defaultValue={ {value: '', label: 'License Type *'} }
                                         styles={customStyles}
                                         options={options}
+                                        isSearchable={false}
                                     />
                                     <select name={"license"} className={'select-hide'} id={'license'}>
                                         {
@@ -135,9 +140,26 @@ class ApplicationForm extends Component {
                                     <input required="required" type="text" id="last-name"  name="last-name"  onChange={this.handleChange} />
                                     <label htmlFor="last-name">Last Name *</label>
                                 </div>
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+{/*                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <input required="required" type="text" id="driver-type"  name="driver-type" onChange={this.handleChange} />
                                     <label htmlFor="driver-type">Driver Type *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="driver-type"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'Driver Type *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"driver-type"} className={'select-hide'} id={'driver-type'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
@@ -145,9 +167,26 @@ class ApplicationForm extends Component {
                                     <input required="required" type="email" id="e-mail"  name="email"  onChange={this.handleChange} />
                                     <label htmlFor="e-mail">E-mail</label>
                                 </div>
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+{/*                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <input required="required" type="text" id="distance"  name="distance" onChange={this.handleChange} />
                                     <label htmlFor="distance">Distance *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="distance"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'Distance *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"distance"} className={'select-hide'} id={'distance'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
@@ -168,35 +207,120 @@ class ApplicationForm extends Component {
                                     <input required="required" type="text" id="city"  name="city"  onChange={this.handleChange} />
                                     <label htmlFor="city">City *</label>
                                 </div>
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+{/*                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <input required="required" type="text" id="violations"  name="violations" onChange={this.handleChange} />
                                     <label htmlFor="violations">Number of moving violations in the past 3 years *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="violations"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'Number of moving violations in the past 3 years *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"violations"} className={'select-hide'} id={'violations'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+{/*                             <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <input required="required" type="text" id="stat"  name="stat"  onChange={this.handleChange} />
                                     <label htmlFor="stat">State *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="stat"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'State *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"stat"} className={'select-hide'} id={'stat'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
-                                    <input required="required" type="text" id="accidents"  name="accidents" onChange={this.handleChange} />
-                                    <label htmlFor="accidents">Number of preventable accidents in the past 3 years *</label>
+                                {/*<div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">*/}
+                                    {/*<input required="required" type="text" id="accidents"  name="accidents" onChange={this.handleChange} />*/}
+                                    {/*<label htmlFor="accidents">Number of preventable accidents in the past 3 years *</label>*/}
+                                {/*</div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="accidents"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'Number of preventable accidents in the past 3 years *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"accidents"} className={'select-hide'} id={'accidents'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__inputs">
-                            <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
-                                <input required="required" type="text" id="zip"  name="zip"  onChange={this.handleChange} />
-                                <label htmlFor="zip">Zip *</label>
-                            </div>
-                            <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
-                                <input required="required" type="text" id="dui"  name="dui" onChange={this.handleChange} />
-                                <label htmlFor="dui">DUI in the past 5 years? *</label>
-                            </div>
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+                                    <input required="required" type="text" id="zip"  name="zip"  onChange={this.handleChange} />
+                                    <label htmlFor="zip">Zip *</label>
+                                </div>
+{/*                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+                                    <input required="required" type="text" id="dui"  name="dui" onChange={this.handleChange} />
+                                    <label htmlFor="dui">DUI in the past 5 years? *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="dui"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'DUI in the past 5 years? *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"dui"} className={'select-hide'} id={'dui'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
+                                </div>
                             </div>
                             <div className="contacts-form__inputs">
-                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
+{/*                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45">
                                     <input required="required" type="text" id="experience"  name="experience"  onChange={this.handleChange} />
                                     <label htmlFor="experience">Years of Driving Experience *</label>
+                                </div>*/}
+                                <div className="contacts-form__inputs-wrap contacts-form__inputs-wrap--w45 contacts-form__inputs-wrap--select">
+                                    <Select
+                                        name="experience"
+                                        onChange={this.handleSelect}
+                                        defaultValue={ {value: '', label: 'Years of Driving Experience *'} }
+                                        styles={customStyles}
+                                        options={options}
+                                        isSearchable={false}
+                                    />
+                                    <select name={"experience"} className={'select-hide'} id={'experience'}>
+                                        {
+                                            options.map((item, index)=>
+                                                <option key={index} value={item.value}>{item.label}</option>
+                                            )
+                                        }
+                                    </select>
                                 </div>
                             </div>
                             <div className="contacts-form__buttons">
