@@ -3,8 +3,17 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 
+
+
+const path = require('path');
+
+
+const ROOT_PATH = path.resolve(__dirname);
+
+
 module.exports = {
     mode: "development", // "production" | "development" | "none"
+
 };
 
 Encore
@@ -43,7 +52,7 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-
+    .enableSassLoader()
     .enableReactPreset()
 ;
 
