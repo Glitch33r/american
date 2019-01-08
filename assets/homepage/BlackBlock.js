@@ -43,7 +43,7 @@ class BlackBlock extends Component {
                                         this.props.blackBlockList.map((item, index) =>
                                             <li className="block__list-item" key={index}>
 
-                                                <NavLink className="header-menu__link" exact to={"/product/" +  item.title.toString().toLowerCase() }>
+                                                <NavLink className="header-menu__link" exact to={"/product/" +  item.title.toString().toLowerCase().replace(/ /g, '-') }>
                                                     <span className="block__list-link block__list-link--alter-hover aos-init" data-aos="fade-left">
                                                         { item.title }
                                                     </span>

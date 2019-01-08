@@ -29,7 +29,7 @@ class ProductStatic extends Component {
         let action = lastPartUrl[lastPartUrl.length-1];
         this.setState({page: action});
         let url = 'http://' + this.props.domain + '/api/v1/';
-        axios.get(url + 'seo/corporate-philosophy')
+        axios.get(url + 'seo/' + action)
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
 

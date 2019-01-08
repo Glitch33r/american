@@ -24,7 +24,7 @@ class Careers extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        axios.get(url + "seo/contacts")
+        axios.get(url + "seo/careers")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
         // axios.get(url + "page/contacts")
@@ -84,7 +84,7 @@ class Careers extends Component {
 
                             <div className="team-block__right">
                                 <div className="team-block__right_img"
-                                     style={{background: 'url(/bundles/frontend/images/about/250601.jpg) center center no-repeat', backgroundSize: 'contain'}}/>
+                                     style={{background: 'url(/bundles/frontend/images/IMG_02911-top-blue.jpg) center center no-repeat', backgroundSize: 'contain'}}/>
                             </div>
                         </section>
                     </section>

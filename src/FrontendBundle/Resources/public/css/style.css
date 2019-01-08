@@ -931,6 +931,9 @@ body.grey {
   display: flex;
   position: relative; }
 
+.block__wrap--careers {
+  height: 380px; }
+
 .block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -976,6 +979,9 @@ body.grey {
 
 .block__subtitle--red {
   color: #e11512; }
+
+.block__subtitle--careers {
+  line-height: 1.5; }
 
 .block__desc {
   font: 15px 'Roboto-Regular';
@@ -1026,6 +1032,9 @@ body.grey {
   position: relative;
   width: 35%; }
 
+.block__img--careers {
+  width: 65%; }
+
 .block__img.block__img--track:before {
   content: "";
   display: block;
@@ -1036,6 +1045,17 @@ body.grey {
   height: 100%;
   background: url(../images/news_and_events11.jpg) top left no-repeat;
   background-size: cover; }
+
+.block__img.block__img--track-careers:before {
+  width: 925px;
+  left: 75px;
+  background: url(../images/IMG_04731-bot-blue1.jpg) top left no-repeat; }
+
+.block__content--careers {
+  width: 35%;
+  padding-right: 0;
+  margin-top: 60px;
+  text-transform: uppercase; }
 
 .black-block {
   background: -webkit-gradient(linear, right top, left top, color-stop(50.5%, #3a3a3b), color-stop(50%, #242426));
@@ -1053,9 +1073,13 @@ body.grey {
   width: 100%;
   padding: 0; }
 
+.block__right--careers {
+  padding-left: 75px;
+  margin-top: 50px; }
+
 .block__list {
   margin-top: -15px;
-  list-style: none;
+  /* list-style: none;*/
   padding: 0; }
 
 .block__list--flex {
@@ -1068,6 +1092,11 @@ body.grey {
   -ms-flex-pack: justify;
   justify-content: space-between; }
 
+.block__list--alt {
+  margin-left: 20px;
+  list-style-type: disc;
+  color: white; }
+
 .block__list-item {
   min-height: 60px;
   display: -webkit-box;
@@ -1077,11 +1106,18 @@ body.grey {
   -ms-flex-align: stretch;
   align-items: stretch;
   overflow: hidden;
-  border-bottom: 1px solid #585858; }
+  border-bottom: 1px solid #585858;
+  width: 100%; }
 
 .block__list-item--w48 {
   width: 48%;
   height: 55px; }
+
+.block__list-item--alt {
+  display: list-item;
+  overflow: visible;
+  border-bottom: none;
+  min-height: 30px; }
 
 .block__list-link {
   display: -webkit-box;
@@ -1108,6 +1144,11 @@ body.grey {
   font: 17px 'Roboto-Bold';
   padding-right: 10px; }
 
+.block__list-link--alt {
+  padding: 5px 0 5px 20px;
+  font: 15px 'Roboto-Bold';
+  cursor: auto; }
+
 .block__list-link--alter-hover {
   color: #ffffff; }
   .block__list-link--alter-hover:hover {
@@ -1115,6 +1156,15 @@ body.grey {
     background: transparent; }
   .block__list-link--alter-hover:active {
     color: #e11512;
+    background: transparent; }
+
+.block__list-link--none-hover {
+  color: #ffffff; }
+  .block__list-link--none-hover:hover {
+    color: #ffffff;
+    background: transparent; }
+  .block__list-link--none-hover:active {
+    color: #ffffff;
     background: transparent; }
 
 .block__button--red {
@@ -1180,7 +1230,7 @@ body.grey {
 
 .paralax-block {
   height: 570px;
-  background: url(../images/freight-trucking-pros-and-cons1.jpg) top center no-repeat;
+  background: url(../images/freight-trucking-pros-and-cons1-min.jpg) top center no-repeat;
   background-attachment: fixed;
   background-size: cover; }
 
@@ -1293,7 +1343,7 @@ body.grey {
   top: 0;
   left: 0;
   height: 100%;
-  background: url(../images/photo_2018-01-25_18-05-4811.jpg) top left no-repeat;
+  background: url(../images/photo_2018-01-25_18-05-4811-min.jpg) top left no-repeat;
   background-size: 100% 100%; }
 
 .contact-block {
@@ -1342,7 +1392,8 @@ body.grey {
 
 .contact-block--application-form {
   background: #3a3a3b;
-  height: 880px; }
+  height: 880px;
+  margin: 0 auto; }
 
 .contacts-form__fields--application-form {
   width: 1180px;
@@ -1364,17 +1415,19 @@ footer {
 
 .header-image {
   width: 100%;
-  height: 526px;
+  height: 740px;
   padding-top: 185px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-attachment: fixed !important;
-  background-position: top center !important; }
+  background-position: top center !important;
+  background-position-y: -75px !important;
+  background-size: cover; }
 
 /*   contacts   */
 .breadcrumbs {
   background: transparent;
-  padding: 25px 0 15px;
+  padding: 75px 0 15px;
   position: relative;
   z-index: 1; }
 
@@ -1529,6 +1582,10 @@ footer {
 .contacts-form__inputs-wrap--w45 {
   width: 45%; }
 
+.contacts-form__inputs-wrap--select {
+  margin-top: 13px;
+  position: relative; }
+
 .contacts-form__inputs input:first-child {
   margin-left: 0; }
 
@@ -1581,6 +1638,9 @@ footer {
   justify-content: space-around;
   width: 60%;
   margin: auto; }
+
+.select-hide {
+  display: none; }
 
 /*****  Blog  ****/
 .content-wrap--flex {
@@ -1905,7 +1965,17 @@ footer {
   color: #ffffff;
   font: 15px 'Lato-Regular'; }
 
+.slick-slide[data-index="0"] .home-slider__title {
+  right: 50%;
+  bottom: 165px; }
+
 /******* MEDIA *******/
+@media (max-width: 1400px) {
+  .homepage .headroom .header-logo__link {
+    left: 55px; }
+  .home-slider__title {
+    font: 45px 'Roboto-Bold'; } }
+
 @media (max-width: 1200px) {
   .block__wrap {
     padding-left: 20px;
@@ -1913,9 +1983,15 @@ footer {
   .breadcrumbs {
     padding: 13px 20px; }
   #root {
-    overflow: hidden; } }
+    overflow: hidden;
+    position: relative; }
+  .contacts-form__fields--application-form {
+    width: 80%; } }
 
 @media (max-width: 992px) {
+  .slick-slide[data-index="0"] .home-slider__title {
+    right: 10%;
+    bottom: 200px; }
   .header-menu {
     margin-top: 0; }
   .header-submenu__items {
@@ -1968,6 +2044,10 @@ footer {
     width: 100%; }
   .block__img--track {
     display: none; }
+  .block__img.block__img--volvo:before {
+    content: none; }
+  .block__img.block__img--track:before {
+    content: none; }
   .black-block {
     background: #242426; }
   .block__content {
@@ -2123,7 +2203,9 @@ footer {
   .team-block__left_desc {
     font: 15px/22px 'Roboto-Regular'; }
   .team-block__left_desc {
-    margin: 0; } }
+    margin: 0; }
+  .paralax-block {
+    background: url(../images/freight-trucking-pros-and-cons1-mobile-min-1.jpg) top center no-repeat; } }
 
 @media (max-width: 480px) {
   .contacts-form__inputs {
@@ -2131,6 +2213,11 @@ footer {
     flex-wrap: wrap; }
   .contacts-form__inputs-wrap--w47 {
     width: 100%; }
+  .contacts-form__inputs-wrap--w45 {
+    width: 100%; }
+  .contacts-form__fields--application-form {
+    width: 100%;
+    padding: 20px; }
   .contacts-form__fields input:focus + label,
   .contacts-form__fields textarea:focus + label,
   .contacts-form__fields .no-empty + label {
@@ -2138,6 +2225,8 @@ footer {
     transform: translateY(-28px); }
   .contacts-form__inputs-wrap {
     margin-bottom: 10px; }
+  contacts-form__inputs-wrap--select {
+    width: 100%; }
   .block__desc.block__desc--mb80 {
     margin-bottom: 0px; } }
 

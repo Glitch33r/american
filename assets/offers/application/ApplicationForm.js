@@ -8,6 +8,7 @@ import Seo from "../../components/seo/Seo";
 import { ClipLoader } from 'react-spinners';
 import InputMask from "react-input-mask";
 import ReactHtmlParser from "react-html-parser";
+import serialize from "form-serialize";
 
 
 class ApplicationForm extends Component {
@@ -27,7 +28,7 @@ class ApplicationForm extends Component {
     componentDidMount() {
         let url = 'http://' + this.props.domain + '/api/v1/';
 
-        axios.get(url + "seo/contacts")
+        axios.get(url + "seo/application-form")
             .then(response => response.data)
             .then(data =>this.setState({seo: data}));
         // axios.get(url + "page/contacts")
@@ -50,6 +51,35 @@ class ApplicationForm extends Component {
     }
 
 
+    handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        console.log(form);
+
+        const str = serialize(form);
+        console.log(str);
+        axios({
+            method: 'post',
+            url: 'http://american.truck.origami.ua/api/v1/page/application/submit',
+            data: str,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+        })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+                let text = document.getElementById('success');
+                text.innerText = response.data['message'];
+
+                let popUp = document.getElementsByClassName('pop-up-wrap')[0];
+                popUp.classList.add('open');
+
+                setTimeout(function () {
+                    popUp.classList.remove('open');
+                }, 3000);
+            });
+        // console.log(data.name);
+    }
+
     render() {
         let loading = true;
         if( this.state.seo.length == 0 )  {
@@ -60,7 +90,49 @@ class ApplicationForm extends Component {
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
             { value: 'vanilla', label: 'Vanilla' }
-        ]
+        ];
+        const optionsDE = [
+            { value: '0-3 mths', label: '0-3 mths' },
+            { value: '3-6 mths', label: '3-6 mths' },
+            { value: '6-12 mths', label: '6-12 mths' },
+            { value: '1 yr', label: '1 yr' },
+            { value: '1-2 yrs', label: '1-2 yrs' },
+            { value: '2-5 yrs', label: '2-5 yrs' },
+            { value: '5+ yrs', label: '5+ yrs' }
+        ];
+        const optionsLT = [
+            { value: 'Class A', label: 'Class A' },
+            { value: 'Class B', label: 'Class B' },
+            { value: 'No CDL', label: 'No CDL' }
+        ];
+        const optionsDT = [
+            { value: 'Company Driver', label: 'Company Driver' },
+            { value: 'Owner Operator', label: 'Owner Operator' },
+            { value: 'Team Driver', label: 'Team Driver' },
+            { value: 'Student Driver', label: 'Student Driver' }
+        ];
+        const optionsD = [
+            { value: 'Local', label: 'Local' },
+            { value: 'Dedicated', label: 'Dedicated' },
+            { value: 'Regional', label: 'Regional' },
+            { value: 'OTR (Over-the-Road)', label: 'OTR (Over-the-Road)' },
+        ];
+        const optionsNM = [
+            { value: '0', label: '0' },
+            { value: '1', label: '1' },
+            { value: '2', label: '2' },
+            { value: '3+', label: '3+' },
+        ];
+        const optionsNP = [
+            { value: '0', label: '0' },
+            { value: '1', label: '1' },
+            { value: '2', label: '2' },
+            { value: '3+', label: '3+' },
+        ];
+        const optionsDUI = [
+            { value: 'Yes', label: 'Yes' },
+            { value: 'No', label: 'No' },
+        ];
 
         const customStyles = {
             control: () => ({
@@ -123,7 +195,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'License Type *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsLT}
                                         isSearchable={false}
                                     />
                                     <select name={"license"} className={'select-hide'} id={'license'}>
@@ -150,7 +222,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'Driver Type *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsDT}
                                         isSearchable={false}
                                     />
                                     <select name={"driver-type"} className={'select-hide'} id={'driver-type'}>
@@ -177,7 +249,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'Distance *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsD}
                                         isSearchable={false}
                                     />
                                     <select name={"distance"} className={'select-hide'} id={'distance'}>
@@ -217,7 +289,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'Number of moving violations in the past 3 years *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsNM}
                                         isSearchable={false}
                                     />
                                     <select name={"violations"} className={'select-hide'} id={'violations'}>
@@ -240,7 +312,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'State *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsNP}
                                         isSearchable={false}
                                     />
                                     <select name={"stat"} className={'select-hide'} id={'stat'}>
@@ -288,7 +360,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'DUI in the past 5 years? *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsDUI}
                                         isSearchable={false}
                                     />
                                     <select name={"dui"} className={'select-hide'} id={'dui'}>
@@ -311,7 +383,7 @@ class ApplicationForm extends Component {
                                         onChange={this.handleSelect}
                                         defaultValue={ {value: '', label: 'Years of Driving Experience *'} }
                                         styles={customStyles}
-                                        options={options}
+                                        options={optionsDE}
                                         isSearchable={false}
                                     />
                                     <select name={"experience"} className={'select-hide'} id={'experience'}>
@@ -328,7 +400,18 @@ class ApplicationForm extends Component {
                             </div>
                         </form>
                     </section>
-
+                    <div className="pop-up-wrap">
+                        <div className="pop-up">
+                            <h2 id={'success'}>
+                                Your mail was sanded
+                            </h2>
+                            <svg id="successAnimation" className="animated" xmlns="http://www.w3.org/2000/svg" width={100} height={100} viewBox="0 0 70 70">
+                                <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z" />
+                                <circle id="successAnimationCircle" cx={35} cy={35} r={24} stroke="#979797" strokeWidth={2} strokeLinecap="round" fill="transparent" />
+                                <polyline id="successAnimationCheck" stroke="#979797" strokeWidth={2} points="23 34 34 43 47 27" fill="transparent" />
+                            </svg>
+                        </div>
+                    </div>
 
                 </div> : "" }
 
