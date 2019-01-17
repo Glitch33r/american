@@ -3,8 +3,10 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\AdditionalPage;
+use BackendBundle\Entity\ApplicationForm;
 use BackendBundle\Entity\Article;
 use BackendBundle\Entity\Botanic;
+use BackendBundle\Entity\Careers;
 use BackendBundle\Entity\ContactForm;
 use BackendBundle\Entity\Contacts;
 use BackendBundle\Entity\CorporatePhilosophy;
@@ -18,9 +20,8 @@ use BackendBundle\Entity\Produce;
 use BackendBundle\Entity\SeaFood;
 use BackendBundle\Entity\Seo;
 use BackendBundle\Entity\Slider;
-use FrontendBundle\Form\Type\ContactFormType;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -44,6 +45,7 @@ class ApiController extends Controller
 
     /**
      * @param $filePath
+     *
      * @return mixed
      */
     public function filePath($filePath)
@@ -59,11 +61,12 @@ class ApiController extends Controller
 
 
     /**
-     * @param $imgPath
-     * @param $dir
-     * @param $id
+     * @param      $imgPath
+     * @param      $dir
+     * @param      $id
      * @param bool $w_o
      * @param bool $h_o
+     *
      * @return mixed|string
      */
     public function reSize($imgPath, $dir, $id, $w_o = false, $h_o = false)
@@ -136,8 +139,9 @@ class ApiController extends Controller
 
 
     /**
-     * @param $data
+     * @param       $data
      * @param array $exclude
+     *
      * @return Response
      */
     private function formalizeJSONResponse($data, $exclude = ['id'])
@@ -160,6 +164,9 @@ class ApiController extends Controller
      * @Route("/equipment", name="equipment")
      * @Route("/offers", name="offers")
      * @Route("/article", name="article")
+     * @Route("/safety-program", name="safety-program")
+     * @Route("/offers/careers", name="offers-careers")
+     * @Route("/offers/application-form", name="app-form")
      *
      * @Route("/product/dairy", name="dairy")
      * @Route("/product/produce", name="produce")
@@ -448,4 +455,88 @@ class ApiController extends Controller
                 return $this->formalizeJSONResponse(null);
         }
     }
+
+
+    /**
+     * @Route("/api/v1/page/application/submit", name="api-application-submit", methods={"GET","POST"})
+     */
+    public function submitApplicationForm(Request $request)
+    {
+//        dump($request);die;
+        $em = $this->getDoctrine()->getManager();
+        $contactForm = new ApplicationForm();
+
+        $contactForm->setName($request->get('name'));
+        $contactForm->setLicense($request->get('license'));
+        $contactForm->setLastName($request->get('last-name'));
+        $contactForm->setEmail($request->get('email'));
+        $contactForm->setTelephone($request->get('telephone'));
+        $contactForm->setDriverType($request->get('driver-type'));
+        $contactForm->setDistance($request->get('distance'));
+        $contactForm->setPreferredHaulType($request->get('preferred-haul-type'));
+        $contactForm->setCity($request->get('city'));
+        $contactForm->setViolations($request->get('violations'));
+        $contactForm->setState($request->get('stat'));
+        $contactForm->setAccidents($request->get('accidents'));
+        $contactForm->setZip($request->get('zip'));
+        $contactForm->setDui($request->get('dui'));
+        $contactForm->setExperience($request->get('experience'));
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($contactForm);
+
+        if (count($errors) > 0) {
+            return new Response(json_encode(['status' => false, 'message' => 'Your data are wrong! Try again, please.']));
+        } else {
+            $em->persist($contactForm);
+            $em->flush();
+            return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible =)']));
+        }
+    }
+
+    /**
+     * @Route("/api/v1/page/offers/careers/{block}", name="api-careers", methods={"GET","POST"})
+     */
+    public function getContentCareers($block)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        switch ($block) {
+            case 'first':
+                $data = $em->getRepository(Careers::class)->getWhiteBlock();
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'second':
+                $data = $em->getRepository(Careers::class)->getRedBlock();
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'first-list':
+                $data = $em->getRepository(Careers::class)->getListFirstBlock();
+                $items = $em->getRepository(Careers::class)->getFirstListItemBlock();
+                array_push($data, $items);
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'second-list':
+                $data = $em->getRepository(Careers::class)->getSecondFirstBlock();
+                $items = $em->getRepository(Careers::class)->getSecondListItemBlock();
+                array_push($data, $items);
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'third-list':
+                $data = $em->getRepository(Careers::class)->getThirdFirstBlock();
+                $items = $em->getRepository(Careers::class)->getThirdListItemBlock();
+                array_push($data, $items);
+                return $this->formalizeJSONResponse($data);
+                break;
+            case 'fourth-list':
+                $data = $em->getRepository(Careers::class)->getFourthFirstBlock();
+                $items = $em->getRepository(Careers::class)->getFourthListItemBlock();
+                array_push($data, $items);
+                return $this->formalizeJSONResponse($data);
+                break;
+            default:
+                return $this->formalizeJSONResponse(null);
+        }
+    }
+
 }

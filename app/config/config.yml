@@ -11,6 +11,7 @@ parameters:
     app.path.first_blc_images_home: /uploads/images/first-blc-home
     app.path.first_blc_images_eq: /uploads/images/first-blc-eq
     app.path.first_blc_images_corp: /uploads/images/first-blc-corp
+    app.path.first_blc_images_careers: /uploads/images/first-blc-careers
     app.path.first_blc_images_off: /uploads/images/first-blc-off
     app.path.slider_images: /uploads/images/slider
     app.path.slider_images_520: /uploads/images/slider/sl-520
@@ -28,6 +29,9 @@ vich_uploader:
       first_blc_images_corp:
           uri_prefix:         '%app.path.first_blc_images_corp%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-corp'
+      first_blc_images_careers:
+          uri_prefix:         '%app.path.first_blc_images_careers%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-careers'
       first_blc_images_eq:
           uri_prefix:         '%app.path.first_blc_images_eq%'
           upload_destination: '%kernel.root_dir%/../web/uploads/images/first-blc-eq'

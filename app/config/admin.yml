@@ -15,6 +15,7 @@ easy_admin:
                 - CorporatePhilosophy
                 - Equipment
                 - Offers
+                - Careers
                 - Contacts
                 - { label: 'Page for Corporate Philosophy', entity: 'AdditionalPage' }
             - label: 'Product'
@@ -26,6 +27,7 @@ easy_admin:
                   - FrozenMeat
                   - Pharmaceuticals
             - { label: 'Contact form', entity: 'ContactForm', icon: 'envelope' }
+            - ApplicationForm
             - label: 'Special'
               icon: 'user-secret'
               children:
@@ -111,6 +113,33 @@ easy_admin:
                 - email
                 - telephone
                 - body
+                - createdAt
+        ApplicationForm:
+            class: BackendBundle\Entity\ApplicationForm
+            list:
+              fields:
+                - id
+                - name
+                - lastName
+                - email
+                - telephone
+                - createdAt
+            form:
+              fields:
+                - name
+                - lastName
+                - email
+                - telephone
+                - city
+                - zip
+                - experience
+                - license
+                - driverType
+                - preferredHaulType
+                - violations
+                - accidents
+                - distance
+                - dui
                 - createdAt
         Contacts:
             class: BackendBundle\Entity\Contacts
@@ -267,3 +296,35 @@ easy_admin:
               fields:
                 - title
                 - { property: 'contentBlock', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewProductContentBlock', by_reference: false }}
+        Careers:
+          class: BackendBundle\Entity\Careers
+          list:
+            fields:
+              - id
+              - { property: 'first_blc_title', label: 'Title'}
+              - { property: 'first_blc_sub_title', label: 'Subtitle'}
+              - { property: 'first_blc_description', label: 'Description'}
+          form:
+            fields:
+              - { type: 'tab', label: 'First content block', icon: 'list-ol' }
+              - { property: 'first_blc_title', label: 'Title'}
+              - { property: 'first_blc_sub_title', label: 'Subtitle'}
+              - { property: 'first_blc_description', label: 'Description'}
+              - { property: 'imageFile', type: 'vich_image' }
+              - { type: 'tab', label: 'Second content block', icon: 'list-ol' }
+              - { property: 'second_blc_title', label: 'Title'}
+              - { property: 'second_blc_sub_title', label: 'Subtitle'}
+              - { property: 'second_blc_description', label: 'Description'}
+              - { type: 'tab', label: 'List block', icon: 'list-ol' }
+              - { property: 'listMainTitle', label: 'List main title'}
+              - { property: 'listName', label: 'List title'}
+              - { property: 'list', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+              - { type: 'tab', label: 'List block', icon: 'list-ol' }
+              - { property: 'listName2', label: 'List title'}
+              - { property: 'list2', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+              - { type: 'tab', label: 'List block', icon: 'list-ol' }
+              - { property: 'listName3', label: 'List title'}
+              - { property: 'list3', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }
+              - { type: 'tab', label: 'List block', icon: 'list-ol' }
+              - { property: 'listName4', label: 'List title'}
+              - { property: 'list4', type: 'collection', type_options: { entry_type: 'BackendBundle\Form\Type\AddNewItem', by_reference: false } }

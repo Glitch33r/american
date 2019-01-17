@@ -47,6 +47,34 @@ class ListItem
 
     /**
      * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Careers", inversedBy="list", cascade={"persist"})
+     * @ORM\JoinColumn(name="car_id", referencedColumnName="id")
+     */
+    private $careers;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Careers", inversedBy="list2", cascade={"persist"})
+     * @ORM\JoinColumn(name="car_2_id", referencedColumnName="id")
+     */
+    private $careers2;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Careers", inversedBy="list3", cascade={"persist"})
+     * @ORM\JoinColumn(name="car_3_id", referencedColumnName="id")
+     */
+    private $careers3;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Careers", inversedBy="list4", cascade={"persist"})
+     * @ORM\JoinColumn(name="car_4_id", referencedColumnName="id")
+     */
+    private $careers4;
+
+    /**
+     * Many Features have One Product.
      * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Equipment", inversedBy="listrigth", cascade={"persist"})
      * @ORM\JoinColumn(name="eq_right_id", referencedColumnName="id")
      */
@@ -72,6 +100,70 @@ class ListItem
      * @ORM\JoinColumn(name="eq_left_id", referencedColumnName="id")
      */
     private $equipleft;
+
+    /**
+     * @return mixed
+     */
+    public function getCareers4()
+    {
+        return $this->careers4;
+    }
+
+    /**
+     * @param mixed $careers4
+     */
+    public function setCareers4($careers4)
+    {
+        $this->careers4 = $careers4;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCareers2()
+    {
+        return $this->careers2;
+    }
+
+    /**
+     * @param mixed $careers2
+     */
+    public function setCareers2($careers2)
+    {
+        $this->careers2 = $careers2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCareers3()
+    {
+        return $this->careers3;
+    }
+
+    /**
+     * @param mixed $careers3
+     */
+    public function setCareers3($careers3)
+    {
+        $this->careers3 = $careers3;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCareers()
+    {
+        return $this->careers;
+    }
+
+    /**
+     * @param mixed $careers
+     */
+    public function setCareers($careers)
+    {
+        $this->careers = $careers;
+    }
 
     /**
      * @return mixed

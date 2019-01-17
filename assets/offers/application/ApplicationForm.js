@@ -60,7 +60,7 @@ class ApplicationForm extends Component {
         console.log(str);
         axios({
             method: 'post',
-            url: 'http://american.truck.origami.ua/api/v1/page/application/submit',
+            url: 'http://american/app_dev.php/api/v1/page/application/submit',
             data: str,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         })

@@ -45,7 +45,7 @@ Encore
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
-    .addPlugin(new webpack.optimize.UglifyJsPlugin())
+    // .addPlugin(new webpack.optimize.UglifyJsPlugin())
 
     // uncomment if you use Sass/SCSS files
     //.enableSassLoader()
