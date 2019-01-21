@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
+    <body id="body" data-aos-duration="400" data-aos-easing="ease" data-aos-delay="0">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        {% block footer %}{% endblock %}
     </body>
 </html>

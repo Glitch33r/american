@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}404{% endblock %}
+
+{% block stylesheets %}
+    <link rel="shortcut icon" href="{{ asset('bundles/frontend/img/trucky.png') }}">
+    <link rel="stylesheet" href="/bundles/frontend/css/animate.css">
+    <link rel="stylesheet" href="{{ asset('/bundles/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/frontend/css/aos.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="homepage  headroom-wrapper" style="height: 100px;">
+        <div class="headroom headroom--unfixed"
+             style="position: relative; top: 0px; left: 0px; right: 0px; z-index: 1; transform: translate3d(0px, 0px, 0px);">
+            <header>
+                <div class="header-bg">
+                    <div class="header-wrap">
+                        <div class="header-logo">
+                            <a class="header-logo__link" href="{{ url('homepage') }}">
+                                <img class="header-logo__img" src="{{ asset('') }}">
+                            </a>
+                        </div>
+                        <div class="header-menu">
+                            <div class="menu-overlay"></div>
+                            <a href="#" class="header-menu__link header-menu__link--burger">
+                                <div class="burger" id="burger">
+                                    <span></span>
+                                </div>
+                            </a>
+                            <ul class="header-menu__items">
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link" href="{{ url('homepage') }}">HOME</a>
+                                </li>
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link" href="{{ url('corporate-philosophy') }}">Corporate philosophy</a>
+                                </li>
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link" href="{{ url('equipment') }}">Equipment</a></li>
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link" href="{{ url('offers') }}">Drivers</a>
+                                    <ul class="header-submenu__items">
+                                        <span class="header-submenu__open-link"> &gt; </span>
+                                        <li class="header-submenu__item">
+                                            <a class="header-submenu__link" href="{{ url('offers-careers') }}">CAREERS</a>
+                                        </li>
+                                        <li class="header-submenu__item">
+                                            <a class="header-submenu__link" href="{{ url('app-form') }}">APPLICATION FORM</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link active" href="http://american/404" aria-current="page">safety program</a>
+                                </li>
+                                <li class="header-menu__item">
+                                    <a class="header-menu__link" href="{{ url('contacts') }}">CONTACTS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="loading-success sweet-loading">
+        <div class="css-15olb6m"></div>
+    </div>
+    <div>
+        <div class="header-image"
+             style="background: url('{{ asset('/bundles/frontend/images/header-img-all-4.jpg') }}');">
+            <nav class="breadcrumbs">
+                <div class="breadcrumbs-wrap">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="http://american/">HOME</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="http://american/404#">drivers</a>
+                        </li>
+                    </ul>
+                    <h1 class="breadcrumbs__pagename">drivers</h1></div>
+            </nav>
+        </div>
+        <section class="block error-block">
+            <div class="error-wrap">
+                <div class="error_content"><h2 class="error_title">Error 404</h2>
+                    <h3 class="error_text">This page does not exist yet.</h3>
+                    <a class="error_link" href="http://american/">go to HOME</a>
+                </div>
+                <img class="error_img" src="{{ asset('') }}"></div>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('/build/build.js') }}"></script>
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class="block__wrap"><h2 class="footer-copirate">Grand USA Transport © 2018.</h2></div>
+    </footer>
+{% endblock %}
