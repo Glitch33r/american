@@ -5,8 +5,10 @@ import Equipment from "../../equipment/Equipment";
 import Offers from "../../offers/Offers";
 import ApplicationForm from "../../offers/application/ApplicationForm";
 import Careers from "../../offers/careers/Careers";
+import Safety from "../../safetyprogram/Safety";
 import Contacts from "../../contacts/Contscts";
 import Article from "../../article/Article";
+import Error from "../../404/404";
 import ProductStatic from "../../homepage/products/ProductStatic";
 import { Route } from 'react-router-dom';
 import Aos from "aos";
@@ -39,8 +41,10 @@ class Content extends Component {
                 <Route  exact path="/offers" render = {() => (<Offers  domain = { this.state.domain } />)} />
                 <Route  exact path="/offers/application-form" render = {() => (<ApplicationForm  domain = { this.state.domain } />)} />
                 <Route  exact path="/offers/careers" render = {() => (<Careers  domain = { this.state.domain } />)} />
+                <Route  exact path="/safety" render = {() => (<Safety  domain = { this.state.domain } />)} />
                 <Route  exact path="/contacts" render = {() => (<Contacts  domain = { this.state.domain } />)} />
                 <Route   path="/product" render = {() => (<ProductStatic  domain = { this.state.domain } />)} />
+                <Route  exact path="/404" render = {() => (<Error  domain = { this.state.domain } />)} />
 
 
 
