@@ -407,7 +407,7 @@ class ApiController extends Controller
         } else {
             $em->persist($contactForm);
             $em->flush();
-            return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible =)']));
+            return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible.']));
         }
 //        return 'Thank you for your message! We will contact you as soon as possible =)';
     }
@@ -464,31 +464,31 @@ class ApiController extends Controller
     {
 //        dump($request);die;
         $em = $this->getDoctrine()->getManager();
-        $contactForm = new ApplicationForm();
+        $applicationForm = new ApplicationForm();
 
-        $contactForm->setName($request->get('name'));
-        $contactForm->setLicense($request->get('license'));
-        $contactForm->setLastName($request->get('last-name'));
-        $contactForm->setEmail($request->get('email'));
-        $contactForm->setTelephone($request->get('telephone'));
-        $contactForm->setDriverType($request->get('driver-type'));
-        $contactForm->setDistance($request->get('distance'));
-        $contactForm->setPreferredHaulType($request->get('preferred-haul-type'));
-        $contactForm->setCity($request->get('city'));
-        $contactForm->setViolations($request->get('violations'));
-        $contactForm->setState($request->get('stat'));
-        $contactForm->setAccidents($request->get('accidents'));
-        $contactForm->setZip($request->get('zip'));
-        $contactForm->setDui($request->get('dui'));
-        $contactForm->setExperience($request->get('experience'));
+        $applicationForm->setName($request->get('name'));
+        $applicationForm->setLicense($request->get('license'));
+        $applicationForm->setLastName($request->get('last-name'));
+        $applicationForm->setEmail($request->get('email'));
+        $applicationForm->setTelephone($request->get('telephone'));
+        $applicationForm->setDriverType($request->get('driver-type'));
+        $applicationForm->setDistance($request->get('distance'));
+        $applicationForm->setPreferredHaulType($request->get('preferred-haul-type'));
+        $applicationForm->setCity($request->get('city'));
+        $applicationForm->setViolations($request->get('violations'));
+        $applicationForm->setState($request->get('stat'));
+        $applicationForm->setAccidents($request->get('accidents'));
+        $applicationForm->setZip($request->get('zip'));
+        $applicationForm->setDui($request->get('dui'));
+        $applicationForm->setExperience($request->get('experience'));
 
         $validator = $this->get('validator');
-        $errors = $validator->validate($contactForm);
+        $errors = $validator->validate($applicationForm);
 
         if (count($errors) > 0) {
             return new Response(json_encode(['status' => false, 'message' => 'Your data are wrong! Try again, please.']));
         } else {
-            $em->persist($contactForm);
+            $em->persist($applicationForm);
             $em->flush();
             return new Response(json_encode(['status' => true, 'message' => 'Thank you for your message! We will contact you as soon as possible =)']));
         }

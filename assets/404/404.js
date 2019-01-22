@@ -58,8 +58,8 @@ class Error extends Component {
                             <div class="error-wrap">
                                 <div class="error_content">
                                     <h2 class="error_title">Error 404</h2>
-                                    <h3 class="error_text">This page does not exist yet.</h3>
-                                    <NavLink onClick={ this.handleClick } className="error_link" exact to="/" >go to HOME</NavLink>
+                                    {/*<h3 class="error_text">This page does not exist yet.</h3>*/}
+                                    <NavLink onClick={ this.handleClick } className="error_link" exact to="/" >HOME</NavLink>
                                 </div>
                                 <img className="error_img" src={"/bundles/frontend/images/404-v.png"}/>
                             </div>

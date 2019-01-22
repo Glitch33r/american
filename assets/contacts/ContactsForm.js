@@ -123,7 +123,7 @@ class ContactsForm extends Component {
 
                 <div className="pop-up-wrap">
                     <div className="pop-up">
-                        <h2 id={'success'}>
+                        <h2 className="pop-up-text" id={'success'}>
                             Your mail was sanded
                         </h2>
                         <svg id="successAnimation" className="animated" xmlns="http://www.w3.org/2000/svg" width={100} height={100} viewBox="0 0 70 70">

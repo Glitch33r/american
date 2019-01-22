@@ -40,7 +40,7 @@ class ImageBlock extends Component {
 
     }
     componentDidMount() {
-        this.intervalId = setInterval(this.timer.bind(this), 15000);
+        this.intervalId = setInterval(this.timer.bind(this), 8500);
     }
     componentWillUnmount(){
         clearInterval(this.intervalId);

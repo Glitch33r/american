@@ -96,7 +96,8 @@ class Nav extends Component {
                             </li>
 
                             <li className="header-menu__item">
-                                <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/404">safety program</NavLink>
+                                {/*<NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/404">safety program</NavLink>*/}
+                                <a className="header-menu__link" href="../../bundles/frontend/documents/Grand_USA_Fleet_Safety_Program.pdf" target="_blank">safety program</a>
                             </li>
                             <li className="header-menu__item">
                                 <NavLink onClick={ this.handleClick } className="header-menu__link" exact to="/contacts">CONTACTS</NavLink>
